@@ -94,7 +94,7 @@ how_much_paint1(width, height, 5)\par
 prime_checker(num)\par
 \par
 
-\pard\sl276\slmult1\b0 Nejjednodu\'9a\'9a\f1\lang1033\'ed\f0\lang1029  existuj\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029  test - zkusm\f1\lang1033\'e9 d\f0\'eclen\f1\'ed v\f0\'9aemi cel\f1\'fd\f0 mi \'e8\f1\'edsly men\f0\'9a\f1\'edmi ne\f0\'9e \'e8\f1\'edslo samo\f0\lang1029 . Pokud vyjde modulo beze zbytku, zkouman\f1\lang1033\'e9\f0\lang1029  \'e8\f1\lang1033\'ed\f0\lang1029 slo NEN\f1\lang1033\'cd\f0\lang1029  prvo\'e8\f1\lang1033\'ed\f0\lang1029 slo. Moje varianta nen\f1\lang1033\'ed\f0\lang1029  nejlep\'9a\f1\lang1033\'ed\f0\lang1029 , proto\'9ee zbyte\'e8n\'ec testuje v\'9aechna \'e8\f1\lang1033\'ed\f0\lang1029 sla z range. Ono ale sta\'e8\f1\lang1033\'ed\f0\lang1029 , kdy\'9e modulo vyjde 0 u jedin\f1\lang1033\'e9\f0\lang1029 ho z nich. Proto lep\'9a\f1\lang1033\'ed\f0\lang1029  varianta:\par
+\pard\sl276\slmult1\b0 Nejjednodu\'9a\'9a\f1\lang1033\'ed\f0\lang1029  existuj\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029  test - zkusm\f1\lang1033\'e9 d\f0\'eclen\f1\'ed v\f0\'9aemi cel\f1\'fd\f0 mi \'e8\f1\'edsly men\f0\'9a\f1\'edmi ne\f0\'9e \'e8\f1\'edslo samo\f0\lang1029 . Pokud vyjde u n\'eckter\f1\lang1033\'e9\f0\lang1029 ho modulo beze zbytku, zkouman\f1\lang1033\'e9\f0\lang1029  \'e8\f1\lang1033\'ed\f0\lang1029 slo NEN\f1\lang1033\'cd\f0\lang1029  prvo\'e8\f1\lang1033\'ed\f0\lang1029 slo. Moje varianta nen\f1\lang1033\'ed\f0\lang1029  nejlep\'9a\f1\lang1033\'ed\f0\lang1029 , proto\'9ee zbyte\'e8n\'ec ukl\f1\lang1033\'e1\f0\lang1029 d\f1\lang1033\'e1\f0\lang1029  v\f1\lang1033\'fd\f0\lang1029 sledek modulo testov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  v\'9aech \'e8\f1\lang1033\'ed\f0\lang1029 sel z range. Proto lep\'9a\f1\lang1033\'ed\f0\lang1029  varianta:\par
 \par
 \tab\b else:\par
 
@@ -107,6 +107,90 @@ prime_checker(num)\par
         else:\par
             print(f"Number \{num\} IS NOT prime.")\par
 \par
+
+\pard\sl276\slmult1\b0 Cvi\'e8en\f1\lang1033\'ed\f0\lang1029 : Caesarova \'9aifra. \par
+Krok 1: vytvo\'f8it \'9aifrovac\f1\lang1033\'ed\f0\lang1029  funkci a otestovat\par
+\par
+\tab\b alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']\par
+
+\pard\li720\sl276\slmult1\par
+direction = input("Do you want to code or decode a message (C / D): ")\par
+message = input("Enter your message: ").lower()\par
+shift = int(input("Enter the shift number: "))\par
+\par
+def encrypt(msg, s_value):\par
+    secret = ""\par
+    for i in msg:\par
+        if i not in alphabet:\par
+            secret += i\par
+        elif alphabet.index(i) + s_value < len(alphabet):\par
+            secret += alphabet[alphabet.index(i) + s_value]\par
+        else:\par
+            secret += alphabet[alphabet.index(i) - len(alphabet) + s_value]\par
+    print(f"Encoded message is: \{secret\}")\par
+\par
+encrypt(message, shift)\par
+\par
+
+\pard\sl276\slmult1\b0\f1\lang1033 Krok 2\f0\lang1029 : dek\f1\lang1033\'f3\f0\lang1029 dovac\f1\lang1033\'ed\f0\lang1029  funkce + v\f1\lang1033\'fd\f0\lang1029 b\'ecr zda chci k\f1\lang1033\'f3\f0\lang1029 dit nebo dek\f1\lang1033\'f3\f0\lang1029 dit:\par
+\par
+\tab\b def decrypt(msg, s_value):\par
+
+\pard\li720\sl276\slmult1     secret = ""\par
+    for i in msg:\par
+        if i not in alphabet:\par
+            secret += i\par
+        elif alphabet.index(i) - s_value > 0:\par
+            secret += alphabet[alphabet.index(i) - s_value]                               \par
+        else:\par
+            secret += alphabet[alphabet.index(i) - s_value + len(alphabet)] \par
+    print(f"Decoded message is: \{secret\}")\par
+    \par
+\par
+if direction == "C":\par
+    encrypt(message, shift)\par
+elif direction == "D":\par
+    decrypt(message, shift)\par
+else:\par
+    print("Bad direction selection. Sorry.")\par
+\par
+
+\pard\sl276\slmult1\b0 Krok 3: pouze jedna funkce Caesar\par
+\par
+\tab\b def caesar(msg, s_value, dir):\par
+
+\pard\li720\sl276\slmult1     secret = ""\par
+    \par
+    if dir == "C":\par
+        for i in msg:\par
+            if i not in alphabet:\par
+                secret += i\par
+            elif alphabet.index(i) + s_value < len(alphabet):\par
+                secret += alphabet[alphabet.index(i) + s_value]\par
+            else:\par
+                secret += alphabet[alphabet.index(i) - len(alphabet) + s_value]\par
+        print(f"Encoded message is: \{secret\}")\par
+\par
+    elif dir == "D":\par
+        for i in msg:\par
+            if i not in alphabet:\par
+                secret += i\par
+            elif alphabet.index(i) - s_value > 0:\par
+                secret += alphabet[alphabet.index(i) - s_value]                               \par
+            else:\par
+                secret += alphabet[alphabet.index(i) - s_value + len(alphabet)] \par
+        print(f"Decoded message is: \{secret\}")\par
+\par
+    else:\par
+        print("Bad direction selection. Sorry.")\par
+\par
+caesar(message, shift, direction)\b0\par
+
+\pard\sl276\slmult1\par
+Krok 4: max shift m\'f9\'9ee b\f1\lang1033\'fd\f0\lang1029 t 26\par
+\tab\b\par
+
+\pard\li720\sl276\slmult1\par
 
 \pard\sl276\slmult1\par
 
