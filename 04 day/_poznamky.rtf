@@ -1,0 +1,131 @@
+{\rtf1\fbidis\ansi\ansicpg1250\deff0\nouicompat\deflang1029{\fonttbl{\f0\fnil\fcharset238 Calibri;}{\f1\fnil\fcharset0 Calibri;}{\f2\fnil\fcharset1 Segoe UI Emoji;}{\f3\fnil Calibri;}}
+{\colortbl ;\red255\green255\blue0;\red0\green0\blue255;}
+{\*\generator Riched20 10.0.22621}\viewkind4\uc1 
+\pard\sl276\slmult1\b\i\f0\fs32 Day 04\par
+Randomisation and Python Lists\par
+\fs22\par
+\b0\i0 Nyn\f1\lang1033\'ed\f0\lang1029  se pod\f1\lang1033\'ed\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029 me na randomizaci. V programov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  u\'9eite\'e8n\f1\lang1033\'e1\f0\lang1029  v\'ecc nap\'f8 p\'f8i tvorb\'ec her a simulace h\f1\lang1033\'e1\f0\lang1029 zen\f1\lang1033\'ed\f0\lang1029  kostkou. Programovac\f1\lang1033\'ed\f0\lang1029  jazyky vyu\'9e\f1\lang1033\'ed\f0\lang1029 vaj\f1\lang1033\'ed\f0\lang1029  tzv. \b pseudo-random number gener\f1\lang1033\'e1\f0\lang1029 tory\b0 , existuje jich v\f1\lang1033\'ed\f0\lang1029 ce typ\'f9, Python pou\'9e\f1\lang1033\'ed\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029  \b Mersenne Twister. \b0 Jeho implemenrtace by byla velmi slo\'9eit\f1\lang1033\'e1\f0\lang1029 , proto si ho ji\'9e hotov\f1\lang1033\'fd\f0\lang1029  m\'f9\'9eeme do na\'9aeho programu naimportovat jako \b modul\b0  (knihovnu) a pou\'9e\f1\lang1033\'ed\f0\lang1029 vat. K tomu slo\'9e\f1\lang1033\'ed\f0\lang1029  k\f1\lang1033\'ed\f0\lang1029\'e8ov\f1\lang1033\'e9\f0\lang1029  slovo \b\i import \b0\i0 za n\f1\lang1033\'ed\f0\lang1029 m\'9e n\f1\lang1033\'e1\f0\lang1029 sleduje n\f1\lang1033\'e1\f0\lang1029 zev modulu, v na\'9aem p\'f8\f1\lang1033\'ed\f0\lang1029 pad\'ec \b\i random. \b0\i0 Od t\f1\lang1033\'e9\f0\lang1029  chv\f1\lang1033\'ed\f0\lang1029 le m\'f9\'9eeme pou\'9e\f1\lang1033\'ed\f0\lang1029 vat v\'9aechny funkcionality dan\f1\lang1033\'e9\f0\lang1029 ho modulu (viz dokumentace).\par
+\par
+Pokud pot\'f8ebujeme vygenerovat n\f1\lang1033\'e1\f0\lang1029 hodn\f1\lang1033\'e9\f0\lang1029  cel\f1\lang1033\'e9\f0\lang1029  \'e8\f1\lang1033\'ed\f0\lang1029 slo, sta\'e8\f1\lang1033\'ed\f0\lang1029  zapsat \b\i random.randint(a,b) \b0\i0 kde a je doln\f1\lang1033\'e9\f0\lang1029  mez rozsahu a b horn\f1\lang1033\'ed\f0\lang1029  mez. Ob\'ec \'e8\f1\lang1033\'ed\f0\lang1029 sla jsou do rozsahu zapo\'e8\f1\lang1033\'ed\f0\lang1029 t\f1\lang1033\'e1\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029 na. Pot\'f8ebujeme-li tedy nasimulovat hod klasickou kostkou: \par
+\par
+\tab\b\i hod_kostkou = random.randint(1, 6)\par
+\par
+\b0\i0\'d8ekli jsme si, \'9ee random je modul. Co to p\'f8esn\'ec znamen\f1\lang1033\'e1\f0\lang1029 ? Dosud jsme psali ve\'9aker\f1\lang1033\'fd\f0\lang1029  k\f1\lang1033\'f3\f0\lang1029 d progr\f1\lang1033\'e1\f0\lang1029 mk\'f9 do jednoho souboru (jako skript). Je to proto, \'9ee zat\f1\lang1033\'ed\f0\lang1029 m jsou na\'9ae programy velmi jednoduch\f1\lang1033\'e9\f0\lang1029  a kr\f1\lang1033\'e1\f0\lang1029 tk\f1\lang1033\'e9\f0\lang1029 . P\'f8i tvorb\'ec slo\'9eit\'ecj\'9a\f1\lang1033\'ed\f0\lang1029  aplikace by ale ve\'9aker\f1\lang1033\'fd\f0\lang1029  k\f1\lang1033\'f3\f0\lang1029 d v jednom souboru ztr\f1\lang1033\'e1\f0\lang1029 cel smysl kv\'f9li p\'f8\f1\lang1033\'ed\f0\lang1029 li\'9an\f1\lang1033\'e9\f0\lang1029  d\f1\lang1033\'e9\f0\lang1029 lce a nep\'f8ehlednosti. Proto se slo\'9eit\'ecj\'9a\f1\lang1033\'ed\f0\lang1029  projekty d\'ecl\f1\lang1033\'ed\f0\lang1029  na \b samostatn\f1\lang1033\'e9\f0\lang1029  jednotky, tzv. moduly\b0 , kdy ka\'9ed\f1\lang1033\'fd\f0\lang1029  je zodpov\'ecn\f1\lang1033\'fd\f0\lang1029  za n\'ecjakou konkr\f1\lang1033\'e9\f0\lang1029 tn\f1\lang1033\'ed\f0\lang1029  \'e8innost aplikace. Tyto moduly se pak navz\f1\lang1033\'e1\f0\lang1029 jem propojuj\f1\lang1033\'ed\f0\lang1029 , \'e8\f1\lang1033\'ed\f0\lang1029 m\'9e vznik\f1\lang1033\'e1\f0\lang1029  funk\'e8n\f1\lang1033\'ed\f0\lang1029  celek. Random je modul, kter\f1\lang1033\'fd\f0\lang1029  vytvo\'f8ili develope\'f8i Pythonu k tomu, abychom m\'ecli k dispozici jednodu\'9ae gener\f1\lang1033\'e1\f0\lang1029 tor n\f1\lang1033\'e1\f0\lang1029 hodn\f1\lang1033\'fd\f0\lang1029 ch \'e8\f1\lang1033\'ed\f0\lang1029 sel. Takov\f1\lang1033\'fd\f0\lang1029 ch moful\'f9 existuj\f1\lang1033\'ed\f0\lang1029  des\f1\lang1033\'ed\f0\lang1029 tky. Krom\'ec \b nativn\f1\lang1033\'ed\f0\lang1029 ch python\f1\lang1033\'ed\f0\lang1029 ch modul\'f9 \b0 si ale m\'f9\'9eeme vytv\f1\lang1033\'e1\f0\lang1029\'f8et i na\'9ae \b vlastn\f1\lang1033\'ed\b0\f0\lang1029 . A je to velmi jednoduch\f1\lang1033\'e9\f0\lang1029 . \par
+\par
+V projektu existuje jeden \b hlavn\f1\lang1033\'ed\f0\lang1029  soubor\b0 , obvykle se jmenuje \b\i main.py\b0\i0 . Krom\'ec n\'ecj m\'f9\'9eeme vytv\f1\lang1033\'e1\f0\lang1029\'f8et dal\'9a\f1\lang1033\'ed\f0\lang1029  .py soubory, moduly, kter\f1\lang1033\'e9\f0\lang1029  se pak do mainu naimportuj\f1\lang1033\'ed\f0\lang1029 . \par
+\par
+\i P\'f8\f1\lang1033\'ed\f0\lang1029 klad: vytvo\'f8\f1\lang1033\'ed\f0\lang1029 me druh\f1\lang1033\'fd\f0\lang1029  soubor pi_module.py, do kter\f1\lang1033\'e9\f0\lang1029 ho ulo\'9e\f1\lang1033\'ed\f0\lang1029 me hodnotu konstanty p\f1\lang1033\'ed\f0\lang1029 : \b pi = 3.1415928\b0\i0 . \i Pot\f1\lang1033\'e9\f0\lang1029  si ho v mainu m\'f9\'9eeme naimportovat \b import pi_module \b0\i0 a pou\'9e\f1\lang1033\'ed\f0\lang1029 t v n\'ecm onu modulovou konstantu pomoc\f1\lang1033\'ed\f0\lang1029  dot notace \b\i print(pi_module.pi)\b0 .\par
+\par
+\i0 M\f1\lang1033\'e1\f0\lang1029 me tedy v mainu ke konstant\'ec p\'f8\f1\lang1033\'ed\f0\lang1029 stup a m\'f9\'9eeme ji pou\'9e\f1\lang1033\'ed\f0\lang1029 t, i kdy\'9e je jej\f1\lang1033\'ed\f0\lang1029  fyzick\f1\lang1033\'fd\f0\lang1029  k\f1\lang1033\'f3\f0\lang1029 d v jin\f1\lang1033\'e9\f0\lang1029 m souboru. A \f1\lang1033\'fa\f0\lang1029 pln\'ec stejn\'ec funguj\f1\lang1033\'ed\f0\lang1029  v\'9aechny moduly (a\'9d jsou nativn\f1\lang1033\'ed\f0\lang1029  python\f1\lang1033\'ed\f0\lang1029 , nebo je napsal n\'eckdo jin\f1\lang1033\'fd\f0\lang1029  a zp\'f8\f1\lang1033\'ed\f0\lang1029 stupnil pro ostatn\f1\lang1033\'ed\f0\lang1029  tak, \'9ee si je m\'f9\'9eeme naimportovat).\par
+\par
+Vra\'9dme se k n\f1\lang1033\'e1\f0\lang1029 hodn\f1\lang1033\'fd\f0\lang1029 m \'e8\f1\lang1033\'ed\f0\lang1029 sl\'f9m. Pokud pot\'f8ebujeme n\f1\lang1033\'e1\f0\lang1029 hodn\f1\lang1033\'e9\f0\lang1029  desetinn\f1\lang1033\'e9\f0\lang1029  \'e8\f1\lang1033\'ed\f0\lang1029 slo, pou\'9eijeme funkci \b\i random.random()\b0\i0 , kter\f1\lang1033\'e1\f0\lang1029  vygeneruje n\f1\lang1033\'e1\f0\lang1029 hodn\f1\lang1033\'e9\f0\lang1029  \'e8\f1\lang1033\'ed\f0\lang1029 slo od 0.0 do 1.0 (p\'f8esn\'ec 0.99999999). Pokud pot\'f8ebujeme desetinn\f1\lang1033\'e9\f0\lang1029  \'e8\f1\lang1033\'ed\f0\lang1029 slo z rozsahu, pou\'9eijeme funkci \b\i random.uniform(x,y) \b0\i0 kde x je doln\f1\lang1033\'ed\f0\lang1029  mez (zahrnut\f1\lang1033\'e1\f0\lang1029 ) a y horn\f1\lang1033\'ed\f0\lang1029  mez (nezahrnut\f1\lang1033\'e1\f0\lang1029  jako int a zahrnut\f1\lang1033\'e1\f0\lang1029  jako float). \'c8ili: \b\i random.uniform(1, 5.0) \b0\i0 generuje do 5 v\'e8etn\'ec, ale \b\i random.uniform(1, 5) \b0\i0 bez 5.\par
+\par
+\i P\'f8\f1\lang1033\'ed\f0\lang1029 klad: panna nebo orel. simulace hodu minc\f1\lang1033\'ed\f0\lang1029\par
+\par
+\tab\b import random\par
+\par
+
+\pard\li720\sl276\slmult1 temp = random.randint(0, 1)\par
+\par
+if temp == 0:\par
+    print("Panna")\par
+else:\par
+    print("Orel")\par
+\par
+
+\pard\sl276\slmult1\b0\i0 Nyn\f1\lang1033\'ed\f0\lang1029  se pod\f1\lang1033\'ed\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029 me na prvn\f1\lang1033\'ed\f0\lang1029  slo\'9eit\'ecj\'9a\f1\lang1033\'ed\f0\lang1029  datov\f1\lang1033\'fd\f0\lang1029  typ, \b datovou strukturu \b0 v Pythonu - \b list\b0 . Zat\f1\lang1033\'ed\f0\lang1029 m jsme dat aukl\f1\lang1033\'e1\f0\lang1029 dali pouze ve form\'ec primitivn\f1\lang1033\'ed\f0\lang1029 ch typ\'f9, jako jedin\f1\lang1033\'e9\f0\lang1029  hodnoty. Velmi \'e8asto pot\'f8ebujeme ale pro na\'9ae \f1\lang1033\'fa\f0\lang1029\'e8ely slo\'9eit\'ecj\'9a\f1\lang1033\'ed\f0\lang1029  zp\'f9sob, kter\f1\lang1033\'fd\f0\lang1029  poskytuj\f1\lang1033\'ed\f0\lang1029  pr\f1\lang1033\'e1\f0\lang1029 v\'ec datov\f1\lang1033\'e9\f0\lang1029  struktury. Typick\f1\lang1033\'fd\f0\lang1029 m p\'f8\f1\lang1033\'ed\f0\lang1029 padem je pot\'f8eba ulo\'9eit v\'ect\'9a\f1\lang1033\'ed\f0\lang1029  mno\'9estv\f1\lang1033\'ed\f0\lang1029  jednotliv\f1\lang1033\'fd\f0\lang1029 ch datov\f1\lang1033\'fd\f0\lang1029 ch \f1\lang1033\'fa\f0\lang1029 daj\'f9, kter\f1\lang1033\'e9\f0\lang1029  spolu n\'ecjak souvid\f1\lang1033\'ed\f0\lang1029 , nap\'f8 dny v t\f1\lang1033\'fd\f0\lang1029 dnu, m\'ecs\f1\lang1033\'ed\f0\lang1029 ce v roce nebo t\'f8eba kraje \'c8R. Byl by nesmysl ka\'9ed\f1\lang1033\'fd\f0\lang1029  z t\'ecchto \f1\lang1033\'fa\f0\lang1029 daj\'f9 ukl\f1\lang1033\'e1\f0\lang1029 dat do extra prom\'ecnn\f1\lang1033\'e9\f0\lang1029 . Rovn\'ec\'9e n\f1\lang1033\'e1\f0\lang1029 m datov\f1\lang1033\'e9\f0\lang1029  struktury poskytuj\f1\lang1033\'ed\f0\lang1029  i po\'f8\f1\lang1033\'e1\f0\lang1029 dek v datech, kdy jednotliv\f1\lang1033\'e9\f0\lang1029  polo\'9eky maj\f1\lang1033\'ed\f0\lang1029  p\'f8esn\'ec ur\'e8en\f1\lang1033\'e9\f0\lang1029  po\'f8ad\f1\lang1033\'ed\f0\lang1029 . Co\'9e se hod\f1\lang1033\'ed\f0\lang1029  t\'f8eba u virtu\f1\lang1033\'e1\f0\lang1029 ln\f1\lang1033\'ed\f0\lang1029  fronty u\'9eivatel\'f9 \'e8ekaj\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029 ch na n\'ecjakou slu\'9ebu. \par
+\par
+List poskytuje oboj\f1\lang1033\'ed\f0\lang1029 , sdru\'9een\f1\lang1033\'ed\f0\lang1029  navz\f1\lang1033\'e1\f0\lang1029 jem souvisej\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029  skupiny dat i po\'f8ad\f1\lang1033\'ed\f0\lang1029 . Syntaxe je n\f1\lang1033\'e1\f0\lang1029 sleduj\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029 : \b\i\par
+\par
+
+\pard\li720\sl276\slmult1 rocni_obdobi = ["jaro","leto","podzim","zima"]\b0\i0\par
+\par
+
+\pard\sl276\slmult1 za\'e8\f1\lang1033\'e1\f0\lang1029 tek a konec listu je tvo\'f8en hranat\f1\lang1033\'fd\f0\lang1029 mi z\f1\lang1033\'e1\f0\lang1029 vorkami, uvnit\'f8 se pak nach\f1\lang1033\'e1\f0\lang1029 z\f1\lang1033\'ed\f0\lang1029  jednotliv\f1\lang1033\'e9\f0\lang1029  prvky odd\'eclen\f1\lang1033\'e9\f0\lang1029  \'e8\f1\lang1033\'e1\f0\lang1029 rkami. Prvky mohou b\f1\lang1033\'fd\f0\lang1029 t r\'f9zn\f1\lang1033\'fd\f0\lang1029 ch datov\f1\lang1033\'fd\f0\lang1029 ch typ\'f9, i sm\f1\lang1033\'ed\f0\lang1029\'9aen\f1\lang1033\'fd\f0\lang1029 ch. \'d8ekli jsme \'9ee list je \b ordered data structure \b0 tud\f1\lang1033\'ed\f0\lang1029\'9e na po\'f8ad\f1\lang1033\'ed\f0\lang1029  prvk\'f9 z\f1\lang1033\'e1\f0\lang1029 le\'9e\f1\lang1033\'ed\f0\lang1029  a m\'f9\'9ee n\'ecco znamenat. Nap\'f8. m\'f9\'9eeme m\f1\lang1033\'ed\f0\lang1029 t list st\f1\lang1033\'e1\f0\lang1029 t\'f9 US se\'9eazen\f1\lang1033\'fd\f0\lang1029  podle data kdy vstoupily do Unie od nejstar\'9a\f1\lang1033\'ed\f0\lang1029 ho. Na jednotliv\f1\lang1033\'e9\f0\lang1029  prvky v lsitu se pak odkazujeme pomoc\f1\lang1033\'ed\f0\lang1029  jejich \b indexu\b0   p\'f8i\'e8em\'9e se jedn\f1\lang1033\'e1\f0\lang1029  o \b zero -based\b0   strukturu, tud\f1\lang1033\'ed\f0\lang1029\'9e jaro z na\'9aeho listu ro\'e8n\f1\lang1033\'ed\f0\lang1029 ch obdob\f1\lang1033\'ed\f0\lang1029  vyp\f1\lang1033\'ed\f0\lang1029\'9aeme do konzoly p\'f8\f1\lang1033\'ed\f0\lang1029 kazem \b\i print(rocni_obdobi[0])\b0\i0 . Na \b posledn\f1\lang1033\'ed\f0\lang1029  prvek \b0 v listu se pak m\'f9\'9eeme odk\f1\lang1033\'e1\f0\lang1029 zat \b indexem -1\b0 , co\'9e se hod\f1\lang1033\'ed\f0\lang1029  v\'9edy, kdy\'9e nev\f1\lang1033\'ed\f0\lang1029 me jak p\'f8esn\'ec je list velk\f1\lang1033\'fd\f0\lang1029 . \par
+\par
+Jednotliv\f1\lang1033\'e9\f0\lang1029  prvky lze i editovat: \b\i rocni_obdobi[1] = "Leto"\b0\i0   a m\'f9\'9eeme i p\'f8id\f1\lang1033\'e1\f0\lang1029 vat prvky nov\f1\lang1033\'e9\f0\lang1029 . Pokud cheme p\'f8idat prvek na konec listu pou\'9eijeme \b\i rocni_obdobi.\highlight1 append\highlight0 ("neco")\b0\i0  funkci. Listov\f1\lang1033\'fd\f0\lang1029 ch funkc\f1\lang1033\'ed\f0\lang1029  je docela dost, seznam nap\'f8 zde: {{\field{\*\fldinst{HYPERLINK https://docs.python.org/3/tutorial/datastructures.html }}{\fldrslt{https://docs.python.org/3/tutorial/datastructures.html\ul0\cf0}}}}\f0\fs22 . Pomoc\f1\lang1033\'ed\f0\lang1029  funkce \b\i extend()  \b0\i0 m\'f9\'9eeme nap\'f8. p\'f8idat na konec listu v\f1\lang1033\'ed\f0\lang1029 ce prvk\'f9 najednu, tedy cel\f1\lang1033\'fd\f0\lang1029  jin\f1\lang1033\'fd\f0\lang1029  list \'e8i jinou iterable strukturu.\par
+\par
+\i P\'f8\f1\lang1033\'ed\f0\lang1029 klad: banker roulette, n\f1\lang1033\'e1\f0\lang1029 hodn\'ec vybere jedno jm\f1\lang1033\'e9\f0\lang1029 no toho, kdo zaplat\f1\lang1033\'ed\f0\lang1029  \f1\lang1033\'fa\f0\lang1029 tratu\par
+\par
+\tab\b import random\par
+\par
+
+\pard\li720\sl276\slmult1 names_string = input("Zadej jmena vsech stolovniku oddelena carkou: ")\par
+names = names_string.split(", ")\par
+\par
+rand_num = random.randint(0, len(names)-1)\par
+\par
+print(f"\{names[rand_num]\} dneska plati celou utratu. Diky!")\par
+
+\pard\sl276\slmult1\b0\i0\par
+Novinka p\'f8edepsan\f1\lang1033\'e1\f0\lang1029  v k\f1\lang1033\'f3\f0\lang1029 du je funkce \b\i split()\b0\i0 , jej\f1\lang1033\'ed\f0\lang1029\'9e prac\f1\lang1033\'ed\f0\lang1029  je rozd\'eclit \'f8et\'eczec do listu na jednotliv\f1\lang1033\'e9\f0\lang1029  prvky podle zadan\f1\lang1033\'e9\f0\lang1029 ho odd\'eclova\'e8e. D\f1\lang1033\'e1\f0\lang1029 le bychom mohli pou\'9e\f1\lang1033\'ed\f0\lang1029 t i funkci \b\i random.choice()\b0\i0  kter\f1\lang1033\'e1\f0\lang1029  n\f1\lang1033\'e1\f0\lang1029 hodn\'ec vyb\f1\lang1033\'ed\f0\lang1029 r\f1\lang1033\'e1\f0\lang1029  prvek ze zadan\f1\lang1033\'e9\f0\lang1029  struktury. St\'ec\'9eej\f1\lang1033\'ed\f0\lang1029  \'f8\f1\lang1033\'e1\f0\lang1029 dek by tak mohl vypadat \b\i rand_person = random.choice(names).\b0\i0  A v f-stringu pak ve slo\'9een\f1\lang1033\'fd\f0\lang1029 ch z\f1\lang1033\'e1\f0\lang1029 vork\f1\lang1033\'e1\f0\lang1029 ch pouzen\f1\lang1033\'e1\f0\lang1029 zev t\f1\lang1033\'e9\f0\lang1029 to prom\'ecnn\f1\lang1033\'e9\f0\lang1029 .\par
+\par
+\'c8ast\f1\lang1033\'e1\f0\lang1029  chyba p\'f8i pr\f1\lang1033\'e1\f0\lang1029 ci s listy je \b\i IndexError: list index out of range. \b0\i0 Znamen\f1\lang1033\'e1\f0\lang1029  to, \'9ee se sna\'9e\f1\lang1033\'ed\f0\lang1029 me pracovat s neexistuj\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029 cm prvkem. Nap\'f8 m\f1\lang1033\'e1\f0\lang1029 me desetiprvkov\f1\lang1033\'fd\f0\lang1029  list, chceme p\'f8istoupit k posledn\f1\lang1033\'ed\f0\lang1029 mu ale zapomeneme \'9ee se jedn\f1\lang1033\'e1\f0\lang1029  o zero-based strukturu a pou\'9eijeme \b\i list\f1\lang1033 [10]\f0\lang1029 . \par
+\par
+\b0\i0 Listy jsou flexibiln\f1\lang1033\'ed\f0\lang1029  strukturou, m\'f9\'9eeme vytv\f1\lang1033\'e1\f0\lang1029\'f8et i vno\'f8en\f1\lang1033\'e9\f0\lang1029  listy, viz "dirty dozen" rozd\'eclen\f1\lang1033\'fd\f0\lang1029  na zeleninu a ovoce\par
+\par
+\f1\lang1033\tab\b\i fruits = ["Jahody", "Hrozny", "Broskve", "Hrusky", "Nektarinky", "Jablka", "Boruvky"]\par
+
+\pard\li720\sl276\slmult1 vegetables = ["Spenat", "Zeli", "Paprika", "Cherry rajcata", "Zelene fazolky"]\par
+\par
+dirty_dozen = [fruits, vegetables]\par
+\par
+
+\pard\sl276\slmult1\b0\i0 Ke vno\f0\lang1029\'f8en\f1\lang1033\'fd\f0\lang1029 m prvk\'f9m se pak p\'f8istupuje zdvojen\f1\lang1033\'fd\f0\lang1029 m indexem: \b\i print(dirty_dozen[0][-1]) \b0\i0 jsou tedy bor\'f9vky. \par
+\par
+\i P\'f8\f1\lang1033\'ed\f0\lang1029 klad: umistit poklad na mapu. Podle zadan\f1\lang1033\'fd\f0\lang1029 ch sou\'f8adnic se um\f1\lang1033\'ed\f0\lang1029 st\f1\lang1033\'ed\f0\lang1029  na "hrac\f1\lang1033\'ed\f0\lang1029  plochu" znak X.\par
+\par
+\tab\b row1 = ["\f2\u11036?\u-497?\f1\lang1033 ","\f2\u11036?\u-497?\f1 ","\f2\u11036?\u-497?\f1 "]\par
+
+\pard\li720\sl276\slmult1 row2 = ["\f2\u11036?\u-497?\f1 ","\f2\u11036?\u-497?\f1 ","\f2\u11036?\u-497?\f1 "]\par
+row3 = ["\f2\u11036?\u-497?\f1 ","\f2\u11036?\u-497?\f1 ","\f2\u11036?\u-497?\f1 "]\par
+map = [row1, row2, row3]\par
+print(f"\{row1\}\\n\{row2\}\\n\{row3\}")\par
+position = input("Where do you want to put the treasure?\\nChoose column and row number (e.g. 33)\\n")\par
+\par
+col = int(position[0])\par
+row = int(position[1])\par
+\par
+map[col-1][row-1] = "X"\par
+print(f"\{row1\}\\n\{row2\}\\n\{row3\}")\b0\f3\lang1029  \par
+\par
+
+\pard\sl276\slmult1\f0 Cvi\'e8en\f1\lang1033\'ed\f0\lang1029 : jenoduch\f1\lang1033\'e1\f0\lang1029  implementace hry k\f1\lang1033\'e1\f0\lang1029 men-n\'f9\'9eky -pap\f1\lang1033\'ed\f0\lang1029 r\par
+\par
+
+\pard\li720\sl276\slmult1\b import random\par
+\par
+print("WELCOME TO THE ROCK-PAPER-SCISSORS GAME")\par
+\par
+select = ["KAMEN", "NUZKY", "PAPIR"]\par
+\par
+ur_turn = int(input("Zadej svou volbu (0-kamen, 1-nuzky, 2-papir): "))\par
+\par
+if ur_turn > 2 or ur_turn < 0:\par
+    print("Zadal jsi neplatnou volbu, PROHRALS!")\par
+else:\par
+    ai_turn = random.randint(0,2)\par
+\par
+    print(f"Vybral sis \{select[ur_turn]\}.")\par
+    print(f"Pocitac zahral \{select[ai_turn]\}.")\par
+    print("------------------------")\par
+\par
+    if select[ur_turn] == select[ai_turn]:\par
+        print("REMIZA!")\par
+    elif select[ur_turn] == "KAMEN":\par
+        if select[ai_turn] == "NUZKY":\par
+            print("VYHRAL JSI! :)")\par
+        else:\par
+            print("VYHRAL POCITAC :(")\par
+    elif select[ur_turn] == "PAPIR":\par
+        if select[ai_turn] == "KAMEN":\par
+            print("VYHRAL JSI! :)")\par
+        else:\par
+            print("VYHRAL POCITAC :(")\par
+    elif select[ur_turn] == "NUZKY":\par
+        if select[ai_turn] == "PAPIR":\par
+            print("VYHRAL JSI! :)")\par
+        else:\par
+            print("VYHRAL POCITAC :(")\b0\i0\f1\lang5\par
+}
+ 

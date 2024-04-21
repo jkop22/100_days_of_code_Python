@@ -1,0 +1,70 @@
+{\rtf1\ansi\ansicpg1250\deff0\nouicompat\deflang1029{\fonttbl{\f0\fnil\fcharset238 Calibri;}{\f1\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.22621}\viewkind4\uc1 
+\pard\sl276\slmult1\b\i\f0\fs32 Day 01\par
+Working with Variables in Python to Manage Data\par
+\b0\i0\f1\fs22\lang5\par
+\b\f0\lang1029 v\f1\lang1033\'fd\f0\lang1029 pis do konzoly \b0 - p\'f8\f1\lang1033\'ed\f0\lang1029 kaz \b\i print()\b0\i0  a do z\f1\lang1033\'e1\f0\lang1029 vorek zapsat co chceme vypsat. Za\'e8neme \b\'f8et\'eczcem\b0 , kter\f1\lang1033\'fd\f0\lang1029  je \b uvozem z\f1\lang1033\'e1\f0\lang1029 vorkami\b0 . Tud\f1\lang1033\'ed\f0\lang1029\'9e \b\i print("Hello, World!") \b0\i0 vyp\f1\lang1033\'ed\f0\lang1029\'9ae do konzoly klasickou \f1\lang1033\'fa\f0\lang1029 vodn\f1\lang1033\'ed\f0\lang1029  v\'ectu, kterou za\'e8\f1\lang1033\'ed\f0\lang1029 n\f1\lang1033\'e1\f0\lang1029  ka\'9ed\f1\lang1033\'fd\f0\lang1029  program\f1\lang1033\'e1\f0\lang1029 torsk\f1\lang1033\'fd\f0\lang1029  kurz.  Uvozovky Pythonu \'f8\f1\lang1033\'ed\f0\lang1029 kaj\f1\lang1033\'ed\f0\lang1029 , kde dan\f1\lang1033\'fd\f0\lang1029  \'f8et\'eczec (\b string\b0 ) za\'e8\f1\lang1033\'ed\f0\lang1029 n\f1\lang1033\'e1\f0\lang1029  a kon\'e8\f1\lang1033\'ed\f0\lang1029 , proto ani na jednu nesm\f1\lang1033\'ed\f0\lang1029 me zapomenout, jinak v konzoli \b SyntaxError\b0 .\par
+\par
+\f1\lang1033 Pokud chceme v\f0\lang1029 ypsat ve stringu  uvozovky, mus\f1\lang1033\'ed\f0\lang1029 me pou\'9e\f1\lang1033\'ed\f0\lang1029 t jin\f1\lang1033\'e9\f0\lang1029  ne\'9e uvozovac\f1\lang1033\'ed\f0\lang1029 , nebo pou\'9e\f1\lang1033\'ed\f0\lang1029 t escape sekvenci s \f1\lang1033\\\f0\lang1029 : \b\i print("print('what to print')") \b0\i0 nebo \b\i print("print(\\"what to print\\")")\b0\i0 .\par
+\par
+Krom\'ec escape sekvence pro psan\f1\lang1033\'ed\f0\lang1029  uvozovek ve string\f1\lang1033\'e1\f0\lang1029 ch existuj\f1\lang1033\'ed\f0\lang1029  i dal\'9a\f1\lang1033\'ed\f0\lang1029 . Kompletn\f1\lang1033\'ed\f0\lang1029  seznam n\f1\lang1033\'e1\f0\lang1029 sleduje\par
+\par
+\tab\\n: Newline - Inserts a newline character.\par
+
+\pard\li720\sl276\slmult1\\t: Tab - Inserts a tab character.\par
+\\\\: Backslash - Inserts a backslash character.\par
+\\': Single Quote - Inserts a single quote character.\par
+\\": Double Quote - Inserts a double quote character.\par
+\\r: Carriage Return - Moves the cursor to the beginning of the line.\par
+\\b: Backspace - Moves the cursor one character back.\par
+\\f: Formfeed - Advances the cursor to the next logical "page".\par
+\\v: Vertical Tab - Inserts a vertical tab character.\par
+
+\pard\sl276\slmult1\par
+Tyto sekvence tedy slou\'9e\f1\lang1033\'ed\f0\lang1029  ke \b vkl\f1\lang1033\'e1\f0\lang1029 d\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  speci\f1\lang1033\'e1\f0\lang1029 ln\f1\lang1033\'ed\f0\lang1029 ch znak\'f9 \b0 do \'f8et\'eczc\'f9 a k \b form\f1\lang1033\'e1\f0\lang1029 tov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  v\f1\lang1033\'fd\f0\lang1029 stupu\b0 .\tab\par
+\par
+\'d8et\'eczce m\'f9\'9eeme i navz\f1\lang1033\'e1\f0\lang1029 jem \b spojovat - concatenate \b0 - znam\f1\lang1033\'e9\f0\lang1029 nkem \b plus (+)\b0 . Mezery p\'f8i spojov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  \'f8et\'eczc\'f9 mus\f1\lang1033\'ed\f0\lang1029 me \'f8e\'9ait ru\'e8n\'ec, ale bacha na mezery mimo \'f8et\'eczce, zejm\f1\lang1033\'e9\f0\lang1029 na na za\'e8\f1\lang1033\'e1\f0\lang1029 tc\f1\lang1033\'ed\f0\lang1029 ch \'f8\f1\lang1033\'e1\f0\lang1029 dk\'f9. \b Odsazov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  je toti\'9e ned\f1\lang1033\'ed\f0\lang1029 lnou sou\'e8\f1\lang1033\'e1\f0\lang1029 st\f1\lang1033\'ed\f0\lang1029  syntaxe \b0 Pythonu a \b ne\'e8ekan\f1\lang1033\'e9\f0\lang1029  mezery nebo tabul\f1\lang1033\'e1\f0\lang1029 tory v k\f1\lang1033\'f3\f0\lang1029 du\b0  mohou zp\'f9sobovat \b IndentationError\b0 .\par
+\par
+\b\f1\lang1033 vstup od u\f0\lang1029\'9e\f1\lang1033 ivatele\f0\lang1029  - \b0 p\'f8\f1\lang1033\'ed\f0\lang1029 kaz \b\i input()\b0\i0  a do z\f1\lang1033\'e1\f0\lang1029 vorek napsat string s dotazem podle toho, co chceme od usera zjistit. V konzoli se po spu\'9at\'ecn\f1\lang1033\'ed\f0\lang1029  objev\f1\lang1033\'ed\f0\lang1029  onen dotaz a za n\f1\lang1033\'ed\f0\lang1029 m kurzor, b\'ech programu se pozastav\f1\lang1033\'ed\f0\lang1029  do t\f1\lang1033\'e9\f0\lang1029  doby, ne\'9e user poskytne po\'9eadovanou informaci. Ta je pak ve form\'ec \'f8et\'eczce vr\f1\lang1033\'e1\f0\lang1029 cena do programu a nahrad\f1\lang1033\'ed\f0\lang1029  input. Pod\f1\lang1033\'ed\f0\lang1029 vejme se na tento \'f8\f1\lang1033\'e1\f0\lang1029 dek k\f1\lang1033\'f3\f0\lang1029 du:\par
+\par
+\tab\b\i print("Hello " + input("Jak se jmenujes? ") + "!")\par
+\par
+\b0\i0 Python za\'e8ne zpracov\f1\lang1033\'e1\f0\lang1029 vat print funkci. V n\f1\lang1033\'ed\f0\lang1029  najde input, tud\f1\lang1033\'ed\f0\lang1029\'9e vyzve usera k zad\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  vstupu. Jakmile ho z\f1\lang1033\'ed\f0\lang1029 sk\f1\lang1033\'e1\f0\lang1029 , nahrad\f1\lang1033\'ed\f0\lang1029  j\f1\lang1033\'ed\f0\lang1029 m ve form\'ec \'f8et\'eczce input() \'e8\f1\lang1033\'e1\f0\lang1029 st k\f1\lang1033\'f3\f0\lang1029 du, \'e8\f1\lang1033\'ed\f0\lang1029 m\'9e zb\f1\lang1033\'fd\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029  u\'9e pouze spojit Hello + zadane_jmeno + ! do jednoho \'f8et\'eczce a vypsat jej pod input. T\f1\lang1033\'ed\f0\lang1029 m program kon\'e8\f1\lang1033\'ed\f0\lang1029 .\par
+\par
+\i P\'f8: vypsat do konzoly d\f1\lang1033\'e9\f0\lang1029 lku (po\'e8et znak\'f9) zadan\f1\lang1033\'e9\f0\lang1029 ho jm\f1\lang1033\'e9\f0\lang1029 na na jednom \'f8\f1\lang1033\'e1\f0\lang1029 dku bez prom\'ecnn\f1\lang1033\'fd\f0\lang1029 ch\par
+\tab\b print(len(input("Jak se jmenujes? ")))\par
+\b0 funkce m\'f9\'9eeme vno\'f8ovat do sebe - nav\f1\lang1033\'ed\f0\lang1029 c fce len(), kter\f1\lang1033\'e1\f0\lang1029  vrac\f1\lang1033\'ed\f0\lang1029  pr\f1\lang1033\'e1\f0\lang1029 v\'ec d\f1\lang1033\'e9\f0\lang1029 lku \'f8et\'eczce.\par
+\par
+\i0 Input samotn\f1\lang1033\'fd\f0\lang1029  je ale celkem k ni\'e8emu, proto\'9ee zadan\f1\lang1033\'e1\f0\lang1029  hodnota nen\f1\lang1033\'ed\f0\lang1029  ji\'9e nijak dostupn\f1\lang1033\'e1\f0\lang1029  pro dal\'9a\f1\lang1033\'ed\f0\lang1029  pou\'9eit\f1\lang1033\'ed\f0\lang1029  a jednodu\'9ae "zmiz\f1\lang1033\'ed\f0\lang1029 ".  Proto je dobr\f1\lang1033\'e9\f0\lang1029  je kombinovat s \b prom\'ecnn\f1\lang1033\'fd\f0\lang1029 mi (variables). \b0 D\f1\lang1033\'ed\f0\lang1029 ky nim budeme moci se zadan\f1\lang1033\'fd\f0\lang1029 mi hodnotami, kter\f1\lang1033\'e9\f0\lang1029  se do prom\'ecnn\f1\lang1033\'fd\f0\lang1029 ch ulo\'9e\f1\lang1033\'ed\f0\lang1029  d\f1\lang1033\'e1\f0\lang1029 le pracovat a neztrat\f1\lang1033\'ed\f0\lang1029 me je. Na za\'e8\f1\lang1033\'e1\f0\lang1029 tek \'f8\f1\lang1033\'e1\f0\lang1029 dku s inputem pak sta\'e8\f1\lang1033\'ed\f0\lang1029  p\'f8ipsat n\f1\lang1033\'e1\f0\lang1029 zev prom\'ecnn\f1\lang1033\'e9\f0\lang1029 , pod kter\f1\lang1033\'fd\f0\lang1029 m bude hodnota dostupn\f1\lang1033\'e1\f0\lang1029  a rovn\f1\lang1033\'ed\f0\lang1029 tko.\par
+\par
+\tab\b\i name = input("Zadej jmeno: ")\par
+
+\pard\li720\sl276\slmult1 print("Hello, " + name + "!")\par
+\par
+
+\pard\sl276\slmult1\b0\i0 Pomoc\f1\lang1033\'ed\f0\lang1029  n\f1\lang1033\'e1\f0\lang1029 zv\'f9 prom\'ecnn\f1\lang1033\'fd\f0\lang1029 ch se tedy m\'f9\'9eeme odkazovat na takto ulo\'9een\f1\lang1033\'e9\f0\lang1029  hodnoty kdelikov v k\f1\lang1033\'f3\f0\lang1029 du pot\'f8ebujeme. M"\'9eeme si tak pomoc\f1\lang1033\'ed\f0\lang1029  prom\'ecnn\f1\lang1033\'fd\f0\lang1029 ch logicky rozf\f1\lang1033\'e1\f0\lang1029 zovat posledn\f1\lang1033\'ed\f0\lang1029  cvi\'e8en\f1\lang1033\'ed\f0\lang1029  do jednotliv\f1\lang1033\'fd\f0\lang1029 ch krok\'f9:\par
+\par
+\tab\b\i name = input("Jak se jmenujes? ")\par
+
+\pard\li720\sl276\slmult1 length = len(name)\par
+print(length)\par
+\par
+
+\pard\sl276\slmult1\b0 P\'f8: Zad\f1\lang1033\'e1\f0\lang1029 me dv\'ec \'e8\f1\lang1033\'ed\f0\lang1029 sla a a b. Pot\f1\lang1033\'e9\f0\lang1029  prohod\f1\lang1033\'ed\f0\lang1029 me hodnoty a vyp\f1\lang1033\'ed\f0\lang1029\'9aeme je. Vstup tedy bude nap\'f8. a=5, b=10 a v\f1\lang1033\'fd\f0\lang1029 stup a=10, b=5. Jedn\f1\lang1033\'e1\f0\lang1029  se o jednu ze z\f1\lang1033\'e1\f0\lang1029 kladn\f1\lang1033\'ed\f0\lang1029 ch ot\f1\lang1033\'e1\f0\lang1029 zek na program\f1\lang1033\'e1\f0\lang1029 torsk\f1\lang1033\'fd\f0\lang1029 ch pohovorech. Dobr\f1\lang1033\'e9\f0\lang1029  je pou\'9e\f1\lang1033\'ed\f0\lang1029 t analogii z real life (v jedn\f1\lang1033\'e9\f0\lang1029  skleni\'e8ce je ml\f1\lang1033\'ed\f0\lang1029 ko a ve druh\f1\lang1033\'e9\f0\lang1029  voda a pot\'f8ebujeme obsahy skleni\'e8ek prohodit - nep\'f9jde to bez t\'f8et\f1\lang1033\'ed\f0\lang1029  pomocn\f1\lang1033\'e9\f0\lang1029  skleni\'e8ky)\par
+\par
+\tab\b a = input("a: ")\par
+
+\pard\li720\sl276\slmult1 b = input("b: ")\par
+\par
+temp = a\par
+a = b\par
+b = temp\par
+\par
+print("a = " + a)\par
+print("b = " + b)\par
+\par
+
+\pard\sl276\slmult1\b0\i0 Jak prom\'ecnn\f1\lang1033\'e9\f0\lang1029  pojmenov\f1\lang1033\'e1\f0\lang1029 vat? Existuje n\'eckolik pravidel, kter\f1\lang1033\'e9\f0\lang1029  bychom m\'ecli dodr\'9eovat. K\f1\lang1033\'f3\f0\lang1029 d by m\'ecl b\f1\lang1033\'fd\f0\lang1029 t co nejl\f1\lang1033\'e9\f0\lang1029 pe \'e8iteln\f1\lang1033\'fd\f0\lang1029 , proto by se n\f1\lang1033\'e1\f0\lang1029 zvy porm\'ecnn\f1\lang1033\'fd\f0\lang1029 ch m\'ecly volit tak, aby d\f1\lang1033\'e1\f0\lang1029 valy co nejlep\'9a\f1\lang1033\'ed\f0\lang1029  smysl. V n\f1\lang1033\'e1\f0\lang1029 zvech nesm\'ecj\f1\lang1033\'ed\f0\lang1029  b\f1\lang1033\'fd\f0\lang1029 t mezery, proto u v\f1\lang1033\'ed\f0\lang1029 ceslovn\f1\lang1033\'fd\f0\lang1029 ch n\f1\lang1033\'e1\f0\lang1029 zv\'f9 prom\'ecnn\f1\lang1033\'fd\f0\lang1029 ch m\f1\lang1033\'ed\f0\lang1029 sto mezery pou\'9e\f1\lang1033\'ed\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029 me v Pythonu podtr\'9e\f1\lang1033\'ed\f0\lang1029 tko (user_name). \'c8\f1\lang1033\'ed\f0\lang1029 sla v n\f1\lang1033\'e1\f0\lang1029 zvech b\f1\lang1033\'fd\f0\lang1029 t mohou, ale ne na za\'e8\f1\lang1033\'e1\f0\lang1029 tku (user1 je OK, ale 1user je SyntaxError). Jako n\f1\lang1033\'e1\f0\lang1029 zvy prom\'ecnn\f1\lang1033\'fd\f0\lang1029 ch se taky nesm\f1\lang1033\'ed\f0\lang1029  pou\'9e\f1\lang1033\'ed\f0\lang1029 vat vyhrazen\f1\lang1033\'e1\f0\lang1029  slova jazyka. Pokud se v n\f1\lang1033\'e1\f0\lang1029 zvu prom\'ecnn\f1\lang1033\'e9\f0\lang1029  p\'f8eklepneme, vede to obvykle k NameErroru.  \i\par
+\i0       \f1\lang5\par
+}
+ 

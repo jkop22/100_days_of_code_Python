@@ -1,0 +1,130 @@
+{\rtf1\ansi\ansicpg1250\deff0\nouicompat\deflang1029{\fonttbl{\f0\fnil\fcharset238 Calibri;}{\f1\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red255\green255\blue0;}
+{\*\generator Riched20 10.0.22621}\viewkind4\uc1 
+\pard\sl276\slmult1\b\i\f0\fs32 Day 02\par
+Understanding Data Types and How to Manipulate Strings\par
+\b0\i0\fs22\par
+Zat\f1\lang1033\'ed\f0\lang1029 m jsme pracovali se stringy, ale v Pythonu existuj\f1\lang1033\'ed\f0\lang1029  i dal\'9a\f1\lang1033\'ed\f0\lang1029  datov\f1\lang1033\'e9\f0\lang1029  typy. Nejprve si probereme \b primitivn\f1\lang1033\'ed\f0\lang1029  \b0 - sem pat\'f8\f1\lang1033\'ed\f0\lang1029  stringy, integery, floaty a boolean. \'c8ili \'f8et\'eczce, cel\f1\lang1033\'e1\f0\lang1029  \'e8\f1\lang1033\'ed\f0\lang1029 sla a \'e8\f1\lang1033\'ed\f0\lang1029 sla s desetinnou \'e8\f1\lang1033\'e1\f0\lang1029 rkou a True/False hodnota.\par
+\par
+Nov\f1\lang1033\'e1\f0\lang1029  operace nad stringem kterou si uk\f1\lang1033\'e1\f0\lang1029\'9eeme je tzv. \b slicing. \b0 M\f1\lang1033\'e1\f0\lang1029 me jednoduchou mo\'9enost vyseparovat jakoukoliv \'e8\f1\lang1033\'e1\f0\lang1029 st stringu chceme. Slou\'9e\f1\lang1033\'ed\f0\lang1029  k tomu hranat\f1\lang1033\'e9\f0\lang1029  z\f1\lang1033\'e1\f0\lang1029 vorky p\'f8ipojen\f1\lang1033\'e9\f0\lang1029  za string, ve kter\f1\lang1033\'fd\f0\lang1029 ch definujeme pomoc\f1\lang1033\'ed\f0\lang1029  index\'f9 (0-based) jak\f1\lang1033\'fd\f0\lang1029 /\f1\lang1033\'e9\f0\lang1029  znak/y z \'f8et\'eczce chceme vyseparovat. N\'eckolik p\'f8\f1\lang1033\'ed\f0\lang1029 klad\'f9:\par
+\par
+\tab\b\i print("Hello"[0]) \b0 # H\par
+
+\pard\li720\sl276\slmult1\b print("Hello"[1:]) \b0 # ello\b\par
+print("Hello"[1:4]) \b0 # ell\b\par
+print("Hello"[-1]) \b0 # o\par
+\b print("Hello"[:-1]) \b0 # Hell\i0   \par
+\par
+
+\pard\sl276\slmult1 Bacha na to, \'9ee pokud m\f1\lang1033\'e1\f0\lang1029 me \'e8\f1\lang1033\'ed\f0\lang1029 slo zaps\f1\lang1033\'e1\f0\lang1029 no jako string, nedoch\f1\lang1033\'e1\f0\lang1029 z\f1\lang1033\'ed\f0\lang1029  p\'f8i pou\'9eit\f1\lang1033\'ed\f0\lang1029  + k matematick\f1\lang1033\'e9\f0\lang1029  operaci s\'e8\f1\lang1033\'ed\f0\lang1029 t\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029 , ale ke concatenation. Tud\f1\lang1033\'ed\f0\lang1029\'9e "123" + "456" vyjde "123456", ale 123 + 456 vyjde 579. \par
+\par
+K tomu, abychom nadeklarovali prom\'ecnnou jako string, int nebo float ji sta\'e8\f1\lang1033\'ed\f0\lang1029  zapsat a PYthon s\f1\lang1033\'e1\f0\lang1029 m si ur\'e8\f1\lang1033\'ed\f0\lang1029  nejvhodn\'ecj\'9a\f1\lang1033\'ed\f0\lang1029  datov\f1\lang1033\'fd\f0\lang1029  typ. Co se logick\f1\lang1033\'e9\f0\lang1029 ho booleanu t\f1\lang1033\'fd\f0\lang1029\'e8e, mus\f1\lang1033\'ed\f0\lang1029 me jeho dv\'ec povolen\f1\lang1033\'e9\f0\lang1029  hodnoty zapisovat v\'9edy s prvn\f1\lang1033\'ed\f0\lang1029 m velk\f1\lang1033\'fd\f0\lang1029 m p\f1\lang1033\'ed\f0\lang1029 smenem: True, False.  \par
+\par
+Datov\f1\lang1033\'e9\f0\lang1029  typy rozhoduj\f1\lang1033\'ed\f0\lang1029 , jak\f1\lang1033\'e9\f0\lang1029  python\f1\lang1033\'ed\f0\lang1029  funkce m\'f9\'9eeme pou\'9e\f1\lang1033\'ed\f0\lang1029 t na jak\f1\lang1033\'e9\f0\lang1029  prom\'ecnn\f1\lang1033\'e9\f0\lang1029 . Nap\'f8. funkce len(), kter\f1\lang1033\'e1\f0\lang1029  n\f1\lang1033\'e1\f0\lang1029 m zji\'9a\'9duje d\f1\lang1033\'e9\f0\lang1029 lku \'f8et\'eczce funguje pouze na n\'ec (tedy na stringy) a kdy\'9e ji pou\'9eijeme nap\'f8. na \'e8\f1\lang1033\'ed\f0\lang1029 slo, vygeneruje se n\f1\lang1033\'e1\f0\lang1029 m \b TypeError\b0 . Stejn\'ec tak se vygeneruje tento error v\'9aude tam, kde se sna\'9e\f1\lang1033\'ed\f0\lang1029 me d\'eclat n\'ecco co s dan\f1\lang1033\'fd\f0\lang1029 m datov\f1\lang1033\'fd\f0\lang1029 m typem nejde. Nap\'f8. chceme spojovat \'f8et\'eczce, ale zamot\f1\lang1033\'e1\f0\lang1029  se n\f1\lang1033\'e1\f0\lang1029 m do toho integer. Viz n\f1\lang1033\'e1\f0\lang1029 sleduj\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029  p\'f8\f1\lang1033\'ed\f0\lang1029 klad:\par
+\par
+\tab\b\i num_char = len(input("What is your name? "))\par
+
+\pard\li720\sl276\slmult1 print("Your name has " + num_char + " characters.")\b0\i0  \par
+\par
+
+\pard\sl276\slmult1 kter\f1\lang1033\'fd\f0\lang1029  vygeneruje tuto chybu: \b\i TypeError: can only concatenate str (not "int") to str\b0\i0  Je to d\f1\lang1033\'e1\f0\lang1029 no t\f1\lang1033\'ed\f0\lang1029 m, \'9ee v\f1\lang1033\'fd\f0\lang1029 sledek prvn\f1\lang1033\'ed\f0\lang1029 ho \'f8\f1\lang1033\'e1\f0\lang1029 dku je \'e8\f1\lang1033\'ed\f0\lang1029 slo a tud\f1\lang1033\'ed\f0\lang1029\'9e integer, na kter\f1\lang1033\'fd\f0\lang1029  nelze pou\'9e\f1\lang1033\'ed\f0\lang1029 t concatenation \'f8et\'eczc\'f9. Tyto chybky se st\f1\lang1033\'e1\f0\lang1029 vaj\f1\lang1033\'ed\f0\lang1029  pom\'ecrn\'ec \'e8asto, proto existuje funkce, kter\f1\lang1033\'e1\f0\lang1029  n\f1\lang1033\'e1\f0\lang1029 m usnadn\f1\lang1033\'ed\f0\lang1029  debugov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  t\f1\lang1033\'ed\f0\lang1029 m, \'9ee zobraz\f1\lang1033\'ed\f0\lang1029  typ dan\f1\lang1033\'e9\f0\lang1029  prom\'ecnn\f1\lang1033\'e9\f0\lang1029  - \b\i type() \b0\i0 - kdy do z\f1\lang1033\'e1\f0\lang1029 vorek vlo\'9e\f1\lang1033\'ed\f0\lang1029 me n\f1\lang1033\'e1\f0\lang1029 zev zkouman\f1\lang1033\'e9\f0\lang1029  prom\'ecnn\f1\lang1033\'e9\f0\lang1029 . Tedy \b\i type(num_char) \b0\i0 n\f1\lang1033\'e1\f0\lang1029 m zobraz\f1\lang1033\'ed\f0\lang1029 , \'9ee jde skute\'e8n\'ec o integer: \b\i <class 'int'>\b0\i0 . \par
+\par
+Krom\'ec zji\'9a\'8dov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  typu m\'f9\'9eeme prov\f1\lang1033\'e1\f0\lang1029 d\'ect i koverze - m\'ecnit datov\f1\lang1033\'fd\f0\lang1029  typ na jin\f1\lang1033\'fd\f0\lang1029 . Konverzn\f1\lang1033\'ed\f0\lang1029  funkce primitivn\f1\lang1033\'ed\f0\lang1029 ch datov\f1\lang1033\'fd\f0\lang1029 ch typ\'f9 jsou:\par
+\par
+\tab int(): Converts a value to an integer.\par
+
+\pard\li720\sl276\slmult1 float(): Converts a value to a floating-point number.\par
+str(): Converts a value to a string.\par
+bool(): Converts a value to a boolean.\par
+\par
+
+\pard\sl276\slmult1 Aby n\f1\lang1033\'e1\f0\lang1029 m zafungoval p\'f8edchoz\f1\lang1033\'ed\f0\lang1029  p\'f8\f1\lang1033\'ed\f0\lang1029 klad, mus\f1\lang1033\'ed\f0\lang1029 me z prom\'ecnn\f1\lang1033\'e9\f0\lang1029  num_char vytvo\'f8it string:\par
+\par
+\tab\b\i num_char = \highlight1 str(\highlight0 len(input("What is your name? "))\highlight1 )\highlight0\par
+
+\pard\li720\sl276\slmult1 print("Your name has " + num_char + " characters.")\b0\i0  \par
+\par
+
+\pard\sl276\slmult1 a nyn\f1\lang1033\'ed\f0\lang1029  u\'9e progr\f1\lang1033\'e1\f0\lang1029 mek prob\'echne bez chyby. \par
+\par
+\i Cvi\'e8en\f1\lang1033\'ed\f0\lang1029 : user zad\f1\lang1033\'e1\f0\lang1029  dvjcifern\f1\lang1033\'e9\f0\lang1029  \'e8\f1\lang1033\'ed\f0\lang1029 slo a vyp\f1\lang1033\'ed\f0\lang1029\'9ae se sou\'e8et t\'ecch dvou \'e8\f1\lang1033\'ed\f0\lang1029 slic:\par
+\par
+\b\tab num_str = input("Zadej dvojciferne cislo: ")\par
+\par
+
+\pard\li720\sl276\slmult1 a = int(num_str[0])\par
+b = int(num_str[-1])\par
+c = a + b\par
+\par
+print(str(a) + " + " + str(b) + " = " + str(c))\par
+\par
+
+\pard\sl276\slmult1\b0 pozn: cokoliv z inputu je defaultn\'ec stringem, proto net\'f8eba p\'f8etypov\f1\lang1033\'e1\f0\lang1029 vat user\'f9v vstup. To bychom museli ud\'eclat pouze v p\'f8\f1\lang1033\'ed\f0\lang1029 pad\'ec, \'9ee bychom s n\f1\lang1033\'ed\f0\lang1029 m cht\'ecli d\f1\lang1033\'e1\f0\lang1029 le pracovat jako s \'e8\f1\lang1033\'ed\f0\lang1029 slem.\par
+\par
+\i0 Zat\f1\lang1033\'ed\f0\lang1029 m jsme pou\'9e\f1\lang1033\'ed\f0\lang1029 vali pouze matematick\f1\lang1033\'fd\f0\lang1029  oper\f1\lang1033\'e1\f0\lang1029 tor + (concatenation \'f8et\'eczc\'f9 nebo s\'e8\f1\lang1033\'ed\f0\lang1029 t\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  \'e8\f1\lang1033\'ed\f0\lang1029 sel). Dal\'9a\f1\lang1033\'ed\f0\lang1029 mi z\f1\lang1033\'e1\f0\lang1029 kladn\f1\lang1033\'ed\f0\lang1029 mi mat. oper\f1\lang1033\'e1\f0\lang1029 tory jsou - (od\'e8\f1\lang1033\'ed\f0\lang1029 t\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029 ) * (n\f1\lang1033\'e1\f0\lang1029 soben\f1\lang1033\'ed\f0\lang1029 ) / (d\'eclen\f1\lang1033\'ed\f0\lang1029  - v\f1\lang1033\'fd\f0\lang1029 sledek v\'9edy float) ** (exponent). P\'f8i matematick\f1\lang1033\'fd\f0\lang1029 ch operac\f1\lang1033\'ed\f0\lang1029 ch plat\f1\lang1033\'ed\f0\lang1029  kalsick\f1\lang1033\'e9\f0\lang1029  priority (z\f1\lang1033\'e1\f0\lang1029 vorky, exponenty, n\f1\lang1033\'e1\f0\lang1029 soben\f1\lang1033\'ed\f0\lang1029 /d\'eclen\f1\lang1033\'ed\f0\lang1029 , s\'e8\f1\lang1033\'ed\f0\lang1029 t\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029 /od\'e8\f1\lang1033\'ed\f0\lang1029 t\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029 ). Z\f1\lang1033\'e1\f0\lang1029 rove\'f2 v\f1\lang1033\'fd\f0\lang1029 po\'e8et prob\f1\lang1033\'ed\f0\lang1029 h\f1\lang1033\'e1\f0\lang1029  zleva do prava.\par
+\par
+\i P\'f8: \i0  \b\i print(3 * 3 + 3 / 3 - 3) \b0 - v\f1\lang1033\'fd\f0\lang1029 sledek bude 7.0, proto\'9ee d\'eclen\f1\lang1033\'ed\f0\lang1029 m vznik\f1\lang1033\'e1\f0\lang1029  v\'9edy float a ten je p\'f8esn\'ecj\'9a\f1\lang1033\'ed\f0\lang1029  a proto p\'f8eb\f1\lang1033\'ed\f0\lang1029 j\f1\lang1033\'ed\f0\lang1029  int. \par
+\par
+\f1\lang1033\'da\f0\lang1029 kol: zm\'ecnit p\'f8edchoz\f1\lang1033\'ed\f0\lang1029  v\f1\lang1033\'fd\f0\lang1029 po\'e8et tak, aby vy\'9alo 3.0 -\f1\lang1033 >\f0\lang1029  3 + 3 d\f1\lang1033\'e1\f0\lang1029 me do z\f1\lang1033\'e1\f0\lang1029 vorky\par
+\par
+Cvi\'e8en\f1\lang1033\'ed\f0\lang1029 : vytvo\'f8it BMI kalkul\f1\lang1033\'e1\f0\lang1029 tor\par
+\par
+\tab\b hmotnost = int(input("Zadej svou hmotnost (v kilogramech): "))\par
+
+\pard\li720\sl276\slmult1 vyska = int(input("Zadej svou vysku (v centimetrech): "))\par
+\par
+bmi = round(hmotnost / (vyska / 100) ** 2, 2)\par
+\par
+print("Tva BMI je " + str(bmi))\par
+\par
+
+\pard\sl276\slmult1\b0 pozn: funkce \b round(x,y) \b0 zaokrouhli float x na y desetinnych mist(y nepovinn\f1\lang1033\'fd\f0\lang1029  parametr)\par
+\par
+\i0 Pozor, pokud p\'f8ev\f1\lang1033\'e1\f0\lang1029 d\f1\lang1033\'ed\f0\lang1029 me z float na int, tak Python neud\'ecl\f1\lang1033\'e1\f0\lang1029  nic jin\f1\lang1033\'e9\f0\lang1029 ho ne\'9e \'9ee odsekne desetinnou \'e8\f1\lang1033\'e1\f0\lang1029 st \'e8\f1\lang1033\'ed\f0\lang1029 sla, bez ohledu na zaokrouhlen\f1\lang1033\'ed\f0\lang1029  (2.3333 i 2.7777 tedy vyjde po p\'f8evodu do intu 2). Zaokrouhlovac\f1\lang1033\'ed\f0\lang1029  funkce round() pak produkuje bu\'ef int - pokud zaokrouhlujeme bez uveden\f1\lang1033\'ed\f0\lang1029  po\'e8tu desetoinn\f1\lang1033\'fd\f0\lang1029 ch m\f1\lang1033\'ed\f0\lang1029 st, nebo float - pokud uvedeme i nepovinn\f1\lang1033\'fd\f0\lang1029  parametr na kolik desetinnc\f1\lang1033\'fd\f0\lang1029 h m\f1\lang1033\'ed\f0\lang1029 st chceme zaokrouhlit. \par
+\par
+Existuje i speci\f1\lang1033\'e1\f0\lang1029 ln\f1\lang1033\'ed\f0\lang1029  forma d\'eclen\f1\lang1033\'ed\f0\lang1029 , zapsan\f1\lang1033\'e1\f0\lang1029  //, tzv. \b floor d\'eclen\f1\lang1033\'ed\b0\f0\lang1029 . To odsekne desetinnou \'e8\f1\lang1033\'e1\f0\lang1029 st \'e8\f1\lang1033\'ed\f0\lang1029 sla bez zaokrouhlen\f1\lang1033\'ed\f0\lang1029  a z\f1\lang1033\'e1\f0\lang1029 rove\'f2 ponech\f1\lang1033\'e1\f0\lang1029  v\f1\lang1033\'fd\f0\lang1029 sledku typ integer. \'c8ili 8 // 3 je to sam\f1\lang1033\'e9\f0\lang1029  jako int(8 / 3). \par
+\par
+Abychom nemuseli slo\'9eit\'ec vytv\f1\lang1033\'e1\f0\lang1029\'f8et v\f1\lang1033\'fd\f0\lang1029 pisy slo\'9een\f1\lang1033\'e9\f0\lang1029  z e string\'f9 a jin\f1\lang1033\'fd\f0\lang1029 ch datov\f1\lang1033\'fd\f0\lang1029 ch typ\'f9, existuje v Pythonu tzv. \b F-string\b0 . V n\'ecm se hodnoty jin\f1\lang1033\'fd\f0\lang1029 ch datov\f1\lang1033\'fd\f0\lang1029 ch typ\'f9 vypisuj\f1\lang1033\'ed\f0\lang1029  pomoc\f1\lang1033\'ed\f0\lang1029  slo\'9een\f1\lang1033\'fd\f0\lang1029 ch z\f1\lang1033\'e1\f0\lang1029 vorek a n\f1\lang1033\'e1\f0\lang1029 zv\'f9 dan\f1\lang1033\'fd\f0\lang1029 ch prom\'ecnn\f1\lang1033\'fd\f0\lang1029 ch bez toho, ani\'9e bychom museli \'f8et\'eczec d\'eclit pluskama. Fin\f1\lang1033\'e1\f0\lang1029 ln\f1\lang1033\'ed\f0\lang1029  v\f1\lang1033\'fd\f0\lang1029 pis BMI z posledn\f1\lang1033\'ed\f0\lang1029  challenge by tedy vypadal: \b\i print(f"Tva BMI je \{bmi\}.")\par
+\par
+\b0\f1\lang1033\'da\f0\lang1029 kol: user zad\f1\lang1033\'e1\f0\lang1029  v\'eck a na v\f1\lang1033\'fd\f0\lang1029 stupu se objev\f1\lang1033\'ed\f0\lang1029 , kolik mu zb\f1\lang1033\'fd\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029  dn\f1\lang1033\'ed\f0\lang1029 , t\f1\lang1033\'fd\f0\lang1029 dn\'f9 a m\'ecs\f1\lang1033\'ed\f0\lang1029 c\'f9 do konce \'9eivota za p\'f8edpokladu \'9ee se do\'9eije 90 let. Pro zjednodu\'9aen\f1\lang1033\'ed\f0\lang1029  nebudeme br\f1\lang1033\'e1\f0\lang1029 t v potaz kolik dn\f1\lang1033\'ed\f0\lang1029  ub\'echlo od za\'e8\f1\lang1033\'e1\f0\lang1029 tku aktu\f1\lang1033\'e1\f0\lang1029 ln\f1\lang1033\'ed\f0\lang1029 ho roku (nebo zb\f1\lang1033\'fd\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029  do narozenin) a \'9ee 1 rok m\f1\lang1033\'e1\f0\lang1029  365 dn\f1\lang1033\'ed\f0\lang1029 , 52 t\f1\lang1033\'fd\f0\lang1029 dn\'f9 a 12 m\'ecs\f1\lang1033\'ed\f0\lang1029 c\'f9.\par
+\par
+\tab\b age = int(input("Kolik ti je roku? "))\par
+\par
+
+\pard\li720\sl276\slmult1 days = (90 - age) * 365\par
+weeks = (90 - age) * 52\par
+months = (90 - age) * 12\par
+\par
+print(f"Zbyva ti jeste \{days\} dni, \{weeks\} tydnu a \{months\} mesicu.")\par
+\par
+
+\pard\sl276\slmult1\b0 Cvi\'e8en\f1\lang1033\'ed\f0\lang1029 : kalkul\f1\lang1033\'e1\f0\lang1029 tor zpropitn\f1\lang1033\'e9\f0\lang1029 ho\par
+\par
+\f1\lang1033\tab\b print("Welcome to the tip calculator.")\par
+
+\pard\li720\sl276\slmult1 total = float(input("Zadej celkovou utratu (i s $ na zacatku): ")[1:])\par
+tip_percent = int(input("Zadej velikost zpropitneho v procentech (10, 12 nebo 15): "))\par
+num_of_persons = int(input("Kolik v\'e1s bylo v restauraci: "))\par
+\par
+tip_dollars = total * (tip_percent / 100)\par
+total_incl_tip = total + tip_dollars\par
+total_per_person = round(total_incl_tip / num_of_persons, 2)\par
+\par
+print(f"Kazdy by mel zaplatit $\{total_per_person\}")\f0\lang1029\par
+
+\pard\sl276\slmult1\par
+\b0\i0  \i Funguje to, ale m\f1\lang1033\'e1\f0\lang1029 me tam drobnou chybu, kter\f1\lang1033\'e1\f0\lang1029  se net\f1\lang1033\'fd\f0\lang1029 k\f1\lang1033\'e1\f0\lang1029  matematick\f1\lang1033\'e9\f0\lang1029 ho zaokrouhlov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029 , ale form\f1\lang1033\'e1\f0\lang1029 tov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  v\f1\lang1033\'fd\f0\lang1029 stupu (zkusit zadat 150,12 a 5 a v\f1\lang1033\'fd\f0\lang1029 sledek vyjde 33.6). Tud\f1\lang1033\'ed\f0\lang1029\'9e by zde bylo lep\'9a\f1\lang1033\'ed\f0\lang1029  m\f1\lang1033\'ed\f0\lang1029 sto matematick\f1\lang1033\'e9\f0\lang1029 ho roundov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  pou\'9e\f1\lang1033\'ed\f0\lang1029 t form\f1\lang1033\'e1\f0\lang1029 tovac\f1\lang1033\'ed\f0\lang1029  funkci v\f1\lang1033\'fd\f0\lang1029 stupu:\par
+\par
+\tab\b total_per_person = format(total_incl_tip / num_of_persons, ".2f")\par
+\par
+\b0\i0 Vid\f1\lang1033\'ed\f0\lang1029 me, \'9ee funkce \b format() \b0 m\f1\lang1033\'e1\f0\lang1029  dva parametry - \'e8\f1\lang1033\'ed\f0\lang1029 slo se kter\f1\lang1033\'fd\f0\lang1029 m pracuje a tzv. \b format specifier\b0 . Poj\'efme si jej rozebrat. Zad\f1\lang1033\'e1\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029  se do uvozovek, prvn\f1\lang1033\'ed\f0\lang1029  te\'e8ka znamen\f1\lang1033\'e1\f0\lang1029  za\'e8\f1\lang1033\'e1\f0\lang1029 tek specifik\f1\lang1033\'e1\f0\lang1029 toru, 2 po\'e8et desetinn\f1\lang1033\'fd\f0\lang1029 ch m\f1\lang1033\'ed\f0\lang1029 st a f float datov\f1\lang1033\'fd\f0\lang1029  typ. \b\i\par
+\par
+\b0\par
+\par
+\par
+ \par
+\par
+\b\par
+\b0\i0\f1\lang5\par
+}
+ 

@@ -1,0 +1,153 @@
+{\rtf1\ansi\ansicpg1250\deff0\nouicompat\deflang1029{\fonttbl{\f0\fnil\fcharset238 Calibri;}{\f1\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.22621}\viewkind4\uc1 
+\pard\sl276\slmult1\b\i\f0\fs32 Day 05\par
+Python Loops\par
+\b0\i0\fs22\par
+Nyn\f1\lang1033\'ed\f0\lang1029  si probereme smy\'e8ky. Za\'e8neme smy\'e8kou \b for. \b0 Jej\f1\lang1033\'ed\f0\lang1029  nejjednodu\'9a\'9a\f1\lang1033\'ed\f0\lang1029  pou\'9eit\f1\lang1033\'ed\f0\lang1029  je ve spojen\f1\lang1033\'ed\f0\lang1029  s \b listem\b0 . Syntaxe: \b\i for item in list_of_items: \b0\i0 a\b\i  \b0\i0 pot\f1\lang1033\'e9\f0\lang1029  n\f1\lang1033\'e1\f0\lang1029 sleduje odsazen\f1\lang1033\'fd\f0\lang1029  blok k\f1\lang1033\'f3\f0\lang1029 du, kter\f1\lang1033\'fd\f0\lang1029  se provede pro ka\'9edou polo\'9eku v listu.\f1\lang1033  Prvn\'ed\f0\lang1029  jednoduch\f1\lang1033\'e1\f0\lang1029  uk\f1\lang1033\'e1\f0\lang1029 zka - v\f1\lang1033\'fd\f0\lang1029 pis do konzoly:\par
+\par
+\tab\b\i fruits = ["Apple", "Watermelon", "Strawberry"]\par
+\par
+
+\pard\li720\sl276\slmult1 for fruit in fruits:\par
+    print(f"I like \{fruit\}.")\par
+\par
+
+\pard\sl276\slmult1\b0\i0 N\f1\lang1033\'e1\f0\lang1029 zev reprezentuj\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029  jednotliv\f1\lang1033\'e9\f0\lang1029  polo\'9eky v definici smy\'e8ky m\'f9\'9ee b\f1\lang1033\'fd\f0\lang1029 t jak\f1\lang1033\'fd\f0\lang1029 koliv, ale je dobr\f1\lang1033\'e9\f0\lang1029  vymyslet ho tak, aby d\f1\lang1033\'e1\f0\lang1029 val co nejlep\'9a\f1\lang1033\'ed\f0\lang1029  smysl v souvislosti s programem. Bacha na odsazen\f1\lang1033\'ed\f0\lang1029  a k\f1\lang1033\'f3\f0\lang1029 d vn\'ec a uvni\'f8 smy\'e8ky.\par
+\par
+\i P\'f8\f1\lang1033\'ed\f0\lang1029 klad: spo\'e8\f1\lang1033\'ed\f0\lang1029 tat pr\'f9m\'ecr ze zadan\f1\lang1033\'fd\f0\lang1029 ch hodnot\par
+\par
+\tab\b student_heights = [180, 124, 165, 173, 189, 169, 146]\par
+\par
+
+\pard\li720\sl276\slmult1 count = 0\par
+total = 0\par
+\par
+for height in student_heights:\par
+    total += height\par
+    count += 1\par
+\par
+avg_height = round(total / count, 2)\par
+\par
+print(f"Average height of this group of students is \{avg_height\}")\par
+\par
+
+\pard\sl276\slmult1\b0\i0 Pokud bychom cht\'ecli z\f1\lang1033\'ed\f0\lang1029 skat vstup od u\'9eivatele, musei bychom pou\'9e\f1\lang1033\'ed\f0\lang1029 t dal\'9a\f1\lang1033\'ed\f0\lang1029  smy\'e8ku:\par
+\par
+\tab\b\i student_heights = input("Enter a list of student heights: ").split()\par
+\par
+
+\pard\li720\sl276\slmult1 for n in range(0, len(student_heights)):\par
+    student_heights[n] = int(student_heights[n])\par
+\par
+
+\pard\sl276\slmult1\b0\i0 ve kter\f1\lang1033\'e9\f0\lang1029  se mus\f1\lang1033\'ed\f0\lang1029 me postarat o p\'f8evod string\'f9 z inputu na inty, aby se s nimi dalo pozd\'ecji po\'e8\f1\lang1033\'ed\f0\lang1029 tat.\par
+\par
+\i P\'f8\f1\lang1033\'ed\f0\lang1029 klad: klasika - naj\f1\lang1033\'ed\f0\lang1029 t maximum z hodnot v listu.\par
+\par
+\tab\b student_scores = input("Enter a list of student scores: ").split()\par
+\par
+
+\pard\li720\sl276\slmult1 for n in range(0, len(student_scores)):\par
+    student_scores[n] = int(student_scores[n])\par
+\par
+max = student_scores[0]\par
+\par
+for score in student_scores:\par
+    if score > max:\par
+        max = score\par
+\par
+print(f"Maximum in this list is \{max\}.")\par
+\par
+
+\pard\sl276\slmult1\b0 prvn\f1\lang1033\'ed\f0\lang1029  prvek z listu prohl\f1\lang1033\'e1\f0\lang1029 s\f1\lang1033\'ed\f0\lang1029 me za maximum (nebo max nastav\f1\lang1033\'ed\f0\lang1029 me na za\'e8\f1\lang1033\'e1\f0\lang1029 tku na 0) a pak ho porovn\f1\lang1033\'e1\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029 me ve smy\'e8e s ostatn\f1\lang1033\'ed\f0\lang1029 mi. Kdy\'9e je zkouman\f1\lang1033\'fd\f0\lang1029  prvek v\'ect\'9a\f1\lang1033\'ed\f0\lang1029  ne\'9e aktu\f1\lang1033\'e1\f0\lang1029 ln\f1\lang1033\'ed\f0\lang1029  maximum, jednodu\'9ae jej nahrad\f1\lang1033\'ed\f0\lang1029 .\par
+\par
+\i0 Jak m\'f9\'9eeme pou\'9e\f1\lang1033\'ed\f0\lang1029 t for smy\'9aku, kdy\'9e nem\f1\lang1033\'e1\f0\lang1029 me \'9e\f1\lang1033\'e1\f0\lang1029 dn\f1\lang1033\'fd\f0\lang1029  list? Nap\'f8 n\'ecco pot\'f8ebujeme ud\'eclat 10x. V tom p\'f8\f1\lang1033\'ed\f0\lang1029 pad\'ec je skv\'ecl\f1\lang1033\'fd\f0\lang1029 m pomocn\f1\lang1033\'ed\f0\lang1029 kem zkombinovat for smy\'e8ku s funkc\f1\lang1033\'ed\f0\lang1029  \b\i range(a, b). \b0\i0 Prb\'echne tolik opakov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029 , kolik je v zadan\f1\lang1033\'e9\f0\lang1029 m rozsahu.\par
+\par
+\tab\b\i for number in range(10,31):\par
+
+\pard\li720\sl276\slmult1     print(number, end=" ")  \par
+\par
+
+\pard\sl276\slmult1\b0\i0 prav\f1\lang1033\'e1\f0\lang1029  mez intervalu je otev\'f8en\f1\lang1033\'e1\f0\lang1029 , tzn. pokud chci \'e8\f1\lang1033\'ed\f0\lang1029 sla od 10 do 30 mus\f1\lang1033\'ed\f0\lang1029  b\f1\lang1033\'fd\f0\lang1029 t nastavena na 31. Voliteln\f1\lang1033\'fd\f0\lang1029  atribut funkce range() je tzv step, \'e8ili krokov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029 . Defultn\'ec se zvy\'9auje v intervalu o 1, pomoc\f1\lang1033\'ed\f0\lang1029  stepu m\'f9\'9eeme tuto hodnotu ovlivnit jako pot\'f8ebujeme: \b\i for number in range(10,31,2): \b0\i0 takto tedy vyp\f1\lang1033\'ed\f0\lang1029\'9aeme z rozsahu pouze sud\f1\lang1033\'e1\f0\lang1029  \'e8\f1\lang1033\'ed\f0\lang1029 sla. Pomoc\f1\lang1033\'ed\f0\lang1029  t\f1\lang1033\'e9\f0\lang1029 to smy\'e8ky m\'f9\'9eeme jednodu\'9ae vy\'f8e\'9ait i legend\f1\lang1033\'e1\f0\lang1029 rn\f1\lang1033\'ed\f0\lang1029  gaussovsk\f1\lang1033\'fd\f0\lang1029  probl\f1\lang1033\'e9\f0\lang1029 m, se\'e8\f1\lang1033\'ed\f0\lang1029 st v\'9aechna \'e8\f1\lang1033\'ed\f0\lang1029 sla od 1 do 100.\par
+\par
+\tab\b\i sum = 0\par
+
+\pard\li720\sl276\slmult1 for num in range(1,101):\par
+    sum += num\par
+\par
+
+\pard\sl276\slmult1\b0 P\'f8\f1\lang1033\'ed\f0\lang1029 klad: sou\'e8et v\'9aech sud\f1\lang1033\'fd\f0\lang1029 ch \'e8\f1\lang1033\'ed\f0\lang1029 sel z intervalu 1-100\par
+\par
+\tab\b sum = 0\par
+
+\pard\li720\sl276\slmult1 for num in range(0,101,2):\par
+    sum += num\par
+print(sum)\par
+\par
+sum1 = 0\par
+for num1 in range(1,101):\par
+    if num1 % 2 == 0:\par
+        sum1 += num1\par
+print(sum1)\par
+\par
+
+\pard\sl276\slmult1\b0\i0 dv\'ec verze, prvn\f1\lang1033\'ed\f0\lang1029  asi napadne hned, druh\f1\lang1033\'e1\f0\lang1029  chce tro\'9aku fi\'9atr\f1\lang1033\'f3\f0\lang1029 na :)\par
+\par
+\i P\'f8\f1\lang1033\'ed\f0\lang1029 klad: \'e8ast\f1\lang1033\'e1\f0\lang1029  pohovorov\f1\lang1033\'e1\f0\lang1029  ot\f1\lang1033\'e1\f0\lang1029 zka - FizzBuzz game\par
+\par
+\tab\b for num in range(1,101):\par
+
+\pard\li720\sl276\slmult1     if num % 3 == 0 and num % 5 == 0:\par
+        print("FizzBuzz")\par
+    elif num % 3 == 0:\par
+        print("Fizz")\par
+    elif num % 5 == 0:\par
+        print("Buzz")\par
+    else:\par
+        print(num)\par
+\par
+
+\pard\sl276\slmult1\b0\i0 prvn\f1\lang1033\'ed\f0\lang1029  podm\f1\lang1033\'ed\f0\lang1029 nka ve smy\'e8ce mus\f1\lang1033\'ed\f0\lang1029  b\f1\lang1033\'fd\f0\lang1029 t ta nejpodrobn\'ecj\'9a\f1\lang1033\'ed\f0\lang1029 . Jinak nefach\f1\lang1033\'e1\f0\lang1029 .\par
+\par
+\i Cvi\'e8en\f1\lang1033\'ed\f0\lang1029 : Password generator. User zad\f1\lang1033\'e1\f0\lang1029  kolik m\f1\lang1033\'e1\f0\lang1029  obsahovat p\f1\lang1033\'ed\f0\lang1029 smen, kolik speci\f1\lang1033\'e1\f0\lang1029 ln\f1\lang1033\'ed\f0\lang1029 ch znak\'f9 a kolik \'e8\f1\lang1033\'ed\f0\lang1029 slic a n\f1\lang1033\'e1\f0\lang1029 hodn\'ec se mu podle zadan\f1\lang1033\'fd\f0\lang1029 ch krit\f1\lang1033\'e9\f0\lang1029 ri\f1\lang1033\'ed\f0\lang1029  vygeneruje \'f8et\'eczec.\par
+\par
+\tab\b import random\par
+\par
+
+\pard\li720\sl276\slmult1 letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']\par
+numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']\par
+symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']\par
+\par
+print("Welcome to the PyPassword Generator!")\par
+nr_letters= int(input("How many letters would you like in your password?\\n")) \par
+nr_symbols = int(input(f"How many symbols would you like?\\n"))\par
+nr_numbers = int(input(f"How many numbers would you like?\\n"))\par
+\par
+lpart = ""\par
+spart = ""\par
+npart = ""\par
+\par
+for i in range(1, nr_letters+1):    \par
+    rand_num = random.randint(0, len(letters)-1)\par
+    lpart += letters[rand_num]\par
+\par
+for j in range(1, nr_symbols+1):    \par
+    rand_num = random.randint(0, len(symbols)-1)\par
+    spart += symbols[rand_num]\par
+\par
+for k in range(1, nr_numbers+1):    \par
+    rand_num = random.randint(0, len(numbers)-1)\par
+    npart += numbers[rand_num]\par
+\par
+password = lpart + spart + npart\par
+\par
+plist = list(password)\par
+random.shuffle(plist)\par
+randomized_password = "".join(plist)\par
+\par
+print(f"Simple version: \{password\}\\nBetter randomized version: \{randomized_password\}")\par
+\par
+
+\pard\sl276\slmult1\b0\i0 pak je\'9at\'ec druh\f1\lang1033\'e1\f0\lang1029  krat\'9a\f1\lang1033\'ed\f0\lang1029  a jednodu\'9a\'9a\f1\lang1033\'ed\f0\lang1029  verze, viz. \b 07a_passwordgen_v2.py\b0\f1\lang5\par
+}
+ 

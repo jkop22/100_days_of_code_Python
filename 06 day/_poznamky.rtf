@@ -1,0 +1,138 @@
+{\rtf1\ansi\ansicpg1250\deff0\nouicompat\deflang1029{\fonttbl{\f0\fnil\fcharset238 Calibri;}{\f1\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red0\green0\blue255;}
+{\*\generator Riched20 10.0.22621}\viewkind4\uc1 
+\pard\sl276\slmult1\b\i\f0\fs32 Day 06\par
+Python Functions & Karel\par
+\b0\i0\fs22\par
+S funkcemi jsme se ji\'9e setkali. A to s \b built-in funkcemi\b0 , kter\f1\lang1033\'e9\f0\lang1029  jso p\'f8\f1\lang1033\'ed\f0\lang1029 mo sou\'e8\f1\lang1033\'e1\f0\lang1029 st\f1\lang1033\'ed\f0\lang1029  jazyka. KDy\'9e se pod\f1\lang1033\'ed\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029 me na jejich seznam: {{\field{\*\fldinst{HYPERLINK https://docs.python.org/3/library/functions.html }}{\fldrslt{https://docs.python.org/3/library/functions.html\ul0\cf0}}}}\f0\fs22  zjist\f1\lang1033\'ed\f0\lang1029 me, \'9ee jsme jich pou\'9eili docela dost a to ani\'9e bychom tu\'9aili, \'9ee se jedn\f1\lang1033\'e1\f0\lang1029  o n\'ecjakou speci\f1\lang1033\'e1\f0\lang1029 ln\f1\lang1033\'ed\f0\lang1029  strukturu. Pod\f1\lang1033\'ed\f0\lang1029 vejme se na tento kr\f1\lang1033\'e1\f0\lang1029 tk\f1\lang1033\'fd\f0\lang1029  kousek k\f1\lang1033\'f3\f0\lang1029 du:\par
+\par
+\tab\b\i num_char = len("Hello")\par
+
+\pard\li720\sl276\slmult1 print(num_char)\par
+\par
+
+\pard\sl276\slmult1\b0\i0 pou\'9e\f1\lang1033\'ed\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029 me zde dv\'ec built-in funkce, jednu pro v\f1\lang1033\'fd\f0\lang1029 po\'e8et po\'e8tu znak\'f9 v \'f8et\'eczci a druhou pro v\f1\lang1033\'fd\f0\lang1029 pis t\f1\lang1033\'e9\f0\lang1029 to hodnoty s pomoc\f1\lang1033\'ed\f0\lang1029  prom\'ecnn\f1\lang1033\'e9\f0\lang1029 . Co kd\'9e si ale chceme vytvo\'f8it \b vlastn\f1\lang1033\'ed\f0\lang1029  funkce\b0 ? To samoz\'f8ejm\'ec m\'f9\'9eeme, syntaxe je:\par
+\par
+\tab\b\i def my_function():\par
+
+\pard\li720\sl276\slmult1     print("Hello")\par
+    print("From function")\par
+\par
+
+\pard\sl276\slmult1\b0\i0 za kl\f1\lang1033\'ed\f0\lang1029\'e8ov\f1\lang1033\'fd\f0\lang1029 m slovem \b\i def \b0\i0 n\f1\lang1033\'e1\f0\lang1029 sleduje n\f1\lang1033\'e1\f0\lang1029 zev funkce s dvojz\f1\lang1033\'e1\f0\lang1029 vorkou, ve kter\f1\lang1033\'e9\f0\lang1029  mohou b\f1\lang1033\'fd\f0\lang1029 t i parametry. O tom ale pozd\'ecji. Pot\f1\lang1033\'e9\f0\lang1029  za dvojte\'e8kou n\f1\lang1033\'e1\f0\lang1029 sleduje nov\f1\lang1033\'fd\f0\lang1029  \'f8\f1\lang1033\'e1\f0\lang1029 dek, odsazen\f1\lang1033\'ed\f0\lang1029  a blok k\f1\lang1033\'f3\f0\lang1029 du, pat\'f8\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029  funkci. Samotn\f1\lang1033\'fd\f0\lang1029  k\f1\lang1033\'f3\f0\lang1029 d (\b definice\b0 ) funkce ale nic ned\'ecl\f1\lang1033\'e1\f0\lang1029 . Mus\f1\lang1033\'ed\f0\lang1029 me ji toti\'9e n\'eckde v k\f1\lang1033\'f3\f0\lang1029 du i \b zavolat\b0  pomoc\f1\lang1033\'ed\f0\lang1029  jej\f1\lang1033\'ed\f0\lang1029 ho n\f1\lang1033\'e1\f0\lang1029 zvu. Pokud bych tedy cht\'ecl v\f1\lang1033\'fd\f0\lang1029 pis do konzoly, vyvol\f1\lang1033\'e1\f0\lang1029 m ho zad\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029 m n\f1\lang1033\'e1\f0\lang1029 zvu funkce: \b\i my_function()\b0\i0  Bez n\'ecj by se nestalo v\'f9bec nic. \par
+\par
+Funkce se vyu\'9e\f1\lang1033\'ed\f0\lang1029 vaj\f1\lang1033\'ed\f0\lang1029  k naprogramov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  opakuj\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029 ch se akc\f1\lang1033\'ed\f0\lang1029 . Dob\'f8e se to vysv\'ectluje t\'f8eba na programov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  robota: reeborg.ca (co instrukce to jedna funkce). M\f1\lang1033\'e1\f0\lang1029 me k dispozici z\f1\lang1033\'ed\f0\lang1029 kladn\f1\lang1033\'ed\f0\lang1029  sadu isntrukc\f1\lang1033\'ed\f0\lang1029 , ale m\'f9\'9eeme si s jejich pomoc\f1\lang1033\'ed\f0\lang1029  vytvo\'f8it i vlastn\f1\lang1033\'ed\f0\lang1029 . T\'f8eba oto\'e8en\f1\lang1033\'ed\f0\lang1029  robota je 2x vlevo a oto\'e8en\f1\lang1033\'ed\f0\lang1029  robota vpravo je 3x vlevo, atd. \par
+\par
+Mo\'9en\f1\lang1033\'e9\f0\lang1029  \'f8e\'9aen\f1\lang1033\'ed\f0\lang1029  hurdle challenge:\par
+\par
+\tab\b\i def turn_right():\par
+
+\pard\li720\sl276\slmult1     turn_left()\par
+    turn_left()\par
+    turn_left()\par
+    \par
+def jump():\par
+    turn_left()\par
+    move()\par
+    turn_right()\par
+    move()\par
+    turn_right()\par
+    move()\par
+    turn_left()\par
+\par
+for i in range(1,7):\par
+    move()\par
+    jump()\par
+\par
+
+\pard\sl276\slmult1\b0\i0 Mohlo by tam b\f1\lang1033\'fd\f0\lang1029 t jenom \b\i range(6) \b0\i0 bo kdyz pot\'f8ebujeme pouze konkr\f1\lang1033\'e9\f0\lang1029 tn\f1\lang1033\'ed\f0\lang1029  po\'e8tet opakov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029 , neums\f1\lang1033\'ed\f0\lang1029 me pou\'9e\f1\lang1033\'ed\f0\lang1029 vat doln\f1\lang1033\'ed\f0\lang1029 ,horn\f1\lang1033\'ed\f0\lang1029  mez.\par
+\par
+Dal\'9a\f1\lang1033\'ed\f0\lang1029  ze smy\'e8ek je smy\'e8ka \b while. \b0 Ta \b b\'ec\'9e\f1\lang1033\'ed\f0\lang1029  tak dlouho \b0 dokud je \b True\b0  v n\f1\lang1033\'ed\f0\lang1029  definovan\f1\lang1033\'e1\f0\lang1029  \b podm\f1\lang1033\'ed\f0\lang1029 nka\b0 . Pou\'9e\f1\lang1033\'ed\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029  se v\'9aude tam, kde p\'f8edem nezn\f1\lang1033\'e1\f0\lang1029 me p\'f8esn\f1\lang1033\'fd\f0\lang1029  po\'e8et opakov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  (jako u foru). P5ed\'ecl\f1\lang1033\'e1\f0\lang1029 me smy\'9aku z robot\f1\lang1033\'ed\f0\lang1029 ho p\'f8ek\f1\lang1033\'e1\f0\lang1029\'9ekov\f1\lang1033\'e9\f0\lang1029 ho b\'echu z for na while:\par
+\par
+\tab\b\i number_of_hurdles = 6\par
+
+\pard\li720\sl276\slmult1 while number_of_hurdles > 0:\par
+    move()\par
+     jump()\par
+    number_of_hurdles -= 1\par
+\par
+
+\pard\sl276\slmult1\b0\i0 Zkoum\f1\lang1033\'e1\f0\lang1029 me tedy, zda je \'e8\f1\lang1033\'ed\f0\lang1029 ta\'e8 v\'ect\'9a\f1\lang1033\'ed\f0\lang1029  ne\'9e 0, p\'f8i\'e8em\'9e p\'f8i ka\'9ed\f1\lang1033\'e9\f0\lang1029 m pr\'f9b\'echu smy\'e8kou jeho hodnotu zmen\'9a\f1\lang1033\'ed\f0\lang1029 me o 1. Pokud ybchm to n\'ecud\'eclali, dostaneme \b nekone\'e8nou smy\'e8ku\b0 , proto\'9ee hodnota \'e8\f1\lang1033\'ed\f0\lang1029 ta\'e8e by byla po\'f8\f1\lang1033\'e1\f0\lang1029 d 6. Co\'9e u foru nehroz\f1\lang1033\'ed\f0\lang1029 , proto jsou while smy\'e8ky z\f1\lang1033\'e1\f0\lang1029 ke\'f8n\'ecj\'9a\f1\lang1033\'ed\f0\lang1029 . Pokud bychom p\'f8edem neznali po\'e8et p\'f8ek\f1\lang1033\'e1\f0\lang1029\'9eek na dr\f1\lang1033\'e1\f0\lang1029 ze, mohli bysme pou\'9e\f1\lang1033\'ed\f0\lang1029 t negativn\f1\lang1033\'ed\f0\lang1029  podm\f1\lang1033\'ed\f0\lang1029 nku \par
+\par
+
+\pard\li720\sl276\slmult1\b\i while not at_goal():\par
+    move()\par
+    jump()\b0\i0  \par
+\par
+
+\pard\sl276\slmult1 Pokud p\'f8edem nev\f1\lang1033\'ed\f0\lang1029 me krom\'ec c\f1\lang1033\'ed\f0\lang1029 le ani kde a jak budou na trati um\f1\lang1033\'ed\f0\lang1029 st\'ecny p\'f8ek\f1\lang1033\'e1\f0\lang1029\'9eky, m\'f9\'9eeme ve smy\'e8ce pou\'9e\f1\lang1033\'ed\f0\lang1029 t podm\f1\lang1033\'ed\f0\lang1029 nky\par
+\par
+\tab\b\i while not at_goal():\par
+
+\pard\li720\sl276\slmult1     if front_is_clear():\par
+        move()\par
+    elif wall_in_front():\par
+        jump()\par
+\par
+
+\pard\sl276\slmult1\b0\i0 Pokud je i v\f1\lang1033\'fd\f0\lang1029\'9aka p\'f8ek\f1\lang1033\'e1\f0\lang1029\'9eek n\f1\lang1033\'e1\f0\lang1029 hodn\f1\lang1033\'e1\f0\lang1029 , mus\f1\lang1033\'ed\f0\lang1029 me nav\f1\lang1033\'ed\f0\lang1029 c upravit definici jumpu:\par
+\par
+\tab\b\i def jump():\par
+
+\pard\li720\sl276\slmult1     turn_left()\par
+    while wall_on_right():\par
+        move()\par
+    turn_right()\par
+    move()\par
+    turn_right()\par
+    while front_is_clear():\par
+        move()\par
+    turn_left()\par
+\par
+
+\pard\sl276\slmult1\b0\i0 zbytek m\'f9\'9ee z\'f9stat stejn\f1\lang1033\'fd\f0\lang1029 . \par
+\par
+\i Robot\f1\lang1033\'ed\f0\lang1029  maze - The secret is to have Reeborg follow along the right edge of the maze, turning right if it can, going straight ahead if it can\rquote t turn right, or turning left as a last resort.:\par
+\i0\par
+\tab\b\i def turn_right():\par
+
+\pard\li720\sl276\slmult1     turn_left()\par
+    turn_left()\par
+    turn_left()\par
+\par
+while front_is_clear():\par
+    move()\par
+turn_left()\par
+\par
+while not at_goal():\par
+    if front_is_clear() and wall_on_right():\par
+        move()\par
+    elif front_is_clear() and right_is_clear():\par
+        turn_right()\par
+        move()\par
+    elif front_is_clear():\par
+        move()\par
+    elif wall_in_front() and right_is_clear():\par
+        turn_right()\par
+        move()\par
+    else:\par
+        turn_left()\par
+\par
+
+\pard\sl276\slmult1\b0\i0 z\f1\lang1033\'e1\f0\lang1029 klad je m\f1\lang1033\'ed\f0\lang1029 t neust\f1\lang1033\'e1\f0\lang1029 le ze\'ef po prav\f1\lang1033\'e9\f0\lang1029  ruce a j\f1\lang1033\'ed\f0\lang1029 t pod\f1\lang1033\'e9\f0\lang1029 l n\f1\lang1033\'ed\f0\lang1029 . Mnohem jednodu\'9a\'9a\f1\lang1033\'ed\f0\lang1029  varianta:\par
+\par
+\tab\b\i while front_is_clear():\par
+
+\pard\li720\sl276\slmult1     move()\par
+turn_left()\par
+    \par
+while not at_goal():\par
+    if right_is_clear():\par
+        turn_right()\par
+        move()\par
+    elif front_is_clear():\par
+        move()\par
+    else:\par
+        turn_left()\b0\i0  \f1\lang5\par
+}
+ 
