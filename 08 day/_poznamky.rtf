@@ -1,0 +1,119 @@
+{\rtf1\ansi\ansicpg1250\deff0\nouicompat\deflang1029{\fonttbl{\f0\fnil\fcharset238 Calibri;}{\f1\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red255\green255\blue0;}
+{\*\generator Riched20 10.0.22621}\viewkind4\uc1 
+\pard\sl276\slmult1\b\i\f0\fs32 Day 08\par
+Function Parameters & Caesar Cipher\par
+\b0\i0\fs22\par
+Hlavn\f1\lang1033\'ed\f0\lang1029  n\f1\lang1033\'e1\f0\lang1029 pln\f1\lang1033\'ed\f0\lang1029  \b funkce s parametry \b0 a vytvo\'f8it Caesarovu \'9afiru.\par
+\par
+Zat\f1\lang1033\'ed\f0\lang1029 m jenom basic fce bez parametr\'f9:\par
+\par
+\tab\b\i def repte_func():\par
+
+\pard\li720\sl276\slmult1     print("Hello")\par
+    print("From")\par
+    print("Function")\par
+\par
+print("Lets call the function:")\par
+repte_func()\par
+\par
+
+\pard\sl276\slmult1\b0\i0 Fce se mus\f1\lang1033\'ed\f0\lang1029  nejd\'f8\f1\lang1033\'ed\f0\lang1029 v nadefinovat a pak pou\'9e\f1\lang1033\'ed\f0\lang1029 t (zavolat) tam kde to pot\'f8ebuju a kolikr\f1\lang1033\'e1\f0\lang1029 t chcu. Jeliko\'9e se fce pou\'9e\f1\lang1033\'ed\f0\lang1029 vaj\f1\lang1033\'ed\f0\lang1029  na opakuj\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029  se \f1\lang1033\'fa\f0\lang1029 koly, bylo by dobr\f1\lang1033\'e9\f0\lang1029  aby bylo mo\'9eno do nich pos\f1\lang1033\'ed\f0\lang1029 lat r\'f9zn\f1\lang1033\'e1\f0\lang1029  data, se kter\f1\lang1033\'fd\f0\lang1029 mi pak budou n\'ecjak pracovat. K tomu slou\'9e\f1\lang1033\'ed\f0\lang1029  pr\f1\lang1033\'e1\f0\lang1029 v\'ec \b parametry\b0  v podob\'ec \b n\f1\lang1033\'e1\f0\lang1029 zv\'f9 prom\'ecnn\f1\lang1033\'fd\f0\lang1029 ch v z\f1\lang1033\'e1\f0\lang1029 vorce \b0 za n\f1\lang1033\'e1\f0\lang1029 zvem fce v jej\f1\lang1033\'ed\f0\lang1029  definici. Tvo\'f8\f1\lang1033\'ed\f0\lang1029  jakousi \b vstupn\f1\lang1033\'ed\f0\lang1029  br\f1\lang1033\'e1\f0\lang1029 nu do funkce\b0 , d\f1\lang1033\'ed\f0\lang1029 ky kter\f1\lang1033\'e9\f0\lang1029  ji m\'f9\'9eeme p\'f8i vol\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  p\'f8edat poka\'9ed\f1\lang1033\'e9\f0\lang1029  jin\f1\lang1033\'e1\f0\lang1029  data ke zpracov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029 . \par
+\par
+\i\f1\lang1033 Prvn\'ed\f0\lang1029  p\'f8\f1\lang1033\'ed\f0\lang1029 klad - fce, kter\f1\lang1033\'e1\f0\lang1029  pozdrav\f1\lang1033\'ed\f0\lang1029  zadan\f1\lang1033\'fd\f0\lang1029 m jm\f1\lang1033\'e9\f0\lang1029 nem:  \par
+\par
+\tab\b def greeting(\highlight1 name\highlight0 ):\par
+
+\pard\li720\sl276\slmult1     print(f"Hello \{\highlight1 name.capitalize()\highlight0\}")\par
+    print("From Function\\n")\par
+\par
+greeting\highlight1 ("honza")\highlight0\par
+greeting\highlight1 ("Majkl")\highlight0\par
+\par
+
+\pard\sl276\slmult1\b0\i0 V definici je p\'f8id\f1\lang1033\'e1\f0\lang1029 n parametr name, kter\f1\lang1033\'fd\f0\lang1029  je pak ve fci pou\'9eit a mus\f1\lang1033\'ed\f0\lang1029 me ho zadat p\'f8i vol\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029 . Ve v\f1\lang1033\'fd\f0\lang1029 pisu z funce pak bude v pozdravu to dan\f1\lang1033\'e9\f0\lang1029  parametrem p\'f8i vol\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  fce zadn\f1\lang1033\'e9\f0\lang1029  jm\f1\lang1033\'e9\f0\lang1029 no.\par
+\par
+Terminologie: \b parametr - \b0 n\f1\lang1033\'e1\f0\lang1029 zev prom\'ecnn\f1\lang1033\'e9\f0\lang1029  v definici funkce. \b argument \b0 - konkr\f1\lang1033\'e9\f0\lang1029 tn\f1\lang1033\'ed\f0\lang1029  hodnota p\'f8ed\f1\lang1033\'e1\f0\lang1029 van\f1\lang1033\'e1\f0\lang1029  parametrem funkci p\'f8i jej\f1\lang1033\'ed\f0\lang1029 m vol\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029 .\par
+\par
+Funkce m\'f9\'9ee m\f1\lang1033\'ed\f0\lang1029 t samoz\'f8ejm\'ec i v\f1\lang1033\'ed\f0\lang1029 c ne\'9e jeden parametr, v definici i vol\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  je odd\'eclujeme \'e8\f1\lang1033\'e1\f0\lang1029 rkami:\par
+\par
+\tab\b\i def hello_person(name\highlight1 , hometown\highlight0 ):\par
+
+\pard\li720\sl276\slmult1     print(f"Hello \{name\} from \{\highlight1 hometown\highlight0\}.\\n")\par
+\par
+hello_person("Jan", \highlight1 "Ostrava"\highlight0 )\b0\par
+
+\pard\sl276\slmult1\i0\par
+p\'f8i\'e8em\'9e z\f1\lang1033\'e1\f0\lang1029 le\'9e\f1\lang1033\'ed\f0\lang1029  na po\'f8ad\f1\lang1033\'ed\f0\lang1029  argument\'f9 p\'f8i vol\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  funkce (\b positional argument\b0 ). Tak\'9ee kdybychom zadali nejd\'f8\f1\lang1033\'ed\f0\lang1029 ve Ostravu a potom Jana nevygeneruje se \'9e\f1\lang1033\'e1\f0\lang1029 dn\f1\lang1033\'e1\f0\lang1029  chyba, ale prost\'ec se vyp\f1\lang1033\'ed\f0\lang1029\'9ae nesmysln\f1\lang1033\'e1\f0\lang1029  v\'ecta. Pokud se chceme tomuto defaultn\f1\lang1033\'ed\f0\lang1029 mu chov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  kter\f1\lang1033\'e9\f0\lang1029  ob\'e8as vede k chyb\f1\lang1033\'e1\f0\lang1029 m vyhnout, m\'f9\'9eeme p\'f8i vol\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  funkce pou\'9e\f1\lang1033\'ed\f0\lang1029 t tzv. \b keyword argumenty. \b0\par
+\par
+\tab\b\i hello_person(\highlight1 hometown=\highlight0 "Ostrava", \highlight1 name=\highlight0 "Jan")\par
+\par
+\b0\i0 nebo-li zadat p\'f8i vol\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  funkce nejen samotn\f1\lang1033\'e9\f0\lang1029  argumenty, ale sp\f1\lang1033\'e1\f0\lang1029 rovat je i s parametry, kde pak na po\'f8ad\f1\lang1033\'ed\f0\lang1029  zad\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  nez\f1\lang1033\'e1\f0\lang1029 le\'9e\f1\lang1033\'ed\f0\lang1029 .\par
+\par
+\i P\'f8\f1\lang1033\'ed\f0\lang1029 klad: funkce pro v\f1\lang1033\'fd\f0\lang1029 po\'e8et plechovek barvy pot\'f8ebn\f1\lang1033\'fd\f0\lang1029 ch pro vymalov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  dan\f1\lang1033\'e9\f0\lang1029  plochy\par
+\par
+\tab\b def how_much_paint(width, height, coverage):\par
+
+\pard\li720\sl276\slmult1     total = (width * height) / coverage\par
+    print(f"U will need \{round(total)\} packages of paint to do the job.")\par
+\par
+how_much_paint(4, 2, 5)\par
+\par
+# varianta i se vstupem od usera\par
+\par
+width = int(input("Enter the width of the area: "))\par
+height = int(input("Enter the height of the area: "))\par
+\par
+def how_much_paint1(width, height, coverage):\par
+    total = (width * height) / coverage\par
+    print(f"U will need \{round(total)\} packages of paint to do the job.")\par
+\par
+how_much_paint1(width, height, 5)\par
+\par
+
+\pard\sl276\slmult1\b0 P\'f8\f1\lang1033\'ed\f0\lang1029 klad: je zadan\f1\lang1033\'e9\f0\lang1029  \'e8\f1\lang1033\'ed\f0\lang1029 slo prvo\'e8\f1\lang1033\'ed\f0\lang1029 slo?\par
+\par
+\tab\b num = int(input("Enter number to check: "))\par
+\par
+
+\pard\li720\sl276\slmult1 def prime_checker(num):\par
+    if num <= 1:\par
+        print(f"\{num\} IS NOT prime.")\par
+    elif num <= 3:\par
+        print(f"\{num\} IS prime.")\par
+    else:\par
+        true_list = []\par
+        for i in range(2, num):\par
+            if num % i == 0:\par
+                true_list.append(False)\par
+        if False not in true_list:\par
+            print(f"Number \{num\} IS prime.")\par
+        else:\par
+            print(f"Number \{num\} IS NOT prime.")\par
+\par
+prime_checker(num)\par
+\par
+
+\pard\sl276\slmult1\b0 Nejjednodu\'9a\'9a\f1\lang1033\'ed\f0\lang1029  existuj\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029  test - zkusm\f1\lang1033\'e9 d\f0\'eclen\f1\'ed v\f0\'9aemi cel\f1\'fd\f0 mi \'e8\f1\'edsly men\f0\'9a\f1\'edmi ne\f0\'9e \'e8\f1\'edslo samo\f0\lang1029 . Pokud vyjde modulo beze zbytku, zkouman\f1\lang1033\'e9\f0\lang1029  \'e8\f1\lang1033\'ed\f0\lang1029 slo NEN\f1\lang1033\'cd\f0\lang1029  prvo\'e8\f1\lang1033\'ed\f0\lang1029 slo. Moje varianta nen\f1\lang1033\'ed\f0\lang1029  nejlep\'9a\f1\lang1033\'ed\f0\lang1029 , proto\'9ee zbyte\'e8n\'ec testuje v\'9aechna \'e8\f1\lang1033\'ed\f0\lang1029 sla z range. Ono ale sta\'e8\f1\lang1033\'ed\f0\lang1029 , kdy\'9e modulo vyjde 0 u jedin\f1\lang1033\'e9\f0\lang1029 ho z nich. Proto lep\'9a\f1\lang1033\'ed\f0\lang1029  varianta:\par
+\par
+\tab\b else:\par
+
+\pard\li720\sl276\slmult1         is_prime = True\par
+        for i in range(2, num):\par
+            if num % i == 0:\par
+                is_prime = False\par
+        if is_prime:\par
+            print(f"Number \{num\} IS prime.")\par
+        else:\par
+            print(f"Number \{num\} IS NOT prime.")\par
+\par
+
+\pard\sl276\slmult1\par
+
+\pard\li720\sl276\slmult1\par
+\par
+
+\pard\sl276\slmult1\b0\i0\par
+\f1\lang5\par
+}
+ 
