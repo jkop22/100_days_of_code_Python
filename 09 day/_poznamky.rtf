@@ -1,0 +1,177 @@
+{\rtf1\ansi\ansicpg1250\deff0\nouicompat\deflang1029{\fonttbl{\f0\fnil\fcharset238 Calibri;}{\f1\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red255\green255\blue0;}
+{\*\generator Riched20 10.0.22621}\viewkind4\uc1 
+\pard\sl276\slmult1\b\i\f0\fs32 Day 09\par
+Dictionaries, Nesting and the Secret Auction\par
+\b0\i0\fs22\par
+\b Dictionaries\b0 , nesting a vytvo\'f8it silent aukce progr\f1\lang1033\'e1\f0\lang1029 mek.\par
+\par
+\b Dictionary \b0 je dal\'9a\f1\lang1033\'ed\f0\lang1029  \b datov\f1\lang1033\'e1\f0\lang1029  struktura \b0 Pythonu. Je podobn\f1\lang1033\'e1\f0\lang1029  listu, ale m\f1\lang1033\'ed\f0\lang1029 sto jednotliv\f1\lang1033\'fd\f0\lang1029 ch hodnot \b ukl\f1\lang1033\'e1\f0\lang1029 d\f1\lang1033\'e1\f0\lang1029  data \b0 v podob\'ec tzv. \b key-value p\f1\lang1033\'e1\f0\lang1029 r\'f9\b0 . \'e8ili si m\'f9\'9eeme dictionary p\'f8edstavit jako dvousloupcovou tabulku, kde prvn\f1\lang1033\'ed\f0\lang1029  sloupec obsahuje kl\f1\lang1033\'ed\f0\lang1029\'e8e a druh\f1\lang1033\'fd\f0\lang1029  hodnoty s t\'ecmito kl\f1\lang1033\'ed\f0\lang1029\'e8i spojen\f1\lang1033\'e9\f0\lang1029 . Deklarace dictionary vypad\f1\lang1033\'e1\f0\lang1029  n\f1\lang1033\'e1\f0\lang1029 sledovn\'ec:\par
+\tab\par
+\tab\b\i person = \{\par
+
+\pard\li720\sl276\slmult1     "f_name": "Jan",\par
+    "l_name": "Kopecny",\par
+    "birthplace": "Bruntal",\par
+    "hometown": "Ostrava"\par
+\}\par
+\par
+
+\pard\sl276\slmult1\b0\i0 Vid\f1\lang1033\'ed\f0\lang1029 me, \'9ee cel\f1\lang1033\'e9\f0\lang1029  dictionary je uvozene slo\'9een\f1\lang1033\'fd\f0\lang1029 mi zavorkami, jednotliv\f1\lang1033\'e9\f0\lang1029  key-value p\f1\lang1033\'e1\f0\lang1029 ry se odd\'ecluj\f1\lang1033\'ed\f0\lang1029  \'e8\f1\lang1033\'e1\f0\lang1029 rkami a jejich dv\'ec hodnoty navz\f1\lang1033\'e1\f0\lang1029 jem pak dvojte\'e8kou. Je nepsan\f1\lang1033\'e9\f0\lang1029  pravidlo, \'9ee na prvn\f1\lang1033\'ed\f0\lang1029 m \'f8\f1\lang1033\'e1\f0\lang1029 dku je n\f1\lang1033\'e1\f0\lang1029 zev dictionary prom\'ecnn\f1\lang1033\'e9\f0\lang1029  s prvn\f1\lang1033\'ed\f0\lang1029  slo\'9eenou z\f1\lang1033\'e1\f0\lang1029 vorkou, dal\'9a\f1\lang1033\'ed\f0\lang1029  \'f8\f1\lang1033\'e1\f0\lang1029 dky pak tvo\'f8\f1\lang1033\'ed\f0\lang1029  jednotliv\f1\lang1033\'e9\f0\lang1029  key.value entries a na posledn\f1\lang1033\'ed\f0\lang1029 m \'f8\f1\lang1033\'e1\f0\lang1029 dku je uzav\f1\lang1033\'ed\f0\lang1029 rac\f1\lang1033\'ed\f0\lang1029  slo\'9een\f1\lang1033\'e1\f0\lang1029  z\f1\lang1033\'e1\f0\lang1029 vorka. Tedy p\'f8esn\'ec tak jak je to v uk\f1\lang1033\'e1\f0\lang1029 zce.\par
+\par
+Pokud pot\'f8ebujeme pou\'9e\f1\lang1033\'ed\f0\lang1029 t n\'ecjakou hodnotu, postupujeme podobn\'ec jako u listu. Ale m\f1\lang1033\'ed\f0\lang1029 sto indexu pou\'9eijeme n\f1\lang1033\'e1\f0\lang1029 zev kl\f1\lang1033\'ed\f0\lang1029\'e8e:\par
+\par
+\tab\b\i print(f"\{person["f_name"]\} \{person["l_name"]\} was born in \{person["birthplace"]\} and now lives in \{person["hometown"]\}.")\b0\i0    \par
+\par
+V konzoli tedy uvid\f1\lang1033\'ed\f0\lang1029 me \b\i Jan Kopecny was born in Bruntal and now lives in Ostrava.\b0\i0  Pokud ud\'ecl\f1\lang1033\'e1\f0\lang1029 me v n\f1\lang1033\'e1\f0\lang1029 zvu kl\f1\lang1033\'ed\f0\lang1029\'e8e p\'f8eklep, vygeneruje se \b KeyError\b0 . \par
+\par
+N\f1\lang1033\'e1\f0\lang1029 zvy kl\f1\lang1033\'ed\f0\lang1029\'e8\'f9 se mus\f1\lang1033\'ed\f0\lang1029  ud\f1\lang1033\'e1\f0\lang1029 vat v uvozovk\f1\lang1033\'e1\f0\lang1029 ch.\par
+\par
+Pokud  pot\'f8ebujeme p\'f8idat p\f1\lang1033\'e1\f0\lang1029 r do dictionary m\'f9\'9eeme:\par
+\par
+\tab\b\i person["age"] = 43\par
+
+\pard\li720\sl276\slmult1 print(f"And he is \{person["age"]\} years old.")\par
+\par
+
+\pard\sl276\slmult1\b0\i0 Stejn\f1\lang1033\'fd\f0\lang1029 m zp\'f9sobem i editujeme ji\'9e existuj\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029  values. Pr\f1\lang1033\'e1\f0\lang1029 zdn\f1\lang1033\'fd\f0\lang1029  dictionary vytvo\'f8\f1\lang1033\'ed\f0\lang1029 me \b\i new =\f1\lang1033  \{\} \b0\i0 a stejn\f0\lang1029\'ec m\'f9\'9eeme i vypr\f1\lang1033\'e1\f0\lang1029 zdnit existuj\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029  dictionary \b\i person = \f1\lang1033\{\}\f0\lang1029 . \b0\i0\par
+\par
+Pokud pot\'f8ebujem iterovat nad dictem, tak:\par
+\par
+\tab\i # loop over dict 1 / prints out key names\b\par
+
+\pard\li720\sl276\slmult1 for item in person:\par
+    print(item)\par
+\b0 # loop over dict 2 / prints key and then its value\b\par
+for key in person:\par
+    print(key)\par
+    print(person[key])\par
+\par
+
+\pard\sl276\slmult1\b0 P\'f8\f1\lang1033\'ed\f0\lang1029 klad: m\f1\lang1033\'e1\f0\lang1029 me "Datab\f1\lang1033\'e1\f0\lang1029 zi" student\'f9 s jejich \'e8\f1\lang1033\'ed\f0\lang1029 seln\f1\lang1033\'fd\f0\lang1029 m skore u testu. To pot\'f8ebujeme p\'f8ev\f1\lang1033\'e9\f0\lang1029 st na slovn\f1\lang1033\'ed\f0\lang1029  hodnocen\f1\lang1033\'ed\f0\lang1029  a ulo\'9eit do nov\f1\lang1033\'e9\f0\lang1029 ho dictionary.\i0\par
+\par
+
+\pard\li720\sl276\slmult1\b\i student_scores = \{\par
+    "Jan": 81,\par
+    "Franta": 78,\par
+    "Karel": 99,\par
+    "Tereza": 74,\par
+    "Jane": 62\par
+\}\par
+\par
+student_grades = \{\}\par
+\par
+for key in student_scores:\par
+    if student_scores[key] > 90:\par
+        student_grades[key] = "Outstanding"\par
+    elif student_scores[key] > 80:\par
+        student_grades[key] = "Beyond Expectations"\par
+    elif student_scores[key] > 70:\par
+        student_grades[key] = "Acceptable"\par
+    else:\par
+        student_grades[key] = "Fail"\par
+    \par
+print(student_grades)\b0\i0  \par
+\par
+
+\pard\sl276\slmult1\b Nestov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  \b0 znamen\f1\lang1033\'e1\f0\lang1029  vno\'f8ov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  datov\f1\lang1033\'fd\f0\lang1029 ch struktur do sebe. Tak\'9ee hodnotou kl\f1\lang1033\'ed\f0\lang1029\'e8e v dictionary m\'f9\'9ee b\f1\lang1033\'fd\f0\lang1029 t list, nebo i dal\'9a\f1\lang1033\'ed\f0\lang1029  dictionary.\par
+\par
+\tab\b\i person = \{\par
+
+\pard\li720\sl276\slmult1     "f_name": "Jan",\par
+    "l_name": "Kopecny",\par
+    "birthplace": "Bruntal",\par
+    "hometown": "Ostrava",\par
+    "languages": ["CZ", "EN","DE", "IT"],\par
+    "drivers_licence": ["B", "C", "E"]\par
+\}\par
+\par
+
+\pard\sl276\slmult1\b0\i0 praktick\f1\lang1033\'e1\f0\lang1029  uk\f1\lang1033\'e1\f0\lang1029 zka listu v dict - u osoby m\f1\lang1033\'e1\f0\lang1029 me dva nov\f1\lang1033\'e9\f0\lang1029  kl\f1\lang1033\'ed\f0\lang1029\'e8e - jeden obsahuje list jazyk\'f9, kter\f1\lang1033\'fd\f0\lang1029 mi se domluv\f1\lang1033\'ed\f0\lang1029  a druh\f1\lang1033\'fd\f0\lang1029  list \'f8idi\'e8sk\f1\lang1033\'fd\f0\lang1029 ch opr\f1\lang1033\'e1\f0\lang1029 vn\'ecn\f1\lang1033\'ed\f0\lang1029 , kter\f1\lang1033\'fd\f0\lang1029 mi disponuje. \par
+\par
+\tab\b\i person = \{\par
+
+\pard\li720\sl276\slmult1     "f_name": "Jan",\par
+    "l_name": "Kopecny",\par
+    "birthplace": "Bruntal",\par
+    "hometown": "Ostrava",\par
+    "languages": ["CZ", "EN","DE", "IT"],\par
+    "drivers_licence": ["B", "C", "E"],\par
+    "previous_jobs": \{\par
+        "VSB": "IT spec and lecturer",\par
+        "IBM": "Shift Lead",\par
+        "Verizon": "Networking spec"\par
+    \}\par
+\}\par
+\par
+
+\pard\sl276\slmult1\b0\i0 praktick\f1\lang1033\'e1\f0\lang1029  uk\f1\lang1033\'e1\f0\lang1029 zka dictu v dict - m\'f9\'9eeme ulo\'9eit p\'f8edchoz\f1\lang1033\'ed\f0\lang1029  zam\'ecstn\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  osoby.\par
+\par
+\i P\'f8\f1\lang1033\'ed\f0\lang1029 klad: funkce, kter\f1\lang1033\'e1\f0\lang1029  p\'f8id\f1\lang1033\'e1\f0\lang1029  do listu dal\'9a\f1\lang1033\'ed\f0\lang1029  z\f1\lang1033\'e1\f0\lang1029 znam\par
+\par
+\tab\b travel_log = [\par
+
+\pard\li720\sl276\slmult1\{\par
+  "country": "France",\par
+  "visits": 12,\par
+  "cities": ["Paris", "Lille", "Dijon"]\par
+\},\par
+\{\par
+  "country": "Germany",\par
+  "visits": 5,\par
+  "cities": ["Berlin", "Hamburg", "Stuttgart"]\par
+\},\par
+]\par
+\par
+\highlight1 def add_new_country(country, num_of_visits, cities):\par
+    new_entry = \{\}\par
+    new_entry["country"] = country\par
+    new_entry["visits"] = num_of_visits\par
+    new_entry["cities"] = cities\par
+    travel_log.append(new_entry)\par
+\highlight0\par
+add_new_country("Russia", 2, ["Moscow", "Saint Petersburg"])\par
+print(travel_log)\fs32\par
+
+\pard\sa200\sl276\slmult1\b0\i0\f1\fs22\lang5\par
+
+\pard\sl276\slmult1\i\f0\lang1029 Cvi\'e8en\f1\lang1033\'ed\f0\lang1029 : blind auction program\par
+\par
+
+\pard\li720\sl276\slmult1\b import os\par
+from art import logo\par
+\par
+print(logo)\par
+\par
+auction_participants = []\par
+\par
+def add_bid(b_name, b_offer):\par
+    new_entry = \{\}\par
+    new_entry["name"] = b_name\par
+    new_entry["offer"] = b_offer\par
+    auction_participants.append(new_entry)\par
+\par
+new_bid = True\par
+\par
+while new_bid:\par
+    name = input("Enter your name: ")\par
+    offer = int(input("Enter your bid offer: $"))\par
+    add_bid(name, offer)\par
+    repete = input("Is there another bidder? (Y / N):")\par
+    os.system("cls")\par
+    if repete == "N":\par
+        new_bid = False\par
+    \par
+max = 0\par
+\par
+for i in range(len(auction_participants)):\par
+    if auction_participants[i]["offer"] > max:\par
+        max = auction_participants[i]["offer"]\par
+           \par
+print(f"Auction winner is \{auction_participants[i]["name"]\} with a bid of \{auction_participants[i]["offer"]\}.")\par
+
+\pard\sa200\sl276\slmult1\b0\par
+\par
+\f1\lang1033\tab\i0\lang5\par
+}
+ 
