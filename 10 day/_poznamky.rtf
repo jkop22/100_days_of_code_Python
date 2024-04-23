@@ -13351,8 +13351,179 @@ a5ad4a525a2129392929397b7b8c7b8494213139213139848c9c5a636b737b8ca5a5b5a5a5ad4a
 }\par
 \par
 
-\pard\sl240\slmult1\par
+\pard\sl240\slmult1\i Cvi\'e8en\f1\lang1033\'ed\f0\lang1029 : jednoduch\f1\lang1033\'e1\f0\lang1029  console kalkula\'e8ka\par
+\par
+1. krok: napsat funkce pro v\'9aechny z\f1\lang1033\'e1\f0\lang1029 kladn\f1\lang1033\'ed\f0\lang1029  matematick\f1\lang1033\'e9\f0\lang1029  operace (+ - * /)\par
+\par
+\tab\b def plus(n1, n2):\par
 
-\pard\sl276\slmult1\qc\f1\lang5\par
+\pard\li720\sl240\slmult1     return n1 + n2\par
+\par
+def minus(n1, n2):\par
+    return n1 - n2\par
+\par
+def multiplicate(n1, n2):\par
+    return n1 * n2\par
+\par
+def divide(n1, n2):\par
+    return n1 / n2\par
+\par
+
+\pard\sl240\slmult1\b0 2. krok: vytvo\'f8it dict, kdy kl\f1\lang1033\'ed\f0\lang1029\'e8em bude matematick\f1\lang1033\'fd\f0\lang1029  znak a value n\f1\lang1033\'e1\f0\lang1029 zev odpov\f1\lang1033\'ed\f0\lang1029 daj\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029  funkce\par
+\par
+\tab\b calculations = \{\par
+
+\pard\li720\sl240\slmult1     "+": plus,\par
+    "-": minus,\par
+    "*": multiplicate,\par
+    "/": divide\par
+\}\par
+\par
+
+\pard\sl240\slmult1\b0 3. krok: vytvo\'f8it vstupy pro dv\'ec \'e8\f1\lang1033\'ed\f0\lang1029 sla + v\f1\lang1033\'fd\f0\lang1029 b\'ecr mat. oper\f1\lang1033\'e1\f0\lang1029 toru u\'9eivatelem\par
+\par
+\tab  \b num1 = int(input("Enter first number:" ))\par
+
+\pard\li720\sl240\slmult1 num2 = int(input("Enter second number: "))\par
+for key in calculations:\par
+    print(key)\par
+operator = input("select math operation from operators above: ")\par
+\par
+
+\pard\sl240\slmult1\b0 4. krok: prov\f1\lang1033\'e9\f0\lang1029 st samotn\f1\lang1033\'fd\f0\lang1029  v\f1\lang1033\'fd\f0\lang1029 po\'e8et a vypsat v\f1\lang1033\'fd\f0\lang1029 sledek\par
+\par
+\tab\b result = calculations[operator](num1, num2)\par
+\par
+
+\pard\li720\sl240\slmult1 print(f"\{num1\} \{operator\} \{num2\} = \{result\}")\par
+\par
+
+\pard\sl240\slmult1\b0 (pro lep\'9a\f1\lang1033\'ed\f0\lang1029  UX by neza\'9akodilo, p\'f8esunout v\f1\lang1033\'fd\f0\lang1029 b\'ecr oper\f1\lang1033\'e1\f0\lang1029 toru mezi ob\'ec zad\f1\lang1033\'e1\f0\lang1029 van\f1\lang1033\'e1\f0\lang1029  \'e8\f1\lang1033\'ed\f0\lang1029 sla)\par
+\par
+5. nech\f1\lang1033\'e1\f0\lang1029 me usera prov\f1\lang1033\'e9\f0\lang1029 st koik v\f1\lang1033\'fd\f0\lang1029 po\'e8t\'f9 bude cht\f1\lang1033\'ed\f0\lang1029 t a d\f1\lang1033\'e1\f0\lang1029 me mu na v\f1\lang1033\'fd\f0\lang1029 b\'ecr i to, \'e8i bude cht\f1\lang1033\'ed\f0\lang1029 t pracovat s v\f1\lang1033\'fd\f0\lang1029 sledkem p\'f8edchoz\f1\lang1033\'ed\f0\lang1029 ho v\f1\lang1033\'fd\f0\lang1029 po\'e8tu nebo se dv\'ecmi  nov\f1\lang1033\'fd\f0\lang1029 mi hodnotami\par
+\par
+\tab\b results = [result]\par
+
+\pard\li720\sl240\slmult1 i = 0\par
+\par
+while again != "X":\par
+    again = input(f"C to continue calculation with \{result\} or X to exit calculator: ")\par
+    if again == "C":\par
+        i += 1\par
+        operator = input("select new math operator: ")\par
+        num = int(input("Enter a number: "))\par
+        result = calculations[operator](results[i-1], num) \par
+        results.append(result)   \par
+        print(f"\{results[i-1]\} \{operator\} \{num\} = \{result\}")\par
+\par
+print("GoodBye ...")\par
+\par
+
+\pard\sl240\slmult1\b0 sice to funguje ale hromada k\f1\lang1033\'f3\f0\lang1029 du se opakuje. Proto lep\'9a\f1\lang1033\'ed\f0\lang1029  varianta\par
+\par
+\tab\b num1 = int(input("Enter first number: "))\par
+
+\pard\li720\sl240\slmult1 for key in calculations:\par
+    print(key)\par
+\par
+\highlight1 want_continue = True\par
+while want_continue:\par
+\highlight0     operator = input("select math operation from operators above: ")\par
+    num2 = int(input("Enter second number: "))\par
+\par
+    result = calculations[operator](num1, num2)\par
+\par
+    print(f"\{num1\} \{operator\} \{num2\} = \{result\}")\par
+\par
+    \highlight1 if input(f"Type C if you want to continue with \{result\} or X to exit: ") == "C":\par
+        num1 = result\par
+    else:\par
+        want_continue = False\par
+print("GoodBye")\par
+\par
+
+\pard\sl240\slmult1\highlight0\b0 co kdy\'9e bychom ale cht\'ecli, aby se po v\f1\lang1033\'fd\f0\lang1029 b\'ecru X nevysko\'e8ilo z programu, ale za\'e8alo \f1\lang1033\'fa\f0\lang1029 pln\'ec nov\f1\lang1033\'e9\f0\lang1029  zad\f1\lang1033\'e1\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  v\f1\lang1033\'fd\f0\lang1029 po\'e8tu? to je trochu slo\'9eit\'ecj\'9a\f1\lang1033\'ed\f0\lang1029  a v program\f1\lang1033\'e1\f0\lang1029 to\'9atin\'ec se tomu \'f8\f1\lang1033\'ed\f0\lang1029 k\f1\lang1033\'e1\f0\lang1029  \b rekurze - funkce volaj\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029  sebe sama\b0 .Cel\f1\lang1033\'fd\f0\lang1029  k\f1\lang1033\'f3\f0\lang1029 d od zad\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  prvn\f1\lang1033\'ed\f0\lang1029 ho \'e8\f1\lang1033\'ed\f0\lang1029 sla tedy uzav\'f8eme do nov\f1\lang1033\'e9\f0\lang1029  funkce, kter\f1\lang1033\'e1\f0\lang1029  nebude m\f1\lang1033\'ed\f0\lang1029 t \'9e\f1\lang1033\'e1\f0\lang1029 dn\f1\lang1033\'e9\f0\lang1029  parametry. Pot\f1\lang1033\'e9\f0\lang1029  ji na konci programu zavol\f1\lang1033\'e1\f0\lang1029 me, aby se n\f1\lang1033\'e1\f0\lang1029 m program v\'f9bec spustil. A vol\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  t\f1\lang1033\'e9\f0\lang1029 to funkce je\'9at\'ec p\'f8id\f1\lang1033\'e1\f0\lang1029 me do else v\'ectve podm\f1\lang1033\'ed\f0\lang1029 nky k want_continue. A m\f1\lang1033\'e1\f0\lang1029 me hotovo:\par
+\par
+\tab\b def calculator():\par
+
+\pard\li720\sl240\slmult1     num1 = int(input("Enter first number: "))\par
+    for key in calculations:\par
+        print(key)\par
+\par
+    want_continue = True\par
+    while want_continue:\par
+        operator = input("select math operation from operators above: ")\par
+        num2 = int(input("Enter second number: "))\par
+\par
+        result = calculations[operator](num1, num2)\par
+\par
+        print(f"\{num1\} \{operator\} \{num2\} = \{result\}")\par
+\par
+        if input(f"Type C if you want to continue with \{result\} or X start new calculation: ") == "C":\par
+            num1 = result\par
+        else:\par
+            want_continue = False\par
+            calculator()    \par
+\par
+calculator()\b0  \par
+\par
+
+\pard\sl240\slmult1 P\f1\lang1033\'e1\f0\lang1029 r posledn\f1\lang1033\'ed\f0\lang1029 ch \f1\lang1033\'fa\f0\lang1029 prav - p\'f8idat logo, p\'f8i nov\f1\lang1033\'e9\f0\lang1029 m v\f1\lang1033\'fd\f0\lang1029 po\'e8tu se vyma\'9ee obrazovka, p\'f8ed\'eclat vstupy z typu int na float a p\'f8idat ukon\'e8en\f1\lang1033\'ed\f0\lang1029  programu.\par
+\par
+\tab\b import os\par
+
+\pard\li720\sl240\slmult1 from art import logo\par
+\par
+def plus(n1, n2):\par
+    return n1 + n2\par
+\par
+def minus(n1, n2):\par
+    return n1 - n2\par
+\par
+def multiplicate(n1, n2):\par
+    return n1 * n2\par
+\par
+def divide(n1, n2):\par
+    return n1 / n2\par
+\par
+calculations = \{\par
+    "+": plus,\par
+    "-": minus,\par
+    "*": multiplicate,\par
+    "/": divide\par
+\}\par
+\par
+def calculator():\par
+    print(logo)\par
+    num1 = float(input("Enter first number: "))\par
+    for key in calculations:\par
+        print(key)\par
+\par
+    want_continue = True\par
+    while want_continue:\par
+        operator = input("select math operation from operators above: ")\par
+        num2 = float(input("Enter second number: "))\par
+\par
+        result = calculations[operator](num1, num2)\par
+\par
+        print(f"\{num1\} \{operator\} \{num2\} = \{result\}")\par
+\par
+        repeat = input(f"Type C if you want to continue with \{result\}, N to start new calculation or X to quit: ")\par
+        if repeat == "C":\par
+            num1 = result            \par
+        elif repeat == "N":\par
+            want_continue = False\par
+            os.system("cls")\par
+            calculator()\par
+        else:\par
+            print("Goodbye")\par
+            break\par
+      \par
+calculator()\par
+\par
+
+\pard\sl240\slmult1\i0\fs32 !! D\'f9le\'9eit\f1\lang1033\'e9\f0\lang1029  rekurze a flagy !!\par
+
+\pard\sl276\slmult1\qc\b0\f1\fs22\lang5\par
 }
  
