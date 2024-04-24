@@ -1,0 +1,202 @@
+{\rtf1\ansi\ansicpg1250\deff0\nouicompat\deflang1029{\fonttbl{\f0\fnil\fcharset238 Calibri;}{\f1\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red255\green255\blue0;}
+{\*\generator Riched20 10.0.22621}\viewkind4\uc1 
+\pard\sl276\slmult1\b\i\f0\fs32 Day 12\par
+Scope & Number Guessing Game\par
+\b0\i0\fs22\par
+\b Obor platnosti \b0 prom\'ecnn\f1\lang1033\'fd\f0\lang1029 ch. Jednoduch\f1\lang1033\'fd\f0\lang1029  p\'f8\f1\lang1033\'ed\f0\lang1029 klad:\par
+\par
+\tab\b\i enemies = 1\par
+\par
+
+\pard\li720\sl276\slmult1 def incr_enem():\par
+    enemies = 2\par
+    print(f"enemies inside function: \{enemies\}")\par
+\par
+incr_enem()\par
+print(f"Enemies outside function: \{enemies\}")\b0\i0  \par
+\par
+
+\pard\sl276\slmult1 i kdy\'9e pracujem s jedno\f1\lang1033 u\f0\lang1029  prom\'ecnnou a zd\f1\lang1033\'e1\f0\lang1029 lo by se \'9ee ob\'ec hodnoty budou stejn\f1\lang1033\'e9\f0\lang1029 , nen\f1\lang1033\'ed\f0\lang1029  tomu tak. Vnit\'f8n\f1\lang1033\'ed\f0\lang1029  hodnota vyjde 2, ale vn\'ecj\'9a\f1\lang1033\'ed\f0\lang1029  z\'f9stane 1. M\'f9\'9ee za to pr\f1\lang1033\'e1\f0\lang1029 v\'ec scope\f1\lang1033  - jedn\'e1\f0\lang1029  se o dv\'ec nez\f1\lang1033\'e1\f0\lang1029 visl\f1\lang1033\'e9\f0\lang1029  prom\'ecnn\f1\lang1033\'e9\f0\lang1029 , i kdy\'9e se jmenuj\f1\lang1033\'ed\f0\lang1029  stejn\'ec). Rozli\'9aujeme \b lok\f1\lang1033\'e1\f0\lang1029 ln\f1\lang1033\'ed\f0\lang1029  \b0 (uvnit\'f8 funkce):\par
+\par
+\tab\b\i def drink_potion():\par
+
+\pard\li720\sl276\slmult1     potion_strength = 2\par
+    print(potion_strength)\par
+\par
+drink_potion()\par
+print(potion_strength)\fs32\par
+
+\pard\sl276\slmult1\b0\i0\f1\fs22\lang5\par
+\f0\lang1029 print pod vol\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029 m funkce nebude fungovat (NameError), bo je ta prom\'ecnn\f1\lang1033\'e1\f0\lang1029  definov\f1\lang1033\'e1\f0\lang1029 na pouze uvnit\'f8 funkce a proto je pouze tam validn\f1\lang1033\'ed\f0\lang1029  a viditeln\f1\lang1033\'e1\f0\lang1029 . \par
+\par
+A \b glob\f1\lang1033\'e1\f0\lang1029 ln\f1\lang1033\'ed\f0\lang1029 . T\b0 ento koncept scopu (namespace) nen\f1\lang1033\'ed\f0\lang1029  platn\f1\lang1033\'fd\f0\lang1029  pouze pro prom\'ecnn\f1\lang1033\'e9\f0\lang1029 , ale pro v\'9aechny sou\'e8\f1\lang1033\'e1\f0\lang1029 sti programu. Proti jin\f1\lang1033\'fd\f0\lang1029 m jazyk\'f9m zde neexituje koncept block scopu. \par
+\par
+\tab\b\i enemies = 1\par
+\par
+
+\pard\li720\sl276\slmult1 def incr_enem():\par
+    \highlight1 global enemies\highlight0\par
+    enemies = 2\par
+    print(f"enemies inside function: \{enemies\}")\par
+\par
+incr_enem()\par
+print(f"Enemies outside function: \{enemies\}")\par
+\par
+
+\pard\sl276\slmult1\b0\i0 te\'ef oba v\f1\lang1033\'fd\f0\lang1029 pisy budou stejn\f1\lang1033\'e9\f0\lang1029 , proto\'9ee jsme uvnit\'f8 funkce explicitn\'ec definovali, \'9ee chceme, aby se pracovalo s glob\f1\lang1033\'e1\f0\lang1029 ln\f1\lang1033\'ed\f0\lang1029  prom\'ecnnou. \b NED\'ccLAT! \'c8\f1\lang1033\'ed\f0\lang1029 st m\'f9\'9eeme, ale nemodifikovat\b0 . \par
+\par
+\b Glob\f1\lang1033\'e1\f0\lang1029 ln\f1\lang1033\'ed\f0\lang1029  scope se hod\f1\lang1033\'ed\f0\lang1029  zejm\f1\lang1033\'e9\f0\lang1029 na pro definov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  konstant\b0 . Kter\f1\lang1033\'e9\f0\lang1029  stejn\'ec nem\'f9\'9eeme m\'ecnit.  A konstnty se definuj\f1\lang1033\'ed\f0\lang1029  velk\f1\lang1033\'fd\f0\lang1029 mi p\f1\lang1033\'ed\f0\lang1029 smeny dle konvence.\par
+\par
+\i Cvi\'e8en\f1\lang1033\'ed\f0\lang1029 : guessing game - moje reseni\par
+\par
+\tab\b import random\par
+\par
+
+\pard\li720\sl276\slmult1 print("Welcome to the Guessing Game")\par
+print("Can u guess the numer Im thinking of?")\par
+SECRET = random.randint(1,100)\par
+\par
+if (input("Do you want an easy (E) or hard (H) game?: ")) == "E":\par
+    diff = 10\par
+else:\par
+    diff = 5\par
+\par
+while True and diff > 0: \par
+    guess = int(input("Enter your guess: "))\par
+    diff -= 1\par
+    if guess == SECRET:\par
+        print(f"WINNER!")\par
+        break\par
+    elif guess > SECRET:\par
+        print(f"\{guess\} too HIGH, try again \{diff\} tries remainig.")\par
+    else:\par
+        print(f"\{guess\} too LOW, try again \{diff\} tries remainig.")\par
+print("GAME LOST all tries gone")\par
+\b0\i0  \par
+
+\pard\sl276\slmult1 -----------------------------------------\par
+\i\'f8e\'9aen\f1\lang1033\'ed\f0\lang1029  z bootcampu p\'f8es funkce:\par
+-----------------------------------------\par
+\par
+\tab\b import random\par
+
+\pard\li720\sl276\slmult1\b0 # 1. welcome message and generate a random number to guess\b\par
+print("Welcome to the Guessing Game")\par
+print("Can u guess the numer Im thinking of?")\par
+SECRET = random.randint(1, 100)\par
+\par
+\b0 # 3. check function\par
+\b def check_guess(guess, SECRET):\par
+    if guess > SECRET:\par
+        print(f"\{guess\} is too HIGH")\par
+    elif guess < SECRET:\par
+        print(f"\{guess\} is too LOW")\par
+    else:\par
+        print("WELL DONE!")\par
+\par
+\b0 # 2. players guess\par
+\b guess = int(input("Whats your guess: "))\par
+\par
+
+\pard\sl276\slmult1\b0 Vygenerovali jsme n\f1\lang1033\'e1\f0\lang1029 hodn\f1\lang1033\'e9\f0\lang1029  \'e8\f1\lang1033\'ed\f0\lang1029 slo, napsali checkovac\f1\lang1033\'ed\f0\lang1029  funkci a input pro h\f1\lang1033\'e1\f0\lang1029 d\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  \'e8\f1\lang1033\'ed\f0\lang1029 sla userem. Nyn\f1\lang1033\'ed\f0\lang1029  p\'f8id\f1\lang1033\'e1\f0\lang1029 me funkci na nasatven\f1\lang1033\'ed\f0\lang1029  obt\f1\lang1033\'ed\f0\lang1029\'9enosti:\par
+\par
+\tab\b def set_difficulty():\par
+
+\pard\li720\sl276\slmult1     level = input("Select game difficulty ('E'asy / 'H'ard): ")\par
+    if level == "E":\par
+        turns = EASY_TRIES\par
+    else:\par
+        turns = HARD_TRIES\b0  \par
+\par
+
+\pard\sl276\slmult1 aby n\f1\lang1033\'e1\f0\lang1029 m zafungovala p\'f8id\f1\lang1033\'e1\f0\lang1029 me dv\'ec glob\f1\lang1033\'e1\f0\lang1029 ln\f1\lang1033\'ed\f0\lang1029  konstanty a glob\f1\lang1033\'e1\f0\lang1029 on\f1\lang1033\'ed\f0\lang1029  prom\'ecnnou pro sledov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  po\'e8tu pokus\'f9 (lok\f1\lang1033\'e1\f0\lang1029 ln\f1\lang1033\'ed\f0\lang1029  ve funkci je k ni\'e8emu:\par
+\par
+\tab\b EASY_TRIES = 10\par
+
+\pard\li720\sl276\slmult1 HARD_TRIES = 5\par
+\par
+turns = 0\par
+\par
+
+\pard\sl276\slmult1\b0 abychom ale mohli modifikovat glob\f1\lang1033\'e1\f0\lang1029 ln\f1\lang1033\'ed\f0\lang1029  prom\'ecnnou zevnit\'f8 funkce, museli bychom do n\f1\lang1033\'ed\f0\lang1029  p\'f8idat \b global turns\b0 . Ale jednak to nen\f1\lang1033\'ed\f0\lang1029  dovoleno podle program\f1\lang1033\'e1\f0\lang1029 torsk\f1\lang1033\'e9\f0\lang1029  etikety a druhak m\f1\lang1033\'e1\f0\lang1029 me lep\'9a\f1\lang1033\'ed\f0\lang1029  \'f8e\'9aen\f1\lang1033\'ed\f0\lang1029 . Hodnoty z funkce returnnout a rovnou je ulo\'9eit do prom\'ecnn\f1\lang1033\'e9\f0\lang1029  zavol\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029 m funkce:\par
+\par
+\tab\b def set_difficulty():\par
+
+\pard\li720\sl276\slmult1     level = input("Select game difficulty ('E'asy / 'H'ard): ")\par
+    if level == "E":\par
+        return EASY_TRIES\par
+    else:\par
+        return HARD_TRIES\par
+\par
+turns = set_difficulty()\par
+\par
+
+\pard\sl276\slmult1\b0 je na\'e8ase otestovat k\f1\lang1033\'f3\f0\lang1029 d. Po otestov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  spr\f1\lang1033\'e1\f0\lang1029 vn\f1\lang1033\'e9\f0\lang1029 ho zobrazov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  po\'e8tu pokus\'f9 zavol\f1\lang1033\'e1\f0\lang1029 me checkovac\f1\lang1033\'ed\f0\lang1029  funkci a otestujeme i j\f1\lang1033\'ed\f0\lang1029 .\par
+\par
+
+\pard\li720\sl276\slmult1\b check_guess(guess, SECRET)\par
+\par
+
+\pard\sl276\slmult1\b0 a m\'f9\'9eeme si i nechat do\'e8asn\'ec b\'echem developov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  zobrazit ono tajn\f1\lang1033\'e9\f0\lang1029  \'e8\f1\lang1033\'ed\f0\lang1029 slo: \b print(SECRET)\b0 . Otestujeme v\'9aechny t\'f8i varianty a pust\f1\lang1033\'ed\f0\lang1029 me se do k\f1\lang1033\'f3\f0\lang1029 d\'ecn\f1\lang1033\'ed\f0\lang1029  opakov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  zad\f1\lang1033\'e1\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  tipu. Mus\f1\lang1033\'ed\f0\lang1029  se opakovat dv\'ec v\'ecci - v\f1\lang1033\'fd\f0\lang1029 zva k zad\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  hodnoty a jej\f1\lang1033\'ed\f0\lang1029  kontrola - a to do t\f1\lang1033\'e9\f0\lang1029  doby, dokud neuhodneme spr\f1\lang1033\'e1\f0\lang1029 vn\f1\lang1033\'e9\f0\lang1029  \'e8\f1\lang1033\'ed\f0\lang1029 slo.\par
+\par
+\tab\b while guess != SECRET:\par
+
+\pard\li720\sl276\slmult1     guess = int(input("Whats your guess: "))\par
+    check_guess(guess, SECRET)\par
+\par
+
+\pard\sl276\slmult1\b0 kdy\'9e to ale nech\f1\lang1033\'e1\f0\lang1029 me takto, bude NameError bo guess mem\f1\lang1033\'ed\f0\lang1029  p\'f8ed smy\'e8kou nikde definov\f1\lang1033\'e1\f0\lang1029 no. Proto nad smy\'e8ku p\'f8id\f1\lang1033\'e1\f0\lang1029 me \b guess = 0 \b0\i0  \i V tuto chv\f1\lang1033\'ed\f0\lang1029 li je vhodn\f1\lang1033\'e1\f0\lang1029  doba k tomu, abychom z cel\f1\lang1033\'e9\f0\lang1029 ho k\f1\lang1033\'f3\f0\lang1029 du mimo \f1\lang1033 f\f0\lang1029 unkce ud\'eclali novou funkci - game()\par
+\par
+\tab\b def game(): \par
+
+\pard\li720\sl276\slmult1      print("Welcome to the Guessing Game")\par
+    print("Can u guess the numer Im thinking of?")\par
+    SECRET = random.randint(1, 100)\par
+    print(SECRET)\par
+    \par
+    turns = set_difficulty() \par
+    print(f"You have \{turns\} attempts to guess the secret number.")\par
+\par
+    guess = 0 \par
+    while guess != SECRET: # 5. loop for repeating od guessing\par
+        guess = int(input("Whats your guess: "))\par
+        check_guess(guess, SECRET)\par
+\par
+game()\par
+\par
+
+\pard\sl276\slmult1\b0 a m\'f9\'9eeme znovu otestovat, v\'9ae by m\'eclo b\'ec\'9eet. Je\'9at\'ec n\f1\lang1033\'e1\f0\lang1029 m zb\f1\lang1033\'fd\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029  implementovat po\'e8\f1\lang1033\'ed\f0\lang1029 t\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  pokus\'f9. To se bude d\f1\lang1033\'ed\f0\lang1029 t ve funkci kontroluj\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029  spr\f1\lang1033\'e1\f0\lang1029 vnost odpov\'ecdi, p\'f8i \'9apatn\f1\lang1033\'e9\f0\lang1029  odpov\'ecdi sn\f1\lang1033\'ed\f0\lang1029\'9e\f1\lang1033\'ed\f0\lang1029 me po\'e8et pokus\'f9 o jeden.\par
+\par
+\tab\b def check_guess(guess, SECRET, \highlight1 turns\highlight0 ):\par
+
+\pard\li720\sl276\slmult1     if guess > SECRET:\par
+        print(f"\{guess\} is too HIGH")\par
+        \highlight1 return turns -1\highlight0\par
+    elif guess < SECRET:\par
+        print(f"\{guess\} is too LOW")\par
+        \highlight1 return turns -1\highlight0\par
+    else:\par
+        print("WELL DONE!")\par
+\par
+
+\pard\sl276\slmult1\b0 nav\f1\lang1033\'ed\f0\lang1029 c je\'9at\'ec mus\f1\lang1033\'ed\f0\lang1029 me upravit samotn\f1\lang1033\'e9\f0\lang1029  vol\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  funkce \b check_guess(guess, SECRET, \highlight1 turns\highlight0 ). \b0 Toho, \'9ee n\f1\lang1033\'e1\f0\lang1029 m te\'ef tato funkce nov\'ec i vrac\f1\lang1033\'ed\f0\lang1029  hodnotu (turns), m\'f9\'9eeme vyu\'9e\f1\lang1033\'ed\f0\lang1029 t a tuto hodntou zachytit ve smy\'e8ce do turns prom\'ecnn\f1\lang1033\'e9\f0\lang1029 , \'e8\f1\lang1033\'ed\f0\lang1029 m\'9e zajist\f1\lang1033\'ed\f0\lang1029 me jej\f1\lang1033\'ed\f0\lang1029  update p\'f8i h\f1\lang1033\'e1\f0\lang1029 d\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029 :\par
+\par
+\tab\highlight1\b turns = \highlight0 check_guess(guess, SECRET, turns)\b0   \par
+\par
+otestujeme - zat\f1\lang1033\'ed\f0\lang1029 m se n\f1\lang1033\'e1\f0\lang1029 m zb\f1\lang1033\'fd\f0\lang1029 vaj\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029  po\'e8et tah\'f9 nikde nezobrazuje, ale hlavn\'ec nen\f1\lang1033\'ed\f0\lang1029  funk\'e8n\f1\lang1033\'ed\f0\lang1029 . K jeho zobrazen\f1\lang1033\'ed\f0\lang1029  sta\'e8\f1\lang1033\'ed\f0\lang1029  p\'f8esunout print() s v\f1\lang1033\'fd\f0\lang1029 pisem do smy\'e8ky. K jeho zfunk\'e8n\'ecn\f1\lang1033\'ed\f0\lang1029  pak na konec while smy\'e8ky p\'f8id\f1\lang1033\'e1\f0\lang1029 me:\par
+\par
+\tab\b if turns == 0:\par
+
+\pard\li720\sl276\slmult1             print(f"Sorry, U LOOSE, secret number was \{guess\}.")\par
+            return\par
+\par
+
+\pard\sl276\slmult1\b0 Bez returnu bychom h\f1\lang1033\'e1\f0\lang1029 dali d\f1\lang1033\'e1\f0\lang1029 le i po vy\'e8erp\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  pokus\'f9, proto\'9ee by nedo\'9alo k odchodu z funkce, co\'9e samotn\f1\lang1033\'e9\f0\lang1029  kl\f1\lang1033\'ed\f0\lang1029\'e8ov\f1\lang1033\'e9\f0\lang1029  slovo return p\'f8esn\'ec d\'ecl\f1\lang1033\'e1\f0\lang1029 . \par
+\par
+A je hotovo.\i0\par
+\par
+\tab\i\par
+\b\i0\f1\lang5\par
+}
+ 
