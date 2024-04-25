@@ -40,4 +40,3 @@ def game(): # 6. basic game function
             return       
 
 game() # 6.1 game() function call
-

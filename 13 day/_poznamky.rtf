@@ -1,0 +1,130 @@
+{\rtf1\ansi\ansicpg1250\deff0\nouicompat\deflang1029{\fonttbl{\f0\fnil\fcharset238 Calibri;}{\f1\fnil\fcharset0 Calibri;}{\f2\fnil\fcharset1 Segoe UI Symbol;}}
+{\colortbl ;\red255\green255\blue0;}
+{\*\generator Riched20 10.0.22621}\viewkind4\uc1 
+\pard\sl276\slmult1\b\i\f0\fs32 Day 13\par
+Debugging How to Find and Fix Errors in your Code\par
+\b0\i0\fs22\par
+Chyby v k\f1\lang1033\'f3\f0\lang1029 du se d\'eclaj\f1\lang1033\'ed\f0\lang1029  zcela b\'ec\'9en\'ec. Jejich odhalov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029 , anal\f1\lang1033\'fd\f0\lang1029 za a odstra\'f2ov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  je b\'ec\'9enou sou\'e8\f1\lang1033\'e1\f0\lang1029 st\f1\lang1033\'ed\f0\lang1029  pr\f1\lang1033\'e1\f0\lang1029 ce ka\'9ed\f1\lang1033\'e9\f0\lang1029 ho developera. \par
+\par
+Prvn\f1\lang1033\'ed\f0\lang1029 m krokem p\'f8i debuggingu je popsat a pochopit probl\f1\lang1033\'e9\f0\lang1029 m. A\'9e pot\f1\lang1033\'e9\f0\lang1029  jej na z\f1\lang1033\'e1\f0\lang1029 klad\'ec z\f1\lang1033\'ed\f0\lang1029 skan\f1\lang1033\'fd\f0\lang1029 ch fakt\'f9 m\'f9\'9eem odstranit.\par
+\par
+P\'f8.1:\par
+\par
+\tab\b\i def my_function():\par
+
+\pard\li720\sl276\slmult1   for i in range(1, 20):\par
+    if i == 20:\par
+      print("You got it")\par
+my_function()\par
+\par
+
+\pard\sl276\slmult1\b0\i0 Editor ani konzola po spu\'9at\'ecn\f1\lang1033\'ed\f0\lang1029  nevyhazuj\f1\lang1033\'ed\f0\lang1029  \'9e\f1\lang1033\'e1\f0\lang1029 dn\f1\lang1033\'fd\f0\lang1029  error, ale v\f1\lang1033\'fd\f0\lang1029 pis se po zavol\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  funkce neobjevuje. A itera\'e8n\f1\lang1033\'ed\f0\lang1029  smy\'e8ku m\f1\lang1033\'e1\f0\lang1029 me zaps\f1\lang1033\'e1\f0\lang1029 nu syntakticky spr\f1\lang1033\'e1\f0\lang1029 vn\'ec. Jen\'9ee - prav\f1\lang1033\'e1\f0\lang1029  mez funkce range() je otev\'f8en\f1\lang1033\'e1\f0\lang1029 , tud\f1\lang1033\'ed\f0\lang1029\'9e posledn\f1\lang1033\'ed\f0\lang1029  i, kter\f1\lang1033\'e9\f0\lang1029  n\f1\lang1033\'e1\f0\lang1029 m tato smy\'e8ka vygeneruje je 19. Proto mus\f1\lang1033\'ed\f0\lang1029 me pro spr\f1\lang1033\'e1\f0\lang1029 vnou funk\'e8nost funkce jej\f1\lang1033\'ed\f0\lang1029  definici upravit na  \b\i for i in range(1, \highlight1 21\highlight0 ): \b0\i0 A\'9e nyn\f1\lang1033\'ed\f0\lang1029  smy\'e8ka vygeneruje i n\f1\lang1033\'e1\f0\lang1029 mi cht\'ecn\f1\lang1033\'e9\f0\lang1029  \'e8\f1\lang1033\'ed\f0\lang1029 slo 20, kter\f1\lang1033\'e9\f0\lang1029  m\f1\lang1033\'e1\f0\lang1029  vygenerovat v\f1\lang1033\'fd\f0\lang1029 pis.\par
+\par
+P\'f8.2:\par
+\par
+\tab\b\i from random import randint\par
+
+\pard\li720\sl276\slmult1 dice_imgs = ["\f2\u10102?\f1\lang1033 ", "\f2\u10103?\f1 ", "\f2\u10104?\f1 ", "\f2\u10105?\f1 ", "\f2\u10106?\f1 ", "\f2\u10107?\f1 "]\par
+dice_num = randint(1, 6)\par
+print(dice_imgs[dice_num])\b0\i0\f0\lang1029  \par
+\par
+
+\pard\sl276\slmult1 Progr\f1\lang1033\'e1\f0\lang1029 mek ob\'e8as zafunguje, ob\'e8as vyhod\f1\lang1033\'ed\f0\lang1029  Index out of range chybu. Pro\'e8? Zji\'9a\'9dov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  takov\f1\lang1033\'fd\f0\lang1029 chto bug\'f9 je slo\'9eit\'ecj\'9a\f1\lang1033\'ed\f0\lang1029 . Syntakticky je v\'9ae spr\f1\lang1033\'e1\f0\lang1029 vn\'ec, ale list je zero-based struktura, proto prvn\f1\lang1033\'ed\f0\lang1029  prvek m\f1\lang1033\'e1\f0\lang1029  index 0 a posledn\f1\lang1033\'ed\f0\lang1029  5. To by tedy m\'ecl b\f1\lang1033\'fd\f0\lang1029 t spr\f1\lang1033\'e1\f0\lang1029 vn\f1\lang1033\'fd\f0\lang1029  interval v gener\f1\lang1033\'e1\f0\lang1029 toru n\f1\lang1033\'e1\f0\lang1029 hodn\f1\lang1033\'e9\f0\lang1029 ho cel\f1\lang1033\'e9\f0\lang1029 ho \'e8\f1\lang1033\'ed\f0\lang1029 sla, abychom se vyhli p\'f8\f1\lang1033\'ed\f0\lang1029 padu, kdy\'9e je n\f1\lang1033\'e1\f0\lang1029 hodn\'ec vybr\f1\lang1033\'e1\f0\lang1029 na 6 (Sedm\f1\lang1033\'fd\f0\lang1029  prvek v listu, kter\f1\lang1033\'fd\f0\lang1029  neexistuje - proto Index error).\par
+\par
+P\'f8.3:\par
+\par
+\tab\b\i year = int(input("What's your year of birth?"))\par
+
+\pard\li720\sl276\slmult1 if year > 1980 and year < 1994:\par
+  print("You are a millenial.")\par
+elif year > 1994:\par
+  print("You are a Gen Z.")\par
+\par
+
+\pard\sl276\slmult1\b0\i0 Zde m\f1\lang1033\'e1\f0\lang1029 me probl\f1\lang1033\'e9\f0\lang1029 m s rokem 1994, kter\f1\lang1033\'fd\f0\lang1029  nevyhovuje ani jedn\f1\lang1033\'e9\f0\lang1029  z podm\f1\lang1033\'ed\f0\lang1029 nek, a proto se ob\'ec v\'ectve if-else statementu p\'f8esko\'e8\f1\lang1033\'ed\f0\lang1029  a tud\f1\lang1033\'ed\f0\lang1029\'9e se nic nestane. Sta\'e8\f1\lang1033\'ed\f0\lang1029  upravit jednu z podm\f1\lang1033\'ed\f0\lang1029 nek pomoc\f1\lang1033\'ed\f0\lang1029  p\'f8id\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  rovn\f1\lang1033\'ed\f0\lang1029 tka k provn\f1\lang1033\'e1\f0\lang1029 vac\f1\lang1033\'ed\f0\lang1029 mu oper\f1\lang1033\'e1\f0\lang1029 toru zkoumaj\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029 mu rok 1994. \par
+\par
+P\'f8.4:\par
+\par
+\tab\b\i age = input("How old are you?")\par
+
+\pard\li720\sl276\slmult1 if age > 18:\par
+print("You can drive at age \{age\}.")\par
+\par
+
+\pard\sl276\slmult1\b0\i0 zde m\f1\lang1033\'e1\f0\lang1029 me situaci jednodu\'9a\'9a\f1\lang1033\'ed\f0\lang1029 , prvn\f1\lang1033\'ed\f0\lang1029  error je sntaktick\f1\lang1033\'fd\f0\lang1029 , tak\'9ee n\f1\lang1033\'e1\f0\lang1029 m ho ozna\'e8il i editor. Za if statementem chyb\f1\lang1033\'ed\f0\lang1029  odsazen\f1\lang1033\'ed\f0\lang1029  \'f8\f1\lang1033\'e1\f0\lang1029 dku s printem. Ov\'9aem to je\'9at\'ec nen\f1\lang1033\'ed\f0\lang1029  v\'9ae, proto\'9ee po odsazen\f1\lang1033\'ed\f0\lang1029  \'f8\f1\lang1033\'e1\f0\lang1029 dku naraz\f1\lang1033\'ed\f0\lang1029 me na druh\f1\lang1033\'fd\f0\lang1029  bug a t\f1\lang1033\'ed\f0\lang1029 m je to, \'9ee chceme prov\f1\lang1033\'e1\f0\lang1029 d\'ect matematickou operaci se stringem, proto\'9ee jsme zapomn\'ecli na p\'f8etypov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  prom\'ecnn\f1\lang1033\'e9\f0\lang1029  v inputu. A nakonec zjist\f1\lang1033\'ed\f0\lang1029 me, \'9ee v printu chyb\f1\lang1033\'ed\f0\lang1029  f string, aby se vypisovala takto zadan\f1\lang1033\'e1\f0\lang1029  hodnota v\'ecku. \par
+\par
+P\'f8.5:\par
+\par
+\tab\b\i pages = 0\par
+
+\pard\li720\sl276\slmult1 word_per_page = 0\par
+pages = int(input("Number of pages: "))\par
+word_per_page == int(input("Number of words per page: "))\par
+total_words = pages * word_per_page\par
+print(total_words)\b0\i0   \par
+\par
+
+\pard\sl276\slmult1 V\f1\lang1033\'fd\f0\lang1029 znamn\f1\lang1033\'fd\f0\lang1029 m pomocn\f1\lang1033\'ed\f0\lang1029 kem p\'f8i debugov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  je do\'e8asn\f1\lang1033\'e9\f0\lang1029  pou\'9eit\f1\lang1033\'ed\f0\lang1029  printu() na vhodn\f1\lang1033\'e9\f0\lang1029 m m\f1\lang1033\'ed\f0\lang1029 st\'ec. Zvl\f1\lang1033\'e1\f0\lang1029\'9a\'8d, kdy\'9e je chyba jednodu\'9ae p\'f8ehl\f1\lang1033\'e9\f0\lang1029 dnuteln\f1\lang1033\'e1\f0\lang1029  jako zde. Po spu\'9at\'ecn\f1\lang1033\'ed\f0\lang1029  zjist\f1\lang1033\'ed\f0\lang1029 me, \'9ee v\f1\lang1033\'fd\f0\lang1029 sledek je 0. Proto je vhodn\f1\lang1033\'e9\f0\lang1029  um\f1\lang1033\'ed\f0\lang1029 stit kontroln\f1\lang1033\'ed\f0\lang1029  print pod zad\f1\lang1033\'e1\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  a je\'9at\'ec nad \'f8\f1\lang1033\'e1\f0\lang1029 dek s v\f1\lang1033\'fd\f0\lang1029 po\'e8tem, abychom se nejpre ujistili, \'9ee se ob\'ec hodnoty v po\'f8\f1\lang1033\'e1\f0\lang1029 dku ulo\'9e\f1\lang1033\'ed\f0\lang1029 . Zjist\f1\lang1033\'ed\f0\lang1029 me, \'9ee druh\f1\lang1033\'e1\f0\lang1029  hodnota se korektn\'ec neulo\'9eila, proto se m\'f9\'9eeme zam\'ec\'f8it na tento \'f8\f1\lang1033\'e1\f0\lang1029 dek, kde zjist\f1\lang1033\'ed\f0\lang1029 m\'ec, \'9ee m\f1\lang1033\'ed\f0\lang1029 sto p\'f8i\'f8azovac\f1\lang1033\'ed\f0\lang1029 ho oper\f1\lang1033\'e1\f0\lang1029 toru byl pou\'9eit porovn\f1\lang1033\'e1\f0\lang1029 vac\f1\lang1033\'ed\f0\lang1029  (= vs ==). Tak\'9ee sta\'e8\f1\lang1033\'ed\f0\lang1029  odmazat jedno rovn\f1\lang1033\'ed\f0\lang1029 tko a problem solved.\par
+\par
+P\'f8.6:\par
+\par
+\tab\b\i def mutate(a_list):\par
+
+\pard\li720\sl276\slmult1   b_list = []\par
+  for item in a_list:\par
+    new_item = item * 2\par
+  b_list.append(new_item)\par
+  print(b_list)\par
+\par
+mutate([1,2,3,5,8,13])\b0\i0    \par
+\par
+
+\pard\sl276\slmult1 zde je probl\f1\lang1033\'e9\f0\lang1029 m po spu\'9at\'ecn\f1\lang1033\'ed\f0\lang1029  a kontrole v\f1\lang1033\'fd\f0\lang1029 sledku pom\'ecrn\'ec jasn\f1\lang1033\'fd\f0\lang1029  (i append mus\f1\lang1033\'ed\f0\lang1029  b\f1\lang1033\'fd\f0\lang1029 t ve smy\'e8ce for, aby to fungovalo spr\f1\lang1033\'e1\f0\lang1029 vn\'ec). Ale m\'f9\'9eeme na cel\f1\lang1033\'fd\f0\lang1029  k\f1\lang1033\'f3\f0\lang1029 d pou\'9e\f1\lang1033\'ed\f0\lang1029 t n\'ecjak\f1\lang1033\'fd\f0\lang1029  debugovac\f1\lang1033\'ed\f0\lang1029  n\f1\lang1033\'e1\f0\lang1029 stroj, t\'f8eba pythontutor.com, kde si krok za krokem m\'f9\'9eeme nechat vizualizovat co se p\'f8esn\'ec odehr\f1\lang1033\'e1\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029 . \par
+\par
+Ob\'e8as je dobr\f1\lang1033\'e9\f0\lang1029  si ud\'eclat pauzu, proto\'9ee o\'e8i i mozek se celodenn\f1\lang1033\'ed\f0\lang1029 m z\f1\lang1033\'ed\f0\lang1029 r\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029 m na \'f8\f1\lang1033\'e1\f0\lang1029 dky k\f1\lang1033\'f3\f0\lang1029 du unav\f1\lang1033\'ed\f0\lang1029  a to co nevid\f1\lang1033\'ed\f0\lang1029 m te\'ef m\'ec po vysp\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  nebo i krat\'9a\f1\lang1033\'ed\f0\lang1029  pauze v\'ect\'9aionu pra\'9at\f1\lang1033\'ed\f0\lang1029  do o\'e8\f1\lang1033\'ed\f0\lang1029 . D\f1\lang1033\'e1\f0\lang1029 le je dobr\f1\lang1033\'e9\f0\lang1029  nechat si poradit od zku\'9aen\'ecj\'9a\f1\lang1033\'ed\f0\lang1029 ch (stackoverflow a podobn\f1\lang1033\'e9\f0\lang1029  weby). B\'echem developmentu je dobr\f1\lang1033\'e9\f0\lang1029  taky \'e8asto spou\'9at\'ect rozd\'eclanou pr\f1\lang1033\'e1\f0\lang1029 ci a nenech\f1\lang1033\'e1\f0\lang1029 vat si testov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  spu\'9at\'ecn\f1\lang1033\'ed\f0\lang1029 m a\'9e na konec. Ide\f1\lang1033\'e1\f0\lang1029 ln\f1\lang1033\'ed\f0\lang1029  je otestovat si ka\'9ed\f1\lang1033\'fd\f0\lang1029  v\'ect\'9a\f1\lang1033\'ed\f0\lang1029  krok, kter\f1\lang1033\'fd\f0\lang1029  naprogramuju. \par
+\par
+Dal\'9a\f1\lang1033\'ed\f0\lang1029  cvi\'e8en\f1\lang1033\'ed\f0\lang1029 :\par
+\par
+\tab\b\i number = int(input("Which number do you want to check?"))\par
+
+\pard\li720\sl276\slmult1 if number % 2 = 0:                  \f1\lang1033\par
+\f0\lang1029   \f1\lang1033  print("This is an even number.")\par
+else:\par
+  print("This is an odd number.")\b0\i0\f0\lang1029\par
+
+\pard\sl276\slmult1\par
+v if statementu mus\f1\lang1033\'ed b\'fdt porovn\'e1vac\'ed oper\'e1tor (==)\f0\lang1029 , na chybu upozorn\f1\lang1033\'ed\f0\lang1029  p\'f8\f1\lang1033\'ed\f0\lang1029 mo editor i konzola.\par
+\par
+\tab\b\i year = (input("Which year do you want to check?"))\par
+
+\pard\li720\sl276\slmult1 if year % 4 == 0:\par
+  if year % 100 == 0:\par
+    if year % 400 == 0:\par
+      print("Leap year.")\par
+    else:\par
+      print("Not leap year.")\par
+  else:\par
+    print("Leap year.")\par
+else:\par
+  print("Not leap year.")\par
+\par
+
+\pard\sl276\slmult1\b0\i0 zde chyb\f1\lang1033\'ed\f0\lang1029  p\'f8etypov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  inputu na int. Editor nic nehl\f1\lang1033\'e1\f0\lang1029 s\f1\lang1033\'ed\f0\lang1029 , st\'ec\'9euje si a\'9e konzola po spu\'9at\'ecn\f1\lang1033\'ed\f0\lang1029  programu, kter\f1\lang1033\'e1\f0\lang1029  n\f1\lang1033\'e1\f0\lang1029 s na probl\f1\lang1033\'e9\f0\lang1029 m navede.\par
+\par
+\tab\b\i for number in range(1, 101):\par
+
+\pard\li720\sl276\slmult1   if number % 3 == 0 or number % 5 == 0:\par
+    print("FizzBuzz")\par
+  if number % 3 == 0:\par
+    print("Fizz")\par
+  if number % 5 == 0:\par
+    print("Buzz")\par
+  else:\par
+    print([number])\par
+\par
+
+\pard\sl276\slmult1\b0\i0 zde toho m\f1\lang1033\'e1\f0\lang1029 me v\f1\lang1033\'ed\f0\lang1029 c: v prvn\f1\lang1033\'ed\f0\lang1029  podm\f1\lang1033\'ed\f0\lang1029 nce m\f1\lang1033\'ed\f0\lang1029 sto or and, ve druh\f1\lang1033\'e9\f0\lang1029  a t\'f8et\f1\lang1033\'ed\f0\lang1029  v\'ectvi elif m\f1\lang1033\'ed\f0\lang1029 sto if a nakonec nen\f1\lang1033\'ed\f0\lang1029  t\'f8eba ve v\f1\lang1033\'fd\f0\lang1029 pisu d\'eclat list tak\'9ee bez hranat\f1\lang1033\'fd\f0\lang1029 ch z\f1\lang1033\'e1\f0\lang1029 vorek.\par
+\tab  \b\i\par
+\b0\i0\f1\lang5\par
+}
+ 
