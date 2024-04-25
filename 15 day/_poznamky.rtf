@@ -1,0 +1,119 @@
+{\rtf1\ansi\ansicpg1250\deff0\nouicompat\deflang1029{\fonttbl{\f0\fnil\fcharset238 Calibri;}{\f1\fnil\fcharset0 Calibri;}{\f2\fmodern JetBrains Mono;}}
+{\colortbl ;\red0\green0\blue255;\red136\green136\blue198;\red188\green190\blue196;\red106\green171\blue115;}
+{\*\generator Riched20 10.0.22621}\viewkind4\uc1 
+\pard\sl276\slmult1\b\i\f0\fs32 Day 15\par
+Local Development Environment Setup & the Coffee Machine\par
+\b0\i0\fs22\par
+\b PyCharm\b0  - IDE speci\f1\lang1033\'e1\f0\lang1029 ln\'ec vyvinut\f1\lang1033\'e9\f0\lang1029  pro Python. \par
+\par
+{{\field{\*\fldinst{HYPERLINK https://www.python.org/downloads/ }}{\fldrslt{https://www.python.org/downloads/\ul0\cf0}}}}\f0\fs22  - instalace samotn\f1\lang1033\'e9\f0\lang1029 ho Pythonu na lok\f1\lang1033\'e1\f0\lang1029 l. Pokud m\f1\lang1033\'e1\f0\lang1029 me nainstaleno z d\'f8\f1\lang1033\'ed\f0\lang1029 v\'ecj\'9aka, m\'f9\'9eeme prov\f1\lang1033\'e9\f0\lang1029 st upgrade na aktu\f1\lang1033\'e1\f0\lang1029 ln\f1\lang1033\'ed\f0\lang1029  verzi. \b\i py --version \b0\i0 zkontrolujeme aktu\f1\lang1033\'e1\f0\lang1029 ln\f1\lang1033\'ed\f0\lang1029  verzi, porovn\f1\lang1033\'e1\f0\lang1029 me s webem a kdy\'9e existuje nov\'ecj\'9a\f1\lang1033\'ed\f0\lang1029 , st\f1\lang1033\'e1\f0\lang1029 hneme instal\f1\lang1033\'e1\f0\lang1029 tor a spust\f1\lang1033\'ed\f0\lang1029 me (vybrat volbu Upgrade now a na konci Disable path length limit). Pot\f1\lang1033\'e9\f0\lang1029  op\'ect zkontrolovat verzi v konzoli.  \par
+\par
+{{\field{\*\fldinst{HYPERLINK https://www.jetbrains.com/pycharm/download/?section=windows }}{\fldrslt{https://www.jetbrains.com/pycharm/download/?section=windows\ul0\cf0}}}}\f0\fs22  - download page PyCharmu. Ten je k dispozici v placen\f1\lang1033\'e9\f0\lang1029  professional verzi a bezplatn\f1\lang1033\'e9\f0\lang1029  community verze. Community edice bohat\'ec sta\'e8\f1\lang1033\'ed\f0\lang1029 .\par
+\par
+Nejlep\'9a\f1\lang1033\'ed\f0\lang1029  funkce PyCharmu: spelling check anglick\f1\lang1033\'fd\f0\lang1029 ch slov (v\f1\lang1033\'fd\f0\lang1029 born\f1\lang1033\'e9\f0\lang1029  pro debugov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  p\'f8eklep\'f9 v n\f1\lang1033\'e1\f0\lang1029 zvech prom\'ecnn\f1\lang1033\'fd\f0\lang1029 ch), otev\'f8en\f1\lang1033\'fd\f0\lang1029 ch v\f1\lang1033\'ed\f0\lang1029 ce soubor\'f9 najednou v jednom prost\'f8ed\f1\lang1033\'ed\f0\lang1029 , built-in Linter (hl\f1\lang1033\'ed\f0\lang1029 d\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  \'9at\f1\lang1033\'e1\f0\lang1029 bn\f1\lang1033\'ed\f0\lang1029  kultury zdrojov\f1\lang1033\'e9\f0\lang1029 ho k\f1\lang1033\'f3\f0\lang1029 du podle python\f1\lang1033\'ed\f0\lang1029 ch konvenc\f1\lang1033\'ed\f0\lang1029  - PEP 8), lok\f1\lang1033\'e1\f0\lang1029 ln\f1\lang1033\'ed\f0\lang1029  historie za posledn\f1\lang1033\'ed\f0\lang1029 ch 12 hodin, struktura k\f1\lang1033\'f3\f0\lang1029 du,  refaktoring (hromadn\f1\lang1033\'e1\f0\lang1029  zm\'ecna n\f1\lang1033\'e1\f0\lang1029 zv\'f9 prom\'ecnn\f1\lang1033\'fd\f0\lang1029 ch a funkc\f1\lang1033\'ed\f0\lang1029  apod.)\par
+\par
+
+\pard\box\brdrdash\brdrw0 \sl276\slmult1 PyCharm Install: spustit ex\f1\lang1033\'e1\f0\lang1029\'e8, nechat nainstalit, spustit PyCharm. Odsouhlasit terms, vybrat jestli se chcem pod\f1\lang1033\'ed\f0\lang1029 let na developov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  appky pos\f1\lang1033\'ed\f0\lang1029 l\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029 m dat tv\'f9rc\'f9m a z dal\'9a\f1\lang1033\'ed\f0\lang1029  obrazovky vybrat New Project. Zde je d\'f9le\'9eit\f1\lang1033\'e9\f0\lang1029  zejm\f1\lang1033\'e9\f0\lang1029 na vybrat spr\f1\lang1033\'e1\f0\lang1029 vn\f1\lang1033\'fd\f0\lang1029  interpreter (pokud m\f1\lang1033\'e1\f0\lang1029 me v\f1\lang1033\'ed\f0\lang1029 ce verz\f1\lang1033\'ed\f0\lang1029  Pythonu tak tu nejnov\'ecj\'9a\f1\lang1033\'ed\f0\lang1029 ). V projektov\f1\lang1033\'e9\f0\lang1029 m stromu prav\f1\lang1033\'fd\f0\lang1029  klik na slo\'9eku, vybrat new - file, nazvat main.py, zapsat \cf2\f2\fs20 print\cf3 (\cf4 "Hello World!"\cf3 )\f0  \cf0\fs22 a tla\'e8\f1\lang1033\'ed\f0\lang1029 tkem Rum m\'f9\'9eeme spustit. Zobraz\f1\lang1033\'ed\f0\lang1029  se konzola a v n\f1\lang1033\'ed\f0\lang1029  pozdrav. \par
+\par
+-----------\par
+\par
+\i Cvi\'e8en\f1\lang1033\'ed\f0\lang1029 : virtu\f1\lang1033\'e1\f0\lang1029 ln\f1\lang1033\'ed\f0\lang1029  automat na kafe\par
+\par
+- v\f1\lang1033\'fd\f0\lang1029 b\'ecr ze 3 typ\'f9 (Espresso, Latte a Cappuccino)\par
+- recepty a ceny: \par
+Espresso - 50 ml Water, 18g Kafe (1,50 USD)\par
+Latte - 200 ml Water, 24g Kafe, 150 ml Ml\f1\lang1033\'ed\f0\lang1029 ko (2,50 USD)\par
+Cappuccino - 250 ml Water, 24 g kafe, 100 ml Ml\f1\lang1033\'ed\f0\lang1029 ko (3,00 USD)\par
+- po\'e8\f1\lang1033\'e1\f0\lang1029 te\'e8n\f1\lang1033\'ed\f0\lang1029  z\f1\lang1033\'e1\f0\lang1029 soby: 300 ml Water, 100 g Kafe, 200 ml Ml\f1\lang1033\'ed\f0\lang1029 ko\par
+- mince: Penny (0,01 USD), Nickel (0,05 USD), Dime (0,10 USD), Quarter (0,25 USD)\par
+\par
+Programov\f1\lang1033\'e9\f0\lang1029  funkce:\par
+- status report: kolik zb\f1\lang1033\'fd\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029  surovin aktu\f1\lang1033\'e1\f0\lang1029 ln\'ec\par
+- check jestli je dost surovin na objedn\f1\lang1033\'e1\f0\lang1029 vku (kdy\'9e nen\f1\lang1033\'ed\f0\lang1029  vyp\f1\lang1033\'ed\f0\lang1029\'9ae hl\f1\lang1033\'e1\f0\lang1029\'9aku, \'9ee nelze process order)\par
+- platebn\f1\lang1033\'ed\f0\lang1029  proces - postupn\'ec budeme vkl\f1\lang1033\'e1\f0\lang1029 dat v\'9aechny 4 typy minc\f1\lang1033\'ed\f0\lang1029 , spo\'e8\f1\lang1033\'ed\f0\lang1029 t\f1\lang1033\'e1\f0\lang1029  se celkov\f1\lang1033\'e1\f0\lang1029  vlo\'9een\f1\lang1033\'e1\f0\lang1029  \'e8\f1\lang1033\'e1\f0\lang1029 stka, pokud sta\'e8\f1\lang1033\'ed\f0\lang1029  objedn\f1\lang1033\'e1\f0\lang1029 vka se zpracuje (a eventueln\'ec se vr\f1\lang1033\'e1\f0\lang1029 t\f1\lang1033\'ed\f0\lang1029  drobn\f1\lang1033\'e9\f0\lang1029  nad cenou), pokud ne objedn\f1\lang1033\'e1\f0\lang1029 vka se nevy\'f8\f1\lang1033\'ed\f0\lang1029 d\f1\lang1033\'ed\f0\lang1029  a hl\f1\lang1033\'e1\f0\lang1029\'9aka.\par
+\par
+Moje \'f8e\'9aen\f1\lang1033\'ed\f0\lang1029 :\par
+\par
+\tab\b from data import MENU\par
+
+\pard\box\brdrdash\brdrw0 \li720\sl276\slmult1 from data import resources\par
+import sys\par
+\par
+def report(res):\par
+    print(f"Water: \{res["water"]\}")\par
+    print(f"Milk: \{res["milk"]\}")\par
+    print(f"Coffee: \{res["coffee"]\}")\par
+    print(f"Money: \{res["money"]\}")\par
+\par
+def ingredients_check(a, b):    \par
+    if "milk" in a["ingredients"]:\par
+        if a["ingredients"]["water"] < b["water"] and a["ingredients"]["coffee"] < b["coffee"] and a["ingredients"]["milk"] < b["milk"]:\par
+            return True\par
+        else:\par
+            return False\par
+    else:\par
+        if a["ingredients"]["water"] < b["water"] and a["ingredients"]["coffee"] < b["coffee"]:\par
+            return True\par
+        else:\par
+            return False   \par
+\par
+def payment_process(coffee, cup):\par
+    cost = coffee["cost"]    \par
+    penny = int(input("Insert Pennies: ")) * 0.01\par
+    nickel = int(input("Insert Nickels: ")) * 0.05\par
+    dime = int(input("Insert Dimes: ")) * 0.10\par
+    quarter = int(input("Insert Quarters: ")) * 0.25\par
+    total = penny + nickel + dime + quarter\par
+    if total > cost:\par
+        print(f"Thank you, here is the change back: $\{round(total - cost, 2)\}")\par
+        return True\par
+    elif total == cost:\par
+        print(f"Thank you.")\par
+        return True\par
+    else:\par
+        return False  \par
+\par
+def make_coffee(coffee, cup, ingredients):\par
+    ingredients["water"] -= coffee["ingredients"]["water"]\par
+    ingredients["coffee"] -= coffee["ingredients"]["coffee"]\par
+    ingredients["money"] += coffee["cost"]\par
+    if "milk" in coffee["ingredients"]: \par
+        ingredients["milk"] -= coffee["ingredients"]["milk"]\par
+    print(f"Here is your cup of \{cup\}. Enjoy") \par
+    another = input("Do U want another one? (Y / N)") \par
+    if another == "Y":\par
+        coffee_machine()\par
+    else:\par
+        print("Your bad, bye ...")            \par
+\par
+def coffee_machine():\par
+    is_on = True\par
+    while is_on:\par
+        select = input("What would you like (espresso/latte/cappuccino): ")\par
+        if select == "espresso" or select == "latte" or select == "cappuccino":\par
+            print(f"ingredients check for \{select\} ...")\par
+            result = ingredients_check(MENU[select], resources)\par
+            if result:\par
+                print(f"Ok, insert coins and pay for the order - ($\{MENU[select]["cost"]\}).")\par
+                paid = payment_process(MENU[select], select)\par
+                if paid:\par
+                    make_coffee(MENU[select], select, resources)\par
+                else:\par
+                    print("Sorry, not enough money. Bye.")\par
+            else:\par
+                print("Sorry not enough ingredients for your order. Call maintenance")   \par
+                sys.exit()             \par
+        elif select == "report":\par
+            report(resources)\par
+            coffee_machine()\par
+        elif select == "off":\par
+            print("Shutting down the machine .. Bye")\par
+            is_on = False\par
+    print("Sorry, maintenance in progress ...")\par
+    start = input("Maintenance done? (Y / N): ")\par
+    if start == "Y":\par
+        coffee_machine()\par
+\par
+coffee_machine()\b0   \i0\f1\lang5\par
+}
+ 
