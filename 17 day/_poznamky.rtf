@@ -1,0 +1,236 @@
+{\rtf1\ansi\ansicpg1250\deff0\nouicompat\deflang1029{\fonttbl{\f0\fnil\fcharset238 Calibri;}{\f1\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red255\green255\blue0;\red0\green0\blue255;}
+{\*\generator Riched20 10.0.22621}\viewkind4\uc1 
+\pard\sl276\slmult1\b\i\f0\fs32 Day 17\par
+The Quiz Project & the Benefits of OOP\par
+\b0\i0\fs22\par
+Um\f1\lang1033\'ed\f0\lang1029 me pou\'9e\f1\lang1033\'ed\f0\lang1029 vat t\'f8\f1\lang1033\'ed\f0\lang1029 dy, objekty, metody a atributy. Te\'ef se je nau\'e8\f1\lang1033\'ed\f0\lang1029 me i vytv\f1\lang1033\'e1\f0\lang1029\'f8et. A vyrob\f1\lang1033\'ed\f0\lang1029 me quiz game.\par
+\par
+Syntaxe tvorby t\'f8\f1\lang1033\'ed\f0\lang1029 dy je jednoduch\f1\lang1033\'e1\f0\lang1029 . Kl\f1\lang1033\'ed\f0\lang1029\'e8ov\f1\lang1033\'e9\f0\lang1029  slovo class, n\f1\lang1033\'e1\f0\lang1029 zev t\'f8\f1\lang1033\'ed\f0\lang1029 dy a dvojte\'e8ka. Pot\f1\lang1033\'e9\f0\lang1029  odsazen\f1\lang1033\'e9\f0\lang1029  \'f8\f1\lang1033\'ed\f0\lang1029 dky k\f1\lang1033\'f3\f0\lang1029 du tvo\'f8\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029  t\'f8\f1\lang1033\'ed\f0\lang1029 du. Uk\f1\lang1033\'e1\f0\lang1029\'9eeme si tvorbu na p\'f8kladu modelu usera - n\f1\lang1033\'e1\f0\lang1029 v\'9at\'ecvn\f1\lang1033\'ed\f0\lang1029 ka na\'9aeho webov\f1\lang1033\'e9\f0\lang1029 ho port\f1\lang1033\'e1\f0\lang1029 lu.\par
+\par
+\tab\b\i class User:\par
+
+\pard\li720\sl276\slmult1     ...\par
+\par
+user_1 = User()\par
+\par
+
+\pard\sl276\slmult1\b0\i0 T\'f8\f1\lang1033\'ed\f0\lang1029 du m\f1\lang1033\'e1\f0\lang1029 me vytvo\'f8enu, zat\f1\lang1033\'ed\f0\lang1029 m je zcela pr\f1\lang1033\'e1\f0\lang1029 zd\f1\lang1033\'e1\f0\lang1029  (oper\f1\lang1033\'e1\f0\lang1029 tor ellipsis - ... - nebo keyword pass aby nebyl indentation error) a z n\f1\lang1033\'ed\f0\lang1029  vytvo\'f8en\f1\lang1033\'fd\f0\lang1029  objekt. Je \'e8as p\'f8idat n\'ecjak\f1\lang1033\'e9\f0\lang1029  atributy. M\'f9\'9eeme tak u\'e8init p\'f8\f1\lang1033\'ed\f0\lang1029 mo na pr\f1\lang1033\'e1\f0\lang1029 zdn\f1\lang1033\'e9\f0\lang1029 m objektu, ale pak budou existovat jenom na n\'ecm.\par
+\par
+\tab\b\i user_1.id = "A0001"\par
+
+\pard\li720\sl276\slmult1 user_1.username = "kopecny.jan@gmail.com"\par
+\par
+
+\pard\sl276\slmult1\b0\i0 Pokud bychom cht\'ecli vytvo\'f8it druh\f1\lang1033\'e9\f0\lang1029 ho usera, museli bychom postupovat \f1\lang1033\'fa\f0\lang1029 pln\'ec stejn\'ec. A p\'f8itom hroz\f1\lang1033\'ed\f0\lang1029 , \'9ee m\'f9\'9eeme ve slo\'9eit\'ecj\'9a\f1\lang1033\'ed\f0\lang1029 ch n\f1\lang1033\'e1\f0\lang1029 zvech atribut\'f9 sp\f1\lang1033\'e1\f0\lang1029 chat p\'f8eklep a jin\f1\lang1033\'e9\f0\lang1029  probl\f1\lang1033\'e9\f0\lang1029 my. Proto existuje lep\'9a\f1\lang1033\'ed\f0\lang1029  zp\'f9sob jak specifikovat v\'9aechny vlastnosti objektu p\'f8i jeho vzniku, pou\'9eit\f1\lang1033\'ed\f0\lang1029  tzv. \b konstruktoru\b0 . Jedn\f1\lang1033\'e1\f0\lang1029  se o sou\'e8\f1\lang1033\'e1\f0\lang1029 st t\'f8\f1\lang1033\'ed\f0\lang1029 dy a specifikujeme v n\'ecm, co v\'9ae se m\f1\lang1033\'e1\f0\lang1029  st\f1\lang1033\'e1\f0\lang1029 t p\'f8i vzniku  tzv. \b inicializaci objektu\b0 . V Pythonu pro definici konstruktoru pou\'9e\f1\lang1033\'ed\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029 me speci\f1\lang1033\'e1\f0\lang1029 ln\f1\lang1033\'ed\f0\lang1029  funkci - tzv. \b dunder init funkci\b0 :\par
+\par
+\tab\b\i class User:\par
+
+\pard\li720\sl276\slmult1     \highlight1 def __init__(self):\highlight0\par
+        pass\par
+\par
+
+\pard\sl276\slmult1\b0\i0 do n\f1\lang1033\'ed\f0\lang1029  pak um\f1\lang1033\'ed\f0\lang1029 st\f1\lang1033\'ed\f0\lang1029 me incializaci atribut\'f9 \'e8ili definici jejich po\'e8\f1\lang1033\'e1\f0\lang1029 te\'e8n\f1\lang1033\'ed\f0\lang1029 ch hodnot. Tato spe\'9al init funkce je pak vol\f1\lang1033\'e1\f0\lang1029 na poka\'9ed\f1\lang1033\'e9\f0\lang1029 , kdy\'9e z t\'f8\f1\lang1033\'ed\f0\lang1029 dy vytv\f1\lang1033\'e1\f0\lang1029\'f8\f1\lang1033\'ed\f0\lang1029 me objekt. Zkusme si do n\f1\lang1033\'ed\f0\lang1029  p\'f8idat print s hl\f1\lang1033\'e1\f0\lang1029\'9akou a spustit progr\f1\lang1033\'e1\f0\lang1029 mek a zkontrolovat konzoli - hl\f1\lang1033\'e1\f0\lang1029\'9aka v n\f1\lang1033\'ed\f0\lang1029  bude tolikr\f1\lang1033\'e1\f0\lang1029 t, kolikr\f1\lang1033\'e1\f0\lang1029 t vytvo\'f8\f1\lang1033\'ed\f0\lang1029 me v k\f1\lang1033\'f3\f0\lang1029 du obejkt. Jak v init funkci atributy nadefinovat? Mus\f1\lang1033\'ed\f0\lang1029 me je p\'f8edat jako argumenty funkce spolu se spe\'9al kl\f1\lang1033\'ed\f0\lang1029\'e8ov\f1\lang1033\'fd\f0\lang1029 m slovem self, kter\f1\lang1033\'e9\f0\lang1029  zna\'e8\f1\lang1033\'ed\f0\lang1029  aktu\f1\lang1033\'e1\f0\lang1029 ln\f1\lang1033\'ed\f0\lang1029  objekt samotn\f1\lang1033\'fd\f0\lang1029 . A pot\f1\lang1033\'e9\f0\lang1029  nadefinovat p\'f8\f1\lang1033\'ed\f0\lang1029 mo v t\'ecle funkce:\par
+\par
+\tab\b\i class User:\par
+
+\pard\li720\sl276\slmult1     def __init__(self, user_id, username):\par
+        self.id = user_id\par
+        self.username = username\b0\i0  \par
+        \highlight1\b\i self.followers = 0\b0\i0\par
+\highlight0\par
+
+\pard\sl276\slmult1 Objekty pak mus\f1\lang1033\'ed\f0\lang1029 me z t\'f8\f1\lang1033\'ed\f0\lang1029 dy vytv\f1\lang1033\'e1\f0\lang1029\'f8et povinn\'ec i s inicializovan\f1\lang1033\'fd\f0\lang1029 mi argumenty (jinak error): \par
+\par
+\tab\b\i user_1 = User("A001", "kopecny.jan@gmail.com")\b0\i0  \par
+\par
+a m\'f9\'9eeme jich vytv\f1\lang1033\'e1\f0\lang1029\'f8et tolik kolik pot\'f8ebujeme. V p\'f8\f1\lang1033\'ed\f0\lang1029 pad\'ec, \'9ee pot\'f8ebujeme objekt\'f9 hodn\'ec, je to rozhodn\'ec lep\'9a\f1\lang1033\'ed\f0\lang1029  zp\'f9sob jejich tvorby ne\'9e p\'f8edchoz\f1\lang1033\'ed\f0\lang1029  - ru\'e8n\'ec atribut po atributu. Jednak se vyhnem p\'f8eklep\'f9m a druhak te\'ef objekt vytvo\'f8\f1\lang1033\'ed\f0\lang1029 me v jednom \'f8\f1\lang1033\'e1\f0\lang1029 dku m\f1\lang1033\'ed\f0\lang1029 sto t\'f8\f1\lang1033\'ed\f0\lang1029 .\par
+\par
+Atribut\'f9m v konstrutkoru m\'f9\'9eeme i nastavit n\'ecjakou \highlight1 po\'e8\f1\lang1033\'e1\f0\lang1029 te\'e8n\f1\lang1033\'ed\f0\lang1029  defaultn\f1\lang1033\'ed\f0\lang1029  hodnotu\highlight0 , hod\f1\lang1033\'ed\f0\lang1029  se to v\'9edy, kdy\'9e tento atribut je u v\'9aech nov\f1\lang1033\'fd\f0\lang1029 ch objekt\'f9 stejn\f1\lang1033\'fd\f0\lang1029  (t\'f8eba follower count v instagram like aplikaci - v\'9aichni za\'e8\f1\lang1033\'ed\f0\lang1029 naj\f1\lang1033\'ed\f0\lang1029  s nulou). Proto je blbost ji u ka\'9ed\f1\lang1033\'e9\f0\lang1029 ho objektu uv\f1\lang1033\'ed\f0\lang1029 d\'ect v parametrech.  Kdy\'9e atributu nasta\f1\lang1033\'ed\f0\lang1029 me defualtn\f1\lang1033\'ed\f0\lang1029  hodnotu, neuv\f1\lang1033\'e1\f0\lang1029 d\f1\lang1033\'ed\f0\lang1029 me jej v seznamu parametr\'f9 init funkce, ale pouze v t\'ecle. \par
+\par
+Krom\'ec atribut\'f9, m\'f9\'9eeme t\'f8\f1\lang1033\'ed\f0\lang1029 d\f1\lang1033\'e1\f0\lang1029 m definovat i \b metody\b0 .  Zkusme t\'f8eba namodelovat situaci, kdy n\f1\lang1033\'e1\f0\lang1029\'9a user za\'e8ne sledovat n\'ecjak\f1\lang1033\'e9\f0\lang1029 ho jin\f1\lang1033\'e9\f0\lang1029 ho (d\f1\lang1033\'e1\f0\lang1029  follow). P\'f8id\f1\lang1033\'e1\f0\lang1029 me t\'f8\f1\lang1033\'ed\f0\lang1029 d\'ec nov\f1\lang1033\'fd\f0\lang1029  atribut s po\'e8\f1\lang1033\'e1\f0\lang1029 te\'e8n\f1\lang1033\'ed\f0\lang1029  hodnotou \b\i self.following = 0 \b0\i0 kter\f1\lang1033\'fd\f0\lang1029  pot\'f8ebujeme do metody:\par
+\par
+\tab\b\i def follow(self, user):\par
+
+\pard\li720\sl276\slmult1         user.followers += 1\par
+        self.following += 1 \par
+\par
+
+\pard\sl276\slmult1\b0\i0 Metoda t\'f8\f1\lang1033\'ed\f0\lang1029 dy mus\f1\lang1033\'ed\f0\lang1029  m\f1\lang1033\'ed\f0\lang1029 t v\'9edy v apramtrech uvedeno kl\f1\lang1033\'ed\f0\lang1029\'e8ov\f1\lang1033\'e9\f0\lang1029  slovo self, aby v\'ecd\'ecla, jak\f1\lang1033\'e9\f0\lang1029 mu objektu pat\'f8\f1\lang1033\'ed\f0\lang1029 . A v metod\'ec samotn\f1\lang1033\'e9\f0\lang1029  pak p\'f8id\f1\lang1033\'e1\f0\lang1029 me followera konkr\f1\lang1033\'e9\f0\lang1029 tn\f1\lang1033\'ed\f0\lang1029 mu userovi, kter\f1\lang1033\'e9\f0\lang1029 ho jsme za\'e8li sledovat (prvn\f1\lang1033\'ed\f0\lang1029  \'f8\f1\lang1033\'e1\f0\lang1029 dek) a rovn\'ec\'9e i k po\'e8tu lid\f1\lang1033\'ed\f0\lang1029  kter\f1\lang1033\'e9\f0\lang1029  sledujeme sami p\'f8ipo\'e8teme jedni\'e8ku (druh\f1\lang1033\'fd\f0\lang1029  \'f8\f1\lang1033\'e1\f0\lang1029 dek). A metodu pou\'9eijeme a provedeme kontrolu:\par
+\par
+\tab\b\i user_1.follow(user_2)\par
+
+\pard\li720\sl276\slmult1 user_2.follow(user_1)\par
+\par
+attributes = dir(user_1)        # Get all attributes of the object\par
+\par
+for attr in attributes:\par
+    if not attr.startswith("__"):       # Exclude built-in attributes\par
+        value = getattr(user_1, attr)   \tab\f1\lang1033 #\f0\lang1029  values of attributes\par
+        print(f"\{attr\}: \{value\}")\b0\i0  \par
+\par
+
+\pard\sl276\slmult1 Nejprve se oba use\'f8i navz\f1\lang1033\'e1\f0\lang1029 jem za\'e8li sledovat. Pak d\f1\lang1033\'ed\f0\lang1029 ky funkci \b\i dir() \b0\i0 z\f1\lang1033\'ed\f0\lang1029 sk\f1\lang1033\'e1\f0\lang1029 me ve form\'ec sorted listu string\'f9 v\'9aechny atributy a metody kter\f1\lang1033\'e9\f0\lang1029  objekt obsahuje. Ten pak ve smy\'e8ce zpracujeme tak, \'9ee se n\f1\lang1033\'e1\f0\lang1029 m vyp\f1\lang1033\'ed\f0\lang1029\'9aou jejich hodnoty (d\f1\lang1033\'ed\f0\lang1029 ky funkci \b\i getattr()\b0\i0 ) a jak followers tak following user abude nikoliv defaultn\f1\lang1033\'ed\f0\lang1029  0, ale 1. \par
+\par
+\i Projket: kv\f1\lang1033\'ed\f0\lang1029 zov\f1\lang1033\'e1\f0\lang1029  hra - jednoduch\f1\lang1033\'e1\f0\lang1029  true x false hra. Nejprve se\'9eenem v\'9aechy starter soubory a ulo\'9e\f1\lang1033\'ed\f0\lang1029 me do nov\f1\lang1033\'e9\f0\lang1029  slo\'9eky.Jsou zde 4 soubory - t\'f8i pr\f1\lang1033\'e1\f0\lang1029 zdn\f1\lang1033\'e9\f0\lang1029  a data.py obsahuj\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029  list 12 dict\'f9 p\'f8edstavuj\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029 ch jednotliv\f1\lang1033\'e9\f0\lang1029  kv\f1\lang1033\'ed\f0\lang1029 zov\f1\lang1033\'e9\f0\lang1029  ot\f1\lang1033\'e1\f0\lang1029 zky. Ka\'9ed\f1\lang1033\'fd\f0\lang1029  ot\f1\lang1033\'e1\f0\lang1029 zkov\f1\lang1033\'fd\f0\lang1029  dict m\f1\lang1033\'e1\f0\lang1029  dva kl\f1\lang1033\'ed\f0\lang1029\'e8e, jejich\'9e hodnoty jsou text ot\f1\lang1033\'e1\f0\lang1029 zky a spr\f1\lang1033\'e1\f0\lang1029 vn\f1\lang1033\'e1\f0\lang1029  odpov\'ec\'ef ((tedy string true nebo false).\par
+\par
+1. ot\f1\lang1033\'e1\f0\lang1029 zkov\f1\lang1033\'fd\f0\lang1029  model (t\'f8\f1\lang1033\'ed\f0\lang1029 da) - soubor question_model.py\par
+\par
+\tab\b class Question:\par
+
+\pard\li720\sl276\slmult1     def __init__(self, q_text, answer):\par
+        self.q_text = q_text\par
+        self.answer = answer\b0  \par
+\par
+
+\pard\sl276\slmult1 Ka\'9ed\f1\lang1033\'e1\f0\lang1029  ot\f1\lang1033\'e1\f0\lang1029 zk\f1\lang1033\'e1\f0\lang1029  mus\f1\lang1033\'ed\f0\lang1029  obsahovat samotn\f1\lang1033\'fd\f0\lang1029  text a spr\f1\lang1033\'e1\f0\lang1029 vnou odpov\'ec\'ef. M\'f9\'9eeme i otestovat:\par
+\par
+\tab\b q_1 = Question("bla blabla", "True")\par
+
+\pard\li720\sl276\slmult1 print(q_1.q_text, q_1.answer)\b0  \par
+\par
+
+\pard\sl276\slmult1 aot\f1\lang1033\'e1\f0\lang1029 zkov\f1\lang1033\'fd\f0\lang1029  objekt se skute\'e8n\'ec vytvo\'f8\f1\lang1033\'ed\f0\lang1029 . M\'f9\'9eeme test smazat. \par
+\par
+2. vytvo\'f8\f1\lang1033\'ed\f0\lang1029 me banku ot\f1\lang1033\'e1\f0\lang1029 zkov\f1\lang1033\'fd\f0\lang1029 ch objekt\'f9 ve form\'ec listu - main.py\par
+\par
+\tab\b from data import question_data\par
+
+\pard\li720\sl276\slmult1 from question_model import Question\par
+\par
+quiz_bank = []\par
+\par
+start = int(input(f"How many questions do U wanna in the quiz? (\{len(question_data)\} max.): "))\par
+\par
+for i in range(start):\par
+    q_txt = question_data[i-1]["text"]\par
+    q_ans = question_data[i-1]["answer"]\par
+    q = Question(q_txt, q_ans)\par
+    quiz_bank.append(q)\par
+\par
+
+\pard\sl276\slmult1\b0 naimportujeme v\'9ae pot\'f8ebn\f1\lang1033\'e9\f0\lang1029 , vytvo\'f8\f1\lang1033\'ed\f0\lang1029 me pr\f1\lang1033\'e1\f0\lang1029 zdn\f1\lang1033\'fd\f0\lang1029  list pro objekty ot\f1\lang1033\'e1\f0\lang1029 zek, kter\f1\lang1033\'e9\f0\lang1029  nech\f1\lang1033\'e1\f0\lang1029 me vygenerovat ve smy\'e8ce. A m\'f9\'9eeme otestovat vznik banky:\par
+\par
+\tab\b for n in range(start):\par
+
+\pard\li720\sl276\slmult1     print(quiz_bank[n].q_text, quiz_bank[n].answer)\b0\par
+
+\pard\sl276\slmult1\par
+3.1 - zobrazen\f1\lang1033\'ed\f0\lang1029  ot\f1\lang1033\'e1\f0\lang1029 zky a interakce s hr\f1\lang1033\'e1\f0\lang1029\'e8em - quiz_brain.py. bude to vlastn\'ec dal\'9a\f1\lang1033\'ed\f0\lang1029  t\'f8\f1\lang1033\'ed\f0\lang1029 da, kter\f1\lang1033\'e1\f0\lang1029  bude m\f1\lang1033\'ed\f0\lang1029 t zat\f1\lang1033\'ed\f0\lang1029 m dva atributy: \'e8\f1\lang1033\'ed\f0\lang1029 slo ot\f1\lang1033\'e1\f0\lang1029 zky a v p\'f8edchoz\f1\lang1033\'ed\f0\lang1029 m kroku vygenerovan\f1\lang1033\'fd\f0\lang1029  ot\f1\lang1033\'e1\f0\lang1029 zkov\f1\lang1033\'fd\f0\lang1029  list + metodu next_question, kter\f1\lang1033\'e1\f0\lang1029  polo\'9e\f1\lang1033\'ed\f0\lang1029  hr\f1\lang1033\'e1\f0\lang1029\'e8i ot\f1\lang1033\'e1\f0\lang1029 zku ve tvaru\par
+\par
+\tab Q.x: -text ot\f1\lang1033\'e1\f0\lang1029 zky- (True / False)?: _\par
+\par
+kde x je \'e8\f1\lang1033\'ed\f0\lang1029 slo ot\f1\lang1033\'e1\f0\lang1029 zky a true/false input od usera. V quiz_brain.py bude:\par
+\par
+\tab\b class QuizBrain:\par
+
+\pard\li720\sl276\slmult1     def __init__(self, quiz_bank):\par
+        self.q_num = 0\par
+        self.quiz_bank = quiz_bank\par
+\par
+    def ask_question(self):\par
+        curr_question = self.quiz_bank[self.q_num]\par
+        self.q_num += 1\par
+        input(f"Q.\{self.q_num\}: \{curr_question.q_text\} ('T'rue / 'F'alse): ")\par
+\par
+
+\pard\sl276\slmult1\b0 atributy jasn\f1\lang1033\'e9\f0\lang1029 , metoda nepot\'f8ebuje \'9e\f1\lang1033\'e1\f0\lang1029 dn\f1\lang1033\'e9\f0\lang1029  argumenty, proto\'9ee ke v\'9aemu pot\'f8ebn\f1\lang1033\'e9\f0\lang1029 mu m\f1\lang1033\'e1\f0\lang1029  p\'f8\f1\lang1033\'ed\f0\lang1029 stup p\'f8es kl\f1\lang1033\'ed\f0\lang1029\'e8ov\f1\lang1033\'e9\f0\lang1029  slovo self. Kdybychom ji pot\'f8ebovali p\'f8edat n\'ecjakou hodnotu mimo atributy t\'f8\f1\lang1033\'ed\f0\lang1029 dy, museli bychom jej\f1\lang1033\'ed\f0\lang1029  prom\'ecnnou uv\f1\lang1033\'e9\f0\lang1029 st v argumentech metody. A m\'f9\'9eeme otestovat v mainu:\par
+\par
+\tab\b quiz = QuizBrain(quiz_bank)\par
+
+\pard\li720\sl276\slmult1 for _ in range(start):\par
+    quiz.ask_question()\par
+\par
+
+\pard\sl276\slmult1\b0 3.2 - m\f1\lang1033\'e1\f0\lang1029 me banku ot\f1\lang1033\'e1\f0\lang1029 zek a zobrazujeme jednotliv\f1\lang1033\'e9\f0\lang1029  ot\f1\lang1033\'e1\f0\lang1029 zky. Mus\f1\lang1033\'ed\f0\lang1029 me se postarat, aby se objevovaly postupn\'ec jedna po druh\f1\lang1033\'e9\f0\lang1029 , dokud nedojdou. V quiz_brain.py v QuizBrain t\'f8\f1\lang1033\'ed\f0\lang1029 d\'ec p\'f8id\f1\lang1033\'e1\f0\lang1029 me novou metodu:\par
+\par
+\tab\b def still_has_questions(self):\par
+
+\pard\li720\sl276\slmult1         if self.q_num < len(self.quiz_bank):\par
+            return True\par
+        else:\par
+            return False   \par
+\par
+
+\pard\sl276\slmult1\b0 a do main.py pak m\'f9\'9eeme testovac\f1\lang1033\'ed\f0\lang1029  k\f1\lang1033\'f3\f0\lang1029 d z p\'f8edchoz\f1\lang1033\'ed\f0\lang1029 ho kroku nahradit:\par
+\par
+\tab\b while quiz.still_has_questions():\par
+
+\pard\li720\sl276\slmult1     quiz.ask_question()\par
+\par
+
+\pard\sl276\slmult1\b0 3.3 - p\'f8id\f1\lang1033\'e1\f0\lang1029 me kontrolu spr\f1\lang1033\'e1\f0\lang1029 vnosti odpov\'ecdi a po\'e8\f1\lang1033\'ed\f0\lang1029 t\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  skore. Do QuizBrain t\'f8\f1\lang1033\'ed\f0\lang1029 dy p\'f8id\f1\lang1033\'e1\f0\lang1029 me dal\'9a\f1\lang1033\'ed\f0\lang1029  atribut (pro sledov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  skore) a dal\'9a\f1\lang1033\'ed\f0\lang1029  metodu check_answer() + propoj\f1\lang1033\'ed\f0\lang1029 me s next_question() metodou. Nov\f1\lang1033\'e1\f0\lang1029  metoda bude m\f1\lang1033\'ed\f0\lang1029 t dva vstupy - u\'9eivatelskou a spr\f1\lang1033\'e1\f0\lang1029 vnou odpov\'ec\'ef. \par
+\par
+\tab\b def check_answer(self, user_answer, correct_answer):\par
+
+\pard\li720\sl276\slmult1         ...\par
+\par
+
+\pard\sl276\slmult1\b0 oba vstupy z\f1\lang1033\'ed\f0\lang1029 sk\f1\lang1033\'e1\f0\lang1029 me z ask_question metody, odkud tuto novou metodu budeme rovn\'ec\'9e volat. Prvn\f1\lang1033\'ed\f0\lang1029  vstup je input z ask_question metody, kter\f1\lang1033\'fd\f0\lang1029  tedy us\f1\lang1033\'ed\f0\lang1029 me ulo\'9eit do prom\'ecnn\f1\lang1033\'e9\f0\lang1029  a druh\f1\lang1033\'fd\f0\lang1029  vstup je curr_question.answer:\par
+\par
+\tab\b def ask_question(self):\par
+
+\pard\li720\sl276\slmult1         curr_question = self.quiz_bank[self.q_num]\par
+        self.q_num += 1\par
+        \highlight1 user_answer \highlight0 = input(f"Q.\{self.q_num\}: \{curr_question.q_text\} ('T'rue / 'F'alse): ")\par
+        \highlight1 self.check_answer(user_answer, curr_question.answer)\b0  \highlight0\par
+
+\pard\sl276\slmult1\par
+V nov\f1\lang1033\'e9\f0\lang1029  metod\'ec pak sta\'e8\f1\lang1033\'ed\f0\lang1029  porovnat rovnost obou vstup\'f9:\par
+\par
+\tab\b def check_answer(self, user_answer, correct_answer):\par
+
+\pard\li720\sl276\slmult1         if user_answer.lower() == correct_answer.lower():\par
+            print("You got it right!")\par
+        else:\par
+            print(f"Wrong answer ... correct was: \{correct_answer\}")\par
+\par
+
+\pard\sl276\slmult1\b0 posledn\f1\lang1033\'ed\f0\lang1029  co chyb\f1\lang1033\'ed\f0\lang1029  je sledov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  skore. P\'f8id\f1\lang1033\'e1\f0\lang1029 me jeden atribut, jeho inkrement do metody p\'f8i spr\f1\lang1033\'e1\f0\lang1029 vn\f1\lang1033\'e9\f0\lang1029  odpov\'ecdi a na konec metody v\f1\lang1033\'fd\f0\lang1029 pis aktu\f1\lang1033\'e1\f0\lang1029 ln\f1\lang1033\'ed\f0\lang1029 ho skore a od\'f8\f1\lang1033\'e1\f0\lang1029 dkov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029 . Cel\f1\lang1033\'e1\f0\lang1029  metoda bude vypadat:\par
+\par
+\tab\b class QuizBrain:\par
+
+\pard\li720\sl276\slmult1     def __init__(self, quiz_bank):\par
+        self.q_num = 0\par
+        self.quiz_bank = quiz_bank\par
+        \highlight1 self.score = 0\par
+\highlight0\par
+    def still_has_questions(self):\par
+        if self.q_num < len(self.quiz_bank):\par
+            return True\par
+        else:\par
+            return False    \par
+\par
+    def ask_question(self):\par
+        curr_question = self.quiz_bank[self.q_num]\par
+        self.q_num += 1\par
+        user_answer = input(f"Q.\{self.q_num\}: \{curr_question.q_text\} ('True' / 'False'): ")\par
+        self.check_answer(user_answer, curr_question.answer)\par
+\par
+    def check_answer(self, user_answer, correct_answer):\par
+        if user_answer.lower() == correct_answer.lower():\par
+            print("You got it right!")\par
+            \highlight1 self.score += 1\par
+\highlight0         else:\par
+            print(f"Wrong answer ... correct was: \{correct_answer\}")\par
+        \highlight1 print(f"Your current score is: \{self.score\} / \{self.q_num\}")\par
+        print("\\n")\par
+\par
+
+\pard\sl276\slmult1\highlight0\b0\f1\lang1033\'fa\f0\lang1029 pln\'ec nakonec p\'f8id\f1\lang1033\'e1\f0\lang1029 me do mainu v\f1\lang1033\'fd\f0\lang1029 pis fin\f1\lang1033\'e1\f0\lang1029 ln\f1\lang1033\'ed\f0\lang1029 ho skore a projekt je hotov.\par
+\par
+\tab\b print("QUIZ DONE")\par
+
+\pard\li720\sl276\slmult1 print(f"Your final score is: \{quiz.score\} / \{len(quiz_bank)\}. Bye")\par
+\par
+
+\pard\sl276\slmult1\b0\i0 Progr\f1\lang1033\'e1\f0\lang1029 mek je hotov, ale m\f1\lang1033\'e1\f0\lang1029  jedno slabinu. Databanka ot\f1\lang1033\'e1\f0\lang1029 zek jich obsahuje pouze 12. Co\'9e je nuda. Proto m\'f9\'9eeme pou\'9e\f1\lang1033\'ed\f0\lang1029 t online databanku ot\f1\lang1033\'e1\f0\lang1029 zek - {{\field{\*\fldinst{HYPERLINK https://opentdb.com/ }}{\fldrslt{https://opentdb.com/\ul0\cf0}}}}\f0\fs22 . Tam si p\'f8es API m\'f9\'9eeme nechat vygenerovat sadu ot\f1\lang1033\'e1\f0\lang1029 zek podle zadan\f1\lang1033\'fd\f0\lang1029 ch parametr\'f9, JSON v\f1\lang1033\'fd\f0\lang1029 sledek upravit pouze na list result\'f9 a ten nakop\f1\lang1033\'ed\f0\lang1029 rovat do na\'9a\f1\lang1033\'ed\f0\lang1029  databanky m\f1\lang1033\'ed\f0\lang1029 sto t\'ecch p\'f9vodn\f1\lang1033\'ed\f0\lang1029 ch 12 ot\f1\lang1033\'e1\f0\lang1029 zek. A je\'9at\'ec v main.py ve smy\'e8ce pro generov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  ot\f1\lang1033\'e1\f0\lang1029 zek p\'f8ejmenovat odpov\f1\lang1033\'ed\f0\lang1029 daj\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029  polo\'9eky podle form\f1\lang1033\'e1\f0\lang1029 tu z API. Jedna z v\f1\lang1033\'fd\f0\lang1029 hod OOP - modularita.\i\par
+\par
+\tab\par
+\tab  \par
+\par
+\tab\i0\par
+\par
+\tab  \f1\lang5\par
+}
+ 
