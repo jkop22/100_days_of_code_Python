@@ -1,0 +1,205 @@
+{\rtf1\ansi\ansicpg1250\deff0\nouicompat\deflang1029{\fonttbl{\f0\fnil\fcharset238 Calibri;}{\f1\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red255\green255\blue0;}
+{\*\generator Riched20 10.0.22621}\viewkind4\uc1 
+\pard\sl276\slmult1\b\i\f0\fs32 Day 19\par
+Instances, State and Higher Order Functions\par
+\b0\i0\fs22\par
+event listenery, higher order funkce, state a multiple instance of an objects.\par
+\par
+Abycom mohli ovl\f1\lang1033\'e1\f0\lang1029 dat n\'ecjakou hru, mus\f1\lang1033\'ed\f0\lang1029 me m\f1\lang1033\'ed\f0\lang1029 t zp\'f9sob jak zjistit, co chce u\'9eivatel prov\f1\lang1033\'e9\f0\lang1029 st. Nap\'f8. jakou zm\f1\lang1033\'e1\f0\lang1029\'e8knul kl\f1\lang1033\'e1\f0\lang1029 vesu a podobn\'ec a na z\f1\lang1033\'e1\f0\lang1029 klad\'ec t\'ecchto jeho akc\f1\lang1033\'ed\f0\lang1029  adekv\f1\lang1033\'e1\f0\lang1029 tn\'ec reagovat. Takov\f1\lang1033\'e9\f0\lang1029  u\'9eivatelsk\f1\lang1033\'e9\f0\lang1029  akce se naz\f1\lang1033\'fd\f0\lang1029 vaj\f1\lang1033\'ed\f0\lang1029  eventy a my je odchyt\f1\lang1033\'e1\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029 me a reagujeme na n\'ec, k \'e8emu\'9e slou\'9e\f1\lang1033\'ed\f0\lang1029  \b event listenery\b0 . Turtle knihovna m\f1\lang1033\'e1\f0\lang1029  takov\f1\lang1033\'fd\f0\lang1029 ch p\'f8edp\'f8ipraven\f1\lang1033\'fd\f0\lang1029 ch listener\'f9 (v podob\'ec metod) n\'eckolik.\par
+\par
+Naslouch\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  zapneme na objektu t\'f8\f1\lang1033\'ed\f0\lang1029 dy Screen() metodou listen().\par
+\par
+\tab\b\i from turtle import Turtle, Screen\par
+\par
+
+\pard\li720\sl276\slmult1 johny = Turtle()\par
+screen = Screen()\b0\i0  \par
+\par
+\b\i screen.listen()\par
+\par
+
+\pard\sl276\slmult1\b0\i0 Jakmile m\f1\lang1033\'e1\f0\lang1029 me naslouch\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  (sb\'ecr event\'f9 na screenu) aktivov\f1\lang1033\'e1\f0\lang1029 no, m\'f9\'9eeme za\'e8\f1\lang1033\'ed\f0\lang1029 t se zachyt\f1\lang1033\'e1\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029 m event\'f9 a reagov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029 m na n\'ec. \'c8ili s ka\'9ed\f1\lang1033\'fd\f0\lang1029 m eventem kter\f1\lang1033\'fd\f0\lang1029  n\f1\lang1033\'e1\f0\lang1029 s zaj\f1\lang1033\'ed\f0\lang1029 m\f1\lang1033\'e1\f0\lang1029  (stiskem konkr\f1\lang1033\'e9\f0\lang1029 tn\f1\lang1033\'ed\f0\lang1029  kl\f1\lang1033\'e1\f0\lang1029 vesy v na\'9aem p\'f8\f1\lang1033\'ed\f0\lang1029 pad\'ec) sp\f1\lang1033\'e1\f0\lang1029 rujeme n\'ecjakou funkci, kter\f1\lang1033\'e1\f0\lang1029  bude prov\f1\lang1033\'e1\f0\lang1029 d\'ect po\'9eadovanou akci. My pou\'9eijeme onkey() listener, kter\f1\lang1033\'fd\f0\lang1029  jako argumenty bere n\'eckaou funkci funkci a string ozna\'e8uj\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029  kl\f1\lang1033\'e1\f0\lang1029 vesu, jej\f1\lang1033\'ed\f0\lang1029\'9e stisk pot\'f8ebujeme sledovat. Vytvo\'f8me si nejd\'f8\f1\lang1033\'ed\f0\lang1029 ve funkci (reakci) na stisknut\f1\lang1033\'ed\f0\lang1029  hl\f1\lang1033\'ed\f0\lang1029 dan\f1\lang1033\'e9\f0\lang1029  kl\f1\lang1033\'e1\f0\lang1029 vesy a pot\f1\lang1033\'e9\f0\lang1029  samotn\f1\lang1033\'fd\f0\lang1029  event listener na kl\f1\lang1033\'e1\f0\lang1029 vesu mezern\f1\lang1033\'ed\f0\lang1029 ku:\par
+\par
+\tab\b\i def move():\par
+
+\pard\li720\sl276\slmult1     johny.forward(20)\par
+\par
+screen.onkey(move, "space")\par
+\par
+
+\pard\sl276\slmult1\b0\i0 Nyn\f1\lang1033\'ed\f0\lang1029  se tedy poka\'9ed\f1\lang1033\'e9\f0\lang1029 , kdy\'9e zm\f1\lang1033\'e1\f0\lang1029\'e8kneme mezern\f1\lang1033\'ed\f0\lang1029 k \'9eelva posune o 20 jednotek dop\'f8edu. Nakonec je\'9at\'ec p\'f8id\f1\lang1033\'e1\f0\lang1029 me \b\i screen.exitonclick() \b0\i0 a otestujeme. M\'f9\'9eeme si v\'9aimnout, \'9ee kdy\'9e funkci jako parametr p\'f8ed\f1\lang1033\'e1\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029 me jinou funkci, nepou\'9e\f1\lang1033\'ed\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029 me u n\f1\lang1033\'ed\f0\lang1029  z\f1\lang1033\'e1\f0\lang1029 vorky, ale pouze n\f1\lang1033\'e1\f0\lang1029 zev. Tento koncept (\'9ee funkce m\'f9\'9ee pracovat s jin\f1\lang1033\'fd\f0\lang1029 mi funkcemi) se naz\f1\lang1033\'fd\f0\lang1029 v\f1\lang1033\'e1\f0\lang1029  \b higher order functions\b0 . V na\'9aem p\'f8\f1\lang1033\'ed\f0\lang1029 pad\'ec je higher order funkc\f1\lang1033\'ed\f0\lang1029  onkey() listener, proto\'9ee m\f1\lang1033\'e1\f0\lang1029  jako parametr jinou funkci. \par
+\par
+\i Cvi\'e8en\f1\lang1033\'ed\f0\lang1029 : W - \'9eelva pude dop\'f8edu, S - \'9eelva bude couvat, A - za\'e8ne se ot\f1\lang1033\'e1\f0\lang1029\'e8et proti sm\'ecru hod.ru\'e8i\'e8ek, D - ot\f1\lang1033\'e1\f0\lang1029\'e8en\f1\lang1033\'ed\f0\lang1029  po sm\'ecru hod, ru\'e8i\'e8ek, C - smaz\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  kresbya um\f1\lang1033\'ed\f0\lang1029 st\'ecn\f1\lang1033\'ed\f0\lang1029  \'9eelvy zp\f1\lang1033\'e1\f0\lang1029 tky do st\'f8edu pl\f1\lang1033\'e1\f0\lang1029 tna. \'d8e\'9aen\f1\lang1033\'ed\f0\lang1029  m\'f9\'9ee vypadat t\'f8eba takto:\par
+\par
+\tab\b from turtle import Turtle, Screen\par
+
+\pard\li720\sl276\slmult1 import sys\par
+\par
+sys.setrecursionlimit(10**8)\par
+\par
+johny = Turtle()\par
+screen = Screen()\par
+\par
+johny.speed("fast")\par
+\par
+screen.listen()\par
+\par
+def m_forward():\par
+    johny.forward(1)\par
+    \par
+screen.onkeypress(fun = m_forward, key="w")\par
+\par
+def m_backward():\par
+    johny.backward(1)\par
+\par
+screen.onkeypress(fun = m_backward, key="s")\par
+\par
+def r_left():\par
+    johny.left(1)\par
+\par
+screen.onkeypress(fun = r_left, key="a")\par
+\par
+def r_right():\par
+    johny.right(1)\par
+\par
+screen.onkeypress(fun = r_right, key="d")\par
+\par
+def t_reset():\par
+    johny.clear()\par
+    johny.teleport(0, 0)\par
+\par
+screen.onkey(fun = t_reset, key="c")\par
+\par
+screen.exitonclick()\par
+\par
+
+\pard\sl276\slmult1\b0\i0 Zat\f1\lang1033\'ed\f0\lang1029 m jsme pracovali jen s jednou \'9eelvou (kurzorem). V dal\'9a\f1\lang1033\'ed\f0\lang1029 m cvi\'e8en\f1\lang1033\'ed\f0\lang1029  pot\'f8ebujeme \'9eelev v\f1\lang1033\'ed\f0\lang1029 ce. Tud\f1\lang1033\'ed\f0\lang1029\'9e budeme vytv\f1\lang1033\'e1\f0\lang1029\'f8et z t\'f8\f1\lang1033\'ed\f0\lang1029 dy Turtle() n\'eckolik jej\f1\lang1033\'ed\f0\lang1029 ch \b instanc\f1\lang1033\'ed\b0\f0\lang1029 . Ka\'9ed\f1\lang1033\'e1\f0\lang1029  instance pak m\'f9\'9ee m\f1\lang1033\'ed\f0\lang1029 t sv\f1\lang1033\'e9\f0\lang1029  vlastn\f1\lang1033\'ed\f0\lang1029  hodnoty atribut\'f9 a aplikovan\f1\lang1033\'e9\f0\lang1029  metody, kter\f1\lang1033\'e9\f0\lang1029  se samoz\'f8ejm\'ec budou li\'9ait, aby to m\'eclo n\'ecjak\f1\lang1033\'fd\f0\lang1029  smysl (t\'f8eba barva apod). Ka\'9ed\f1\lang1033\'fd\f0\lang1029  z objekt\'f9 tedy bude ve sv\f1\lang1033\'e9\f0\lang1029 m vlastn\f1\lang1033\'ed\f0\lang1029 m \b stavu\b0 . A bude tedy tvo\'f8it samostatnou, na ostatn\f1\lang1033\'ed\f0\lang1029 ch instanc\f1\lang1033\'ed\f0\lang1029 ch nez\f1\lang1033\'e1\f0\lang1029 vislou jednotku.\par
+\par
+\i Cvi\'e8en\f1\lang1033\'ed\f0\lang1029 : \'9eelv\f1\lang1033\'ed\f0\lang1029  z\f1\lang1033\'e1\f0\lang1029 vod. Na za\'e8\f1\lang1033\'e1\f0\lang1029 tku budeme tipovat kter\f1\lang1033\'e1\f0\lang1029  (podle barvy) z \'9eelev vyhraje. Pot\f1\lang1033\'e9\f0\lang1029  se \'9eelvy se\'f8ad\f1\lang1033\'ed\f0\lang1029  na start k lev\f1\lang1033\'e9\f0\lang1029 mu okraji screnu a n\f1\lang1033\'e1\f0\lang1029 hodnou prom\'ecnivou rychlost\f1\lang1033\'ed\f0\lang1029  se budou pohybovat dop\'f8edu. Ta kter\f1\lang1033\'e1\f0\lang1029  se jako prvn\f1\lang1033\'ed\f0\lang1029  dotkne prav\f1\lang1033\'e9\f0\lang1029 ho okraje screenu vyhraje a tip ze za\'e8\f1\lang1033\'e1\f0\lang1029 tku hry se vyhodnot\f1\lang1033\'ed\f0\lang1029  jako True nebo False.\par
+\par
+Nastav\f1\lang1033\'ed\f0\lang1029 me custom rozm\'ecry screenu a pou\'9eijeme metodu pro z\f1\lang1033\'ed\f0\lang1029 sk\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  vstupu od usera ( obdobu konzolov\f1\lang1033\'e9\f0\lang1029 ho inputu)\par
+\par
+\tab\b from turtle import Turtle, Screen\par
+
+\pard\li720\sl276\slmult1 import sys\par
+\par
+sys.setrecursionlimit(10**8)\par
+\par
+screen = Screen()\par
+\highlight1 screen.setup(width=500, height=400)\par
+guess = screen.textinput(title="Try to guess", prompt="Who will win this race? Select by the color: ")\highlight0\par
+\par
+screen.exitonclick()\par
+\par
+
+\pard\sl276\slmult1\b0 Pot\f1\lang1033\'e9\f0\lang1029  ve smy\'e8ce vyrob\f1\lang1033\'ed\f0\lang1029 me 7 \'9eelvi\'e8ek (instanc\f1\lang1033\'ed\f0\lang1029  t\'f8\f1\lang1033\'ed\f0\lang1029 dy Turtle()) a pomoc\f1\lang1033\'ed\f0\lang1029  jejich atribut\'f9 je rozestav\f1\lang1033\'ed\f0\lang1029 me na starotvn\f1\lang1033\'ed\f0\lang1029  \'e8\f1\lang1033\'e1\f0\lang1029 ru a nastav\f1\lang1033\'ed\f0\lang1029 me barvy. List pot\'f8ebujeme hlavn\'ec na pozd\'ecji\par
+\par
+\tab\b names = ["andy", "ben", "cyril", "dan", "eve", "fred", "greg"]\par
+
+\pard\li720\sl276\slmult1 colors = ["red", "green", "blue", "yellow", "orange", "purple", "pink"]\par
+\par
+for i in range(0, 7):\par
+    names[i] = Turtle()\par
+    names[i].shape("turtle")\par
+    names[i].color(colors[i])\par
+    names[i].teleport(-240, -120 + 40 * i)\par
+\par
+
+\pard\sl276\slmult1\b0 Nyn\f1\lang1033\'ed\f0\lang1029  se mus\f1\lang1033\'ed\f0\lang1029 me postarat o jejich n\f1\lang1033\'e1\f0\lang1029 hodn\f1\lang1033\'fd\f0\lang1029  postup vp\'f8ed. Provedeme to pomoc\f1\lang1033\'ed\f0\lang1029  vygenerov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  n\f1\lang1033\'e1\f0\lang1029 hodn\f1\lang1033\'e9\f0\lang1029 ho \'e8\f1\lang1033\'ed\f0\lang1029 sla (t\'f8eba od 0 do 10), tyto hodnoty pak budou p\'f8edstavovat d\f1\lang1033\'e9\f0\lang1029 lku jednoho "kroku". Kroky budou generov\f1\lang1033\'e1\f0\lang1029 ny tak dlouho, dokud jedna z \'9eelvi\'e8ek nedoputuje na druh\f1\lang1033\'fd\f0\lang1029  konec screenu, tedy do c\f1\lang1033\'ed\f0\lang1029 le.Nejprve mus\f1\lang1033\'ed\f0\lang1029 me ale z\f1\lang1033\'e1\f0\lang1029 vod zah\f1\lang1033\'e1\f0\lang1029 jit. Spou\'9at\'ec\'e8em bude zad\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  tipu na v\f1\lang1033\'ed\f0\lang1029 t\'ecze userem. Vyrob\f1\lang1033\'ed\f0\lang1029 me prom\'ecnnou \b is_race_on\b0 , kterou nastav\f1\lang1033\'ed\f0\lang1029 me defaultn\'ec na \b False \b0 a pot\f1\lang1033\'e9\f0\lang1029  ji pou\'9eijeme \par
+\par
+\tab\b if guess:\par
+
+\pard\li720\sl276\slmult1     is_race_on = True\par
+\par
+while is_race_on:\par
+\par
+
+\pard\sl276\slmult1\b0 nyn\f1\lang1033\'ed\f0\lang1029  do while smy\'e8ky m\'f9\'9eeme nak\f1\lang1033\'f3\f0\lang1029 dovat pohyb \'9eelvi\'e8ek\par
+\par
+\tab\b while is_race_on:\par
+
+\pard\li720\sl276\slmult1     for turtle in names:\par
+        rand_dist = random.randint(0, 10)\par
+        turtle.penup()\par
+        turtle.forward(rand_dist)\b0  \par
+
+\pard\sl276\slmult1\par
+probl\f1\lang1033\'e9\f0\lang1029 m ale je, \'9ee te\'ef se budou \'9eelvi\'e8ky pohybovat nekone\'e8n\'ec dlouho, proto\'9ee nem\f1\lang1033\'e1\f0\lang1029 me nadfinovanou \'9e\f1\lang1033\'e1\f0\lang1029 dnou podm\f1\lang1033\'ed\f0\lang1029 nku konce z\f1\lang1033\'e1\f0\lang1029 vodu. K tomu pou\'9eijeme x-ovou sou\'f8adnici \'9eelvi\'e8ky.\par
+\par
+\tab\b while is_race_on:\par
+
+\pard\li720\sl276\slmult1     for turtle in names:\par
+\par
+        \highlight1 if turtle.xcor() > 220:\par
+            is_race_on = False\par
+            winning_color = turtle.pencolor()\par
+            if winning_color == guess:\par
+                print("WINNER!")\par
+            else:\par
+                print(f"LOOSER! The \{winning_color\} was the right guess ...")\highlight0\par
+\par
+        rand_dist = random.randint(0, 10)\par
+        turtle.penup()\par
+        turtle.forward(rand_dist)\par
+\par
+
+\pard\sl276\slmult1\b0 plus rovnou informujeme usera o v\f1\lang1033\'fd\f0\lang1029 sledku. Moje verze dopln\'ecn\f1\lang1033\'e1\f0\lang1029  o v\f1\lang1033\'fd\f0\lang1029 pis do a zav\f1\lang1033\'ed\f0\lang1029 r\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  hry pomoc\f1\lang1033\'ed\f0\lang1029  popup okna.\par
+\par
+\tab f\b rom turtle import Turtle, Screen\par
+
+\pard\li720\sl276\slmult1 import sys\par
+import random\par
+import tkinter as tk\par
+\par
+def popup_message(message, screen):\par
+    popup = tk.Tk()\par
+    popup.wm_title("Message") \par
+    screen_width = popup.winfo_screenwidth()\par
+    screen_height = popup.winfo_screenheight()\par
+    x = (screen_width - popup.winfo_reqwidth()) / 2\par
+    y = (screen_height - popup.winfo_reqheight()) / 2   \par
+    popup.geometry("+%d+%d" % (x, y))\par
+    def close_windows():\par
+        popup.destroy()\par
+        screen.bye()    \par
+    label = tk.Label(popup, text=message, padx=10, pady=10)\par
+    label.pack()\par
+    button = tk.Button(popup, text="OK", command=close_windows)\par
+    button.pack()\par
+    popup.mainloop()\par
+sys.setrecursionlimit(10**8)\par
+is_race_on = False\par
+\par
+screen = Screen()\par
+screen.setup(width=500, height=400)\par
+guess = screen.textinput(title="Try to guess", prompt="Who will win this race? Select by the color: ")\par
+\par
+names = ["andy", "ben", "cyril", "dan", "eve", "fred", "greg"]\par
+colors = ["red", "green", "blue", "yellow", "orange", "purple", "pink"]\par
+\par
+for i in range(0, 7):\par
+    names[i] = Turtle()\par
+    names[i].shape("turtle")\par
+    names[i].color(colors[i])\par
+    names[i].teleport(-240, -120 + 40 * i)    \par
+\par
+if guess:\par
+    is_race_on = True\par
+\par
+while is_race_on:\par
+    for turtle in names:\par
+\par
+        if turtle.xcor() > 220:\par
+            is_race_on = False\par
+            winning_color = turtle.pencolor()\par
+            if winning_color == guess:\par
+                popup_message("WINNER!", screen)\par
+            else:\par
+                popup_message(f"LOOSER! The \{winning_color\} was the right guess ...",  screen)\par
+\par
+        rand_dist = random.randint(0, 10)\par
+        turtle.penup()\par
+        turtle.forward(rand_dist)\b0\i0\f1\lang5\par
+}
+ 
