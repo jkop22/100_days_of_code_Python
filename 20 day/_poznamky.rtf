@@ -1,0 +1,238 @@
+{\rtf1\ansi\ansicpg1250\deff0\nouicompat\deflang1029{\fonttbl{\f0\fnil\fcharset238 Calibri;}{\f1\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red255\green255\blue0;}
+{\*\generator Riched20 10.0.22621}\viewkind4\uc1 
+\pard\sl276\slmult1\b\i\f0\fs32 Day 20\par
+Build the Snake Game Part 1 Animation & Coordinates\par
+\b0\i0\fs22\par
+Tvorba snejka z Noki\f1\lang1033\'ed\f0\lang1029  s pou\'9eit\f1\lang1033\'ed\f0\lang1029 m OOP a turtle nabyt\f1\lang1033\'fd\f0\lang1029 ch znalost\f1\lang1033\'ed\f0\lang1029 .\par
+\par
+Celou implementaci rozd\'ecl\f1\lang1033\'ed\f0\lang1029 me do 7 samostatn\f1\lang1033\'fd\f0\lang1029 ch probl\f1\lang1033\'e9\f0\lang1029 m\'f9 k vy\'f8e\'9aen\f1\lang1033\'ed\f0\lang1029  (3 + 4). \par
+\par
+Nejprve vytvo\'f8\f1\lang1033\'ed\f0\lang1029 me hern\f1\lang1033\'ed\f0\lang1029  plochu a v n\f1\lang1033\'ed\f0\lang1029  z\f1\lang1033\'e1\f0\lang1029 kladn\f1\lang1033\'ed\f0\lang1029  t\'eclo hada (3 \'e8tvere\'e8ky) na hern\f1\lang1033\'ed\f0\lang1029  plo\'9ae. Pot\f1\lang1033\'e9\f0\lang1029  t\'eclo hada rozpohybujeme a nakonec prvn\f1\lang1033\'ed\f0\lang1029 ho dne po\'f8e\'9a\f1\lang1033\'ed\f0\lang1029 me kontrolu pohybu hada pomoc\f1\lang1033\'ed\f0\lang1029  kl\f1\lang1033\'e1\f0\lang1029 ves. \par
+\par
+Druh\f1\lang1033\'fd\f0\lang1029  den n\f1\lang1033\'e1\f0\lang1029 s \'e8ek\f1\lang1033\'e1\f0\lang1029   \'f8e\'9aen\f1\lang1033\'ed\f0\lang1029  "krmen\f1\lang1033\'ed\f0\lang1029 " hada - random objevov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  \'9er\f1\lang1033\'e1\f0\lang1029 dla a detekce jeho poz\'f8en\f1\lang1033\'ed\f0\lang1029  spojen\f1\lang1033\'e1\f0\lang1029  s r\'f9stem t\'ecla hada o jeden d\f1\lang1033\'ed\f0\lang1029 lek. Dal\'9a\f1\lang1033\'ed\f0\lang1029  \f1\lang1033\'fa\f0\lang1029 kol bude tracking sk\f1\lang1033\'f3\f0\lang1029 re. D\f1\lang1033\'e1\f0\lang1029 le po\'f8e\'9a\f1\lang1033\'ed\f0\lang1029 me kolizi se st\'ecnou a n\f1\lang1033\'e1\f0\lang1029 sledn\f1\lang1033\'fd\f0\lang1029  konec hry. A nakonec po\'f8e\'9a\f1\lang1033\'ed\f0\lang1029 me detekci kolize s vlastn\f1\lang1033\'ed\f0\lang1029 m t\'eclem a n\f1\lang1033\'e1\f0\lang1029 sledn\f1\lang1033\'fd\f0\lang1029  konec hry. \par
+\par
+STEP 1:  Nejd\'f8\f1\lang1033\'ed\f0\lang1029 ve se postar\f1\lang1033\'e1\f0\lang1029 me o initial setup hrac\f1\lang1033\'ed\f0\lang1029  plochy:\par
+\par
+\tab\b\i from turtle import Screen, Turtle\par
+\par
+
+\pard\li720\sl276\slmult1 screen = Screen()\par
+screen.setup(width=600, height=600)\par
+screen.bgcolor("black")\par
+screen.title("Snake Game Project")\par
+\par
+screen.exitonclick()\par
+\par
+
+\pard\sl276\slmult1\b0\i0 naimportovali sjme si v\'9ae pot\'f8ebn\f1\lang1033\'e9\f0\lang1029  z knihovny, vytvo\'f8ili novou instanci screenu, nastavili j\f1\lang1033\'ed\f0\lang1029  rozm\'ecry, barvu pozad\f1\lang1033\'ed\f0\lang1029  a titulek. Nakonec se psotar\f1\lang1033\'e1\f0\lang1029 me oto, aby n\f1\lang1033\'e1\f0\lang1029 m po spu\'9at\'ecn\f1\lang1033\'ed\f0\lang1029  progrmau hned autmaticky nemizela, ale jenom na kliknut\f1\lang1033\'ed\f0\lang1029 . Nyn\f1\lang1033\'ed\f0\lang1029  se pust\f1\lang1033\'ed\f0\lang1029 me do tvroby defaultn\f1\lang1033\'ed\f0\lang1029  podoby hada (3 b\f1\lang1033\'ed\f0\lang1029 l\f1\lang1033\'e9\f0\lang1029  d\f1\lang1033\'ed\f0\lang1029 lky 20x20), ka\'9ed\f1\lang1033\'fd\f0\lang1029  z nich bude jedna turtle. \par
+\par
+\tab\b\i part_1 = Turtle("square")\par
+
+\pard\li720\sl276\slmult1 part_1.color("white")\par
+\par
+part_2 = Turtle("square")\par
+part_2.color("white")\par
+part_2.teleport(-20, 0)\par
+\par
+part_3 = Turtle("square")\par
+part_3.color("white")\par
+part_3.teleport(-40, 0)\par
+\par
+
+\pard\sl276\slmult1\b0\i0 nejjednodu\'9a\'9a\f1\lang1033\'ed\f0\lang1029  zp\'f9sob. Nebo s pomoc\f1\lang1033\'ed\f0\lang1029  smy\'e8ky a pole tupl\'f9 obsahuj\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029 ch statovn\f1\lang1033\'ed\f0\lang1029  sou\'f8adnice jednotliv\f1\lang1033\'fd\f0\lang1029 ch d\f1\lang1033\'ed\f0\lang1029 lk\'f9:\par
+\par
+\tab\b\i default_positions = [(0, 0), (-20, 0), (-40, 0)]\par
+\par
+
+\pard\li720\sl276\slmult1 for position in default_positions:\par
+    body_piece = Turtle("square")\par
+    body_piece.color("white")\par
+    body_piece.goto(position)\b0\i0  \par
+\par
+
+\pard\sl276\slmult1 T\f1\lang1033\'ed\f0\lang1029 m je prvn\f1\lang1033\'ed\f0\lang1029  krok hotov.\par
+\par
+STEP 2: nyn\f1\lang1033\'ed\f0\lang1029  n\f1\lang1033\'e1\f0\lang1029 s \'e8ek\f1\lang1033\'e1\f0\lang1029  automatick\f1\lang1033\'e9\f0\lang1029  rozpohybov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  hada sm\'ecrem vp\'f8ed (k prav\f1\lang1033\'e9\f0\lang1029  st\'ecn\'ec) ihned po spu\'9at\'ecn\f1\lang1033\'ed\f0\lang1029  hry. Zat\f1\lang1033\'ed\f0\lang1029 m m\f1\lang1033\'e1\f0\lang1029 me na plo\'9ae pouze vytvo\'f8eny t\'f8i na sob\'ec nez\f1\lang1033\'e1\f0\lang1029 visl\f1\lang1033\'e9\f0\lang1029  d\f1\lang1033\'ed\f0\lang1029 lky. Mus\f1\lang1033\'ed\f0\lang1029 me je nejprve sjednotit, nejl\f1\lang1033\'e9\f0\lang1029 pe do listu:\par
+\par
+\tab\b\i default_positions = [(0, 0), (-20, 0), (-40, 0)]\par
+
+\pard\li720\sl276\slmult1\highlight1 segments = []\highlight0\par
+\par
+for position in default_positions:\par
+    body_piece = Turtle("square")\par
+    body_piece.color("white")\par
+    body_piece.goto(position)\par
+    \highlight1 segments.append(body_piece)\b0\i0  \par
+\par
+
+\pard\sl276\slmult1\highlight0 Nyn\f1\lang1033\'ed\f0\lang1029  m\'f9\'9eeme hada rozpohybovat.\par
+\par
+\tab\b\i game_on = True\par
+\par
+
+\pard\li720\sl276\slmult1 while game_on:\par
+    for segment in segments:\par
+        segment.forward(20)\par
+\par
+
+\pard\sl276\slmult1\b0\i0 Pou\'9eili jsme pomocnou prom\'ecnnou pro ur\'e8ov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  konce hry, kterou vyu\'9eijeme pozd\'ecji. A pot\f1\lang1033\'e9\f0\lang1029  ve smy\'e8ce za pomoc\f1\lang1033\'ed\f0\lang1029  segments listu rozpohybovali hada. Pohyb je ale hnusn\f1\lang1033\'fd\f0\lang1029 . Nejprve se zbav\f1\lang1033\'ed\f0\lang1029 me trajektorie: \b\i body_piece.penup() \b0\i0 p\'f8idat do smy\'e8ky tvorby t\'ecla. POt\f1\lang1033\'e9\f0\lang1029  se mus\f1\lang1033\'ed\f0\lang1029 me postarat o to divn\f1\lang1033\'e9\f0\lang1029  blik\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  a nehomogenn\f1\lang1033\'ed\f0\lang1029  zobrazov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  jednotliv\f1\lang1033\'fd\f0\lang1029 ch turtles, kter\f1\lang1033\'e9\f0\lang1029  zat\f1\lang1033\'ed\f0\lang1029 m tvo\'f8\f1\lang1033\'ed\f0\lang1029  hada. K tomu mus\f1\lang1033\'ed\f0\lang1029 me ovlivnit styl animace turtle modulu, k \'e8emu\'9e slou\'9e\f1\lang1033\'ed\f0\lang1029  metody Screen() t\'f8\f1\lang1033\'ed\f0\lang1029 dy. Nejprve vypneme tracer:  \b\i screen.tracer(0) \b0\i0 p\'f8idat k basic setupu hrac\f1\lang1033\'ed\f0\lang1029  plochy. Kdy\'9e te\'ef program spust\f1\lang1033\'ed\f0\lang1029 me, nic neuvid\f1\lang1033\'ed\f0\lang1029 me. Mus\f1\lang1033\'ed\f0\lang1029 me se ru\'e8n\'ec postarat o update na spr\f1\lang1033\'e1\f0\lang1029 vn\f1\lang1033\'e9\f0\lang1029 m m\f1\lang1033\'ed\f0\lang1029 st\'ec. Kdy\'9e \b\i screen.update() \b0\i0 um\f1\lang1033\'ed\f0\lang1029 st\f1\lang1033\'ed\f0\lang1029 me pod tvorbu t\'ecla hada, zobraz\f1\lang1033\'ed\f0\lang1029  se najednou cel\f1\lang1033\'e9\f0\lang1029  a ne po kousk\f1\lang1033\'e1\f0\lang1029 ch jako p\'f8ed t\f1\lang1033\'ed\f0\lang1029 m. Ale zase nevid\f1\lang1033\'ed\f0\lang1029 me pohyb. Proto p\'f8esuneme tento p\'f8\f1\lang1033\'ed\f0\lang1029 kaz do smy\'e8ky, ale pohyb je st\f1\lang1033\'e1\f0\lang1029 le sekan\f1\lang1033\'fd\f0\lang1029  (ka\'9ed\f1\lang1033\'fd\f0\lang1029  segment se animuje zvl\f1\lang1033\'e1\f0\lang1029\'9a\'9d). Aby to bylo l\f1\lang1033\'e9\f0\lang1029 pe vid\'ect, cel\f1\lang1033\'fd\f0\lang1029  proces si zpomal\f1\lang1033\'ed\f0\lang1029 me s pomoc\f1\lang1033\'ed\f0\lang1029  knihovny time a jej\f1\lang1033\'ed\f0\lang1029  metody time.sleep(), kterou nastav\f1\lang1033\'ed\f0\lang1029 me na \'e8tvrt sekundy. \b\i import time \b0\i0 a na konec pohybov\f1\lang1033\'e9\f0\lang1029  smy\'e8ky \b\i time.sleep(0.25)\b0\i0 . Zkusme nyn\f1\lang1033\'ed\f0\lang1029  screen.update() metodu p\'f8esunout nad pohybovou smy\'e8ku do while smy\'e8ky. Nyn\f1\lang1033\'ed\f0\lang1029  je na spr\f1\lang1033\'e1\f0\lang1029 vn\f1\lang1033\'e9\f0\lang1029 m m\f1\lang1033\'ed\f0\lang1029 st\'ec, proto\'9ee k refreshi screenu dojde a\'9e po posunu v\'9aech t\'f8\f1\lang1033\'ed\f0\lang1029  segment\'f9, tud\f1\lang1033\'ed\f0\lang1029\'9e se jev\f1\lang1033\'ed\f0\lang1029  jako jednolit\f1\lang1033\'fd\f0\lang1029  pohyb. Stejn\'ec p\'f8esuneme i \'e8asov\f1\lang1033\'e9\f0\lang1029  zpo\'9ed\'ecn\f1\lang1033\'ed\f0\lang1029  (a m\'f9\'9eeme klidn\'ec i trochu zrychlit je\'9at\'ec). Cel\f1\lang1033\'fd\f0\lang1029  dosavadn\f1\lang1033\'ed\f0\lang1029  k\f1\lang1033\'f3\f0\lang1029 d hry tedy zat\f1\lang1033\'ed\f0\lang1029 m vypad\f1\lang1033\'e1\f0\lang1029  takto.\par
+\par
+\tab\b\i from turtle import Screen, Turtle\par
+
+\pard\li720\sl276\slmult1 import time\par
+\par
+\b0 # basic setup hrac\f1\lang1033\'ed plochy (rozm\f0\'ecry, barva pozad\f1\'ed a titulek)\par
+\b screen = Screen()\par
+screen.setup(width=600, height=600)\par
+screen.bgcolor("black")\par
+screen.title("Snake Game Project")\par
+screen.tracer(0)    \b0 # kv\f0\'f9li plynulosti animace\b\par
+\par
+\b0 # z\f1\'e1kladn\'ed t\f0\'eclo hada\b\par
+default_positions = [(0, 0), (-20, 0), (-40, 0)]\par
+segments = []\par
+\par
+for position in default_positions:\par
+    body_piece = Turtle("square")\par
+    body_piece.color("white")\par
+    body_piece.penup()\par
+    body_piece.goto(position)\par
+    segments.append(body_piece)\par
+\par
+game_on = True\par
+\par
+while game_on:\par
+    \b0 # defaultn\f1\'ed pohyb hada po spu\f0\'9at\'ecn\f1\'ed\b\par
+    screen.update()     \b0 # kv\f0\'f9li plynulosti animace\b\par
+    time.sleep(0.2)\par
+    for segment in segments:\par
+        segment.forward(20)\b0\i0\lang1029    \par
+\par
+
+\pard\sl276\slmult1 Nyn\f1\lang1033\'ed\f0\lang1029  by se mohlo zd\f1\lang1033\'e1\f0\lang1029 t, \'9ee m\f1\lang1033\'e1\f0\lang1029 me challenge 2 hotovu ale nen\f1\lang1033\'ed\f0\lang1029  tomu tak. Hada m\f1\lang1033\'e1\f0\lang1029 me ve stavu, \'9ee p\'f8i p\'f8\f1\lang1033\'ed\f0\lang1029 padn\f1\lang1033\'e9\f0\lang1029  zm\'ecn\'ec sm\'ecru by se zm\'ecnil pohyb jenom prvn\f1\lang1033\'ed\f0\lang1029 ho segmentu a nikoliv cel\f1\lang1033\'e9\f0\lang1029 ho hada. Prvn\f1\lang1033\'ed\f0\lang1029  segment by se tak pohyboval t\'f8eba nahoru, zat\f1\lang1033\'ed\f0\lang1029 mco zbyl\f1\lang1033\'e9\f0\lang1029  dva by pora\'e8ovaly d\f1\lang1033\'e1\f0\lang1029 le rovn\'ec, co rozhodn\'ec nechceme. Zkusme si do loopu p\'f8idat zm\'ecnu sm\'ecru prvn\f1\lang1033\'ed\f0\lang1029 ho segmentu a danou situaci nasimulovat. \par
+\par
+\tab\b\i while game_on:    \f1\lang1033\par
+
+\pard\li720\sl276\slmult1     screen.update()     \f0\par
+    time.sleep(0.2)\par
+    for segment in segments:\par
+        segment.forward(20)\par
+    \highlight1 segments[0].left(90)\b0\i0\lang1029  \par
+\par
+
+\pard\sl276\slmult1\highlight0 Prvn\f1\lang1033\'ed\f0\lang1029  segment se n\f1\lang1033\'e1\f0\lang1029 m bude to\'e8it v kruhu, zat\f1\lang1033\'ed\f0\lang1029 mco zbytek hada odjede pry\'e8. Je to t\f1\lang1033\'ed\f0\lang1029 m, \'9ee jednotliv\f1\lang1033\'e9\f0\lang1029  segmenty nejsou nijak spojeny v jeden celek. Mus\f1\lang1033\'ed\f0\lang1029 me proto p\'f8ehodnotit cel\f1\lang1033\'fd\f0\lang1029  pohybov\f1\lang1033\'fd\f0\lang1029  proces. Pokus\f1\lang1033\'ed\f0\lang1029 me se nak\f1\lang1033\'f3\f0\lang1029 dit takov\f1\lang1033\'fd\f0\lang1029  algoritmus pohybu, \'9ee v ka\'9ed\f1\lang1033\'e9\f0\lang1029 m kroku se n\f1\lang1033\'e1\f0\lang1029 sleduj\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029  segment posune na posledn\f1\lang1033\'ed\f0\lang1029  pozici p\'f8edchoz\f1\lang1033\'ed\f0\lang1029 ho segmentu. Co\'9e nen\f1\lang1033\'ed\f0\lang1029  zrovna trivi\f1\lang1033\'e1\f0\lang1029 ln\f1\lang1033\'ed\f0\lang1029 . Proto sma\'9eeme psoledn\f1\lang1033\'ed\f0\lang1029  t\'f8i \'f8\f1\lang1033\'e1\f0\lang1029 dky k\f1\lang1033\'f3\f0\lang1029 du a vytvo\'f8\f1\lang1033\'ed\f0\lang1029 me novou for smy\'e8ku, tentokr\f1\lang1033\'e1\f0\lang1029 t typu range. Pou\'9eijeme v n\f1\lang1033\'ed\f0\lang1029  t\'f8i argumenty: start, stop, step. Jeliko\'9e je ale range() n\'ecco co nen\f1\lang1033\'ed\f0\lang1029  native Python ale poch\f1\lang1033\'e1\f0\lang1029 z\f1\lang1033\'ed\f0\lang1029  z jazyka C, nem\'f9\'9eeme n\f1\lang1033\'e1\f0\lang1029 zvy argument\'f9 pou\'9e\f1\lang1033\'ed\f0\lang1029 t p\'f8\f1\lang1033\'ed\f0\lang1029 mo v k\f1\lang1033\'f3\f0\lang1029 du, uv\f1\lang1033\'e1\f0\lang1029 d\f1\lang1033\'ed\f0\lang1029 me je pouze pro lep\'9a\f1\lang1033\'ed\f0\lang1029  pochopen\f1\lang1033\'ed\f0\lang1029  fungov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  na\'9a\f1\lang1033\'ed\f0\lang1029  v\'ecci). Nov\f1\lang1033\'e1\f0\lang1029  smy\'e8ka bude vypadat:\par
+\par
+\tab\b\i for seq_num in range(len(segments) - 1, 0, -1):\par
+
+\pard\li720\sl276\slmult1         new_x = segments[seq_num - 1].xcor()\par
+        new_y = segments[seq_num - 1].ycor()\par
+        segments[seq_num].goto(new_x, new_y)\par
+ segments[0].forward(20)\par
+\par
+
+\pard\sl276\slmult1\b0\i0 Samotn\f1\lang1033\'e1\f0\lang1029  smy\'e8ka ale nesta\'e8\f1\lang1033\'ed\f0\lang1029 , mus\f1\lang1033\'ed\f0\lang1029 me je\'9at\'ec rozpohybovat prvn\f1\lang1033\'ed\f0\lang1029  segment. A kdy\'9e te\'ef p\'f8id\f1\lang1033\'e1\f0\lang1029 me oto\'e8en\f1\lang1033\'ed\f0\lang1029  nahoru, bude se u\'9e v kruhu to\'e8it, d\f1\lang1033\'ed\f0\lang1029 ky zm\'ecn\'ec pohybov\f1\lang1033\'e9\f0\lang1029 ho algoritmu cel\f1\lang1033\'fd\f0\lang1029  had. A druh\f1\lang1033\'fd\f0\lang1029  krok m\f1\lang1033\'e1\f0\lang1029 me kone\'e8n\'ec hotov\f1\lang1033\'fd\f0\lang1029 .\par
+\par
+Ale je\'9at\'ec p\'f8ed t\f1\lang1033\'ed\f0\lang1029 m, ne\'9e se pust\f1\lang1033\'ed\f0\lang1029 me do t\'f8et\f1\lang1033\'ed\f0\lang1029 ho kroku bylo by dobr\f1\lang1033\'e9\f0\lang1029 , p\'f8ed\'eclat dosavadn\f1\lang1033\'ed\f0\lang1029  k\f1\lang1033\'f3\f0\lang1029 d do OOP. Ve\'9aker\f1\lang1033\'fd\f0\lang1029  dosavadn\f1\lang1033\'ed\f0\lang1029  k\f1\lang1033\'f3\f0\lang1029 d t\f1\lang1033\'fd\f0\lang1029 kaj\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029  se hadova vzniku a pohybu tedy p\'f8esuneme do samostatn\f1\lang1033\'e9\f0\lang1029  t\'f8\f1\lang1033\'ed\f0\lang1029 dy. C\f1\lang1033\'ed\f0\lang1029 lem je, aby nakonec projekt tvo\'f8ily t\'f8i samostatn\f1\lang1033\'e9\f0\lang1029  t\'f8\f1\lang1033\'ed\f0\lang1029 dy: Snake, Food a Scoreboard. P\'f8ejmenujeme tedy n\f1\lang1033\'e1\f0\lang1029\'9a soubor snake.py na mian.py a vytvo\'f8\f1\lang1033\'ed\f0\lang1029 me nov\f1\lang1033\'fd\f0\lang1029  soubor snake.py, do kter\f1\lang1033\'e9\f0\lang1029 ho nadefinujeme definici na\'9a\f1\lang1033\'ed\f0\lang1029  had\f1\lang1033\'ed\f0\lang1029  t\'f8\f1\lang1033\'ed\f0\lang1029 dy. snake.py tvorba hada:\par
+\par
+\tab\b\i from turtle import Turtle\par
+
+\pard\li720\sl276\slmult1 DEFAULT_POSITIONS = [(0, 0), (-20, 0), (-40, 0)]\par
+\par
+class Snake:\par
+    def __init__(self):\par
+        self.segments = []\par
+        self.create_snake()\par
+\par
+    def create_snake(self):\par
+        for position in DEFAULT_POSITIONS:\par
+            body_piece = Turtle("square")\par
+            body_piece.color("white")\par
+            body_piece.penup()\par
+            body_piece.goto(position)\par
+            self.segments.append(body_piece)\b0\i0\par
+
+\pard\sl276\slmult1\par
+ a nyn\f1\lang1033\'ed\f0\lang1029  sem p\'f8esuneme i pohyb hada. P\'f8id\f1\lang1033\'e1\f0\lang1029 me do t\'f8\f1\lang1033\'ed\f0\lang1029 dy dal\'9a\f1\lang1033\'ed\f0\lang1029  metodu a uprav\f1\lang1033\'ed\f0\lang1029 me:\par
+\par
+\tab\b\i  def move_snake(self):\par
+
+\pard\li720\sl276\slmult1         for seq_num in range(len(self.segments) - 1, 0, -1):\par
+            new_x = self.segments[seq_num - 1].xcor()\par
+            new_y = self.segments[seq_num - 1].ycor()\par
+            self.segments[seq_num].goto(new_x, new_y)\par
+        self.segments[0].forward(20)\par
+\par
+
+\pard\sl276\slmult1\b0\i0 Te\'ef m\'f9\'9eeme v main.py po importu na\'9a\f1\lang1033\'ed\f0\lang1029  nov\f1\lang1033\'e9\f0\lang1029  t\'f8\f1\lang1033\'ed\f0\lang1029 dy hada nechat vytvo\'f8it a i rozpohybovat pomoc\f1\lang1033\'ed\f0\lang1029  instance had\f1\lang1033\'ed\f0\lang1029  t\'f8\f1\lang1033\'ed\f0\lang1029 dy. M\f1\lang1033\'ed\f0\lang1029 sto cel\f1\lang1033\'e9\f0\lang1029 ho k\f1\lang1033\'f3\f0\lang1029 du tvorby hada tedy sta\'e8\f1\lang1033\'ed\f0\lang1029  po importu (\b\i from snake import Snake\b0\i0 ) p\'f8idat do mainu \b\i snake = Snake() \b0\i0 a pro jeho z\f1\lang1033\'e1\f0\lang1029 kladn\f1\lang1033\'ed\f0\lang1029  rozpohybov\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  \b\i snake.move_snake()\b0\i0 . V\f1\lang1033\'fd\f0\lang1029 sledn\f1\lang1033\'fd\f0\lang1029  k\f1\lang1033\'f3\f0\lang1029 d mainu tedy nyn\f1\lang1033\'ed\f0\lang1029  vypad\f1\lang1033\'e1\f0\lang1029  takto:\par
+\par
+\tab\b\i from turtle import Screen\par
+
+\pard\li720\sl276\slmult1 from snake import Snake\par
+import time\par
+\par
+screen = Screen()\par
+screen.setup(width=600, height=600)\par
+screen.bgcolor("black")\par
+screen.title("Snake Game Project")\par
+screen.tracer(0)\par
+\par
+snake = Snake()\par
+\par
+game_on = True\par
+\par
+while game_on:\par
+    screen.update()\par
+    time.sleep(0.2)\par
+    \par
+    snake.move_snake()\b0\i0   \par
+\par
+
+\pard\sl276\slmult1 Je tedy mnohem krat\'9a\f1\lang1033\'ed\f0\lang1029  a p\'f8ehledn\'ecj\'9a\f1\lang1033\'ed\f0\lang1029 , jeliko\'9e v\'9ae t\f1\lang1033\'fd\f0\lang1029 kaj\f1\lang1033\'ed\f0\lang1029 c\f1\lang1033\'ed\f0\lang1029  se hada jsme abstraovali do samostatn\f1\lang1033\'e9\f0\lang1029  t\'f8\f1\lang1033\'ed\f0\lang1029 dy. Posledn\f1\lang1033\'ed\f0\lang1029  drobn\f1\lang1033\'e1\f0\lang1029  \f1\lang1033\'fa\f0\lang1029 prava, kterou je mo\'9en\f1\lang1033\'e9\f0\lang1029  prov\f1\lang1033\'e9\f0\lang1029 st se t\f1\lang1033\'fd\f0\lang1029 k\f1\lang1033\'e1\f0\lang1029  had\f1\lang1033\'ed\f0\lang1029  t\'f8\f1\lang1033\'ed\f0\lang1029 dy a d\f1\lang1033\'e9\f0\lang1029 lku pohybu (velikost posunut\f1\lang1033\'ed\f0\lang1029  hada v jednom kroku) m\'f9\'9eeme nadefinovat jako konstantu.\tab\par
+\par
+STEP 3: m\'f9\'9eeme se pustit do ovl\f1\lang1033\'e1\f0\lang1029 d\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  hada. K n\'ecmu budou slou\'9eit kl\f1\lang1033\'e1\f0\lang1029 vesy UP, DOWN, LEFT a RIGHT (\'9aipky).  Ihned po vytvo\'f8en\f1\lang1033\'ed\f0\lang1029  hada si tedy v k\f1\lang1033\'f3\f0\lang1029 du zapneme naslouch\f1\lang1033\'e1\f0\lang1029 n\f1\lang1033\'ed\f0\lang1029  ud\f1\lang1033\'e1\f0\lang1029 lostem a nadefinujeme ud\f1\lang1033\'e1\f0\lang1029 losti, kter\f1\lang1033\'e9\f0\lang1029  n\f1\lang1033\'e1\f0\lang1029 s zaj\f1\lang1033\'ed\f0\lang1029 maj\f1\lang1033\'ed\f0\lang1029  (zm\f1\lang1033\'e1\f0\lang1029\'e8knut\f1\lang1033\'ed\f0\lang1029  dan\f1\lang1033\'e9\f0\lang1029  kl\f1\lang1033\'e1\f0\lang1029 vesy) a funkce s dan\f1\lang1033\'fd\f0\lang1029 mi ud\f1\lang1033\'e1\f0\lang1029 lostmi spjat\f1\lang1033\'e9\f0\lang1029 . Ty budou nadefinov\f1\lang1033\'e1\f0\lang1029 ny ve t\'f8\f1\lang1033\'ed\f0\lang1029 d\'ec snake a budou m\f1\lang1033\'ed\f0\lang1029 t stejn\f1\lang1033\'e9\f0\lang1029  n\f1\lang1033\'e1\f0\lang1029 zvy jako stringov\f1\lang1033\'e9\f0\lang1029  identifik\f1\lang1033\'e1\f0\lang1029 tory dan\f1\lang1033\'fd\f0\lang1029 ch kl\f1\lang1033\'e1\f0\lang1029 ves:\par
+\par
+\tab\b\i screen.listen()\par
+
+\pard\li720\sl276\slmult1 screen.onkey(snake.up, "Up")\par
+screen.onkey(snake.down, "Down")\par
+screen.onkey(snake.left, "Left")\par
+screen.onkey(snake.right, "Right")\par
+\par
+
+\pard\sl276\slmult1\b0\i0 Te\'ef mus\f1\lang1033\'ed\f0\lang1029 me tyto metody vytvo\'f8it ve t\'f8\f1\lang1033\'ed\f0\lang1029 d\'ec Snake:\par
+\par
+\tab\b\i def up(self):\par
+
+\pard\li720\sl276\slmult1         if self.segments[0].heading() == 0:\par
+            self.segments[0].left(90)\par
+        elif self.segments[0].heading() == 180:\par
+            self.segments[0].right(90)\par
+    \par
+    def down(self):\par
+        if self.segments[0].heading() == 0:\par
+            self.segments[0].right(90)\par
+        elif self.segments[0].heading() == 180:\par
+            self.segments[0].left(90)\par
+    \par
+    def left(self):\par
+        if self.segments[0].heading() == 90:\par
+            self.segments[0].left(90)\par
+        elif self.segments[0].heading() == 270:\par
+            self.segments[0].right(90)\par
+\par
+    def right(self):\par
+        if self.segments[0].heading() == 90:\par
+            self.segments[0].right(90)\par
+        elif self.segments[0].heading() == 270:\par
+            self.segments[0].left(90)\par
+\par
+
+\pard\sl276\slmult1\b0\i0 Jedno z mo\'9en\f1\lang1033\'fd\f0\lang1029 ch \'f8e\'9aen\f1\lang1033\'ed\f0\lang1029  - moje. A prvn\f1\lang1033\'ed\f0\lang1029  den hada je za nama.\par
+\par
+\tab\par
+\b\i\fs32\par
+
+\pard\sa200\sl276\slmult1\b0\i0\f1\fs22\lang5\par
+}
+ 
